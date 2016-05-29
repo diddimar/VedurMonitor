@@ -4,6 +4,8 @@
         Title="Veður3000" WindowStartupLocation="CenterOwner"
                           Height="520" Width="650"
                           MinHeight="520" MinWidth="650" 
+                          WindowState="Maximized"
+                          
                           
         Loaded="WindowLoaded">
     
@@ -69,10 +71,11 @@
                 <MenuItem Header="File" Name="File">
                     <MenuItem Header="Quit" Click="quit_click"/>
                     <MenuItem Header="Restart" Click="Reset_click"/>
+                    <MenuItem Header="Screenshot" Click="screenShot_click"/>
                 </MenuItem>
                 <MenuItem Header="Presets" Name="Presets">
                     <MenuItem Header="Load Preset"/>
-                    <MenuItem Header="Save Preset" Click="Save_click"/>
+                    <MenuItem Header="Save Preset"/>
                     <MenuItem Header="Delete Preset"/>
                 </MenuItem>
                 <MenuItem Header="Settings" Name="Settings">

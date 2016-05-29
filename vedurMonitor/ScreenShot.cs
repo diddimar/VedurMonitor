@@ -60,20 +60,22 @@ namespace VedurClassLibrary
         }
         public void SS()
         {
-            try
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = "";
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "Images|*.png;*.bmp;*.jpg";
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            if (result == true)
             {
-                string mynd = Interaction.InputBox("Nafn myndar", "Title", "Jpg");
+
+                string filename = dlg.FileName;
                 Thread.Sleep(1000);
-
                 var image = ScreenShot1.CaptureActiveWindow();
-
-                image.Save(@"C:\Users\kolli\Desktop\vedurMonitor\vedurMonitor\Screenshots\" + mynd + ".jpg", ImageFormat.Jpeg);
+                image.Save(Convert.ToString(filename), ImageFormat.Jpeg);
                 System.Windows.MessageBox.Show("Mynd vistuð");
-            }
-
-            catch(Exception)
-            {
-                System.Windows.MessageBox.Show("KerfisVilla Reyndu aftur");
             }
 
         }

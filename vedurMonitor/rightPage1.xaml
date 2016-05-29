@@ -67,14 +67,14 @@
         <StackPanel Name="textaspa" Margin="15 -35 15 0">
 
             <ComboBox x:Name="flokkurComboBox" Margin="15" ItemTemplate="{DynamicResource txtStadurTemplate}" 
-                      HorizontalAlignment="Center" MinWidth="90" SelectionChanged="flokkurComboBox_SelectionChanged">
+                       MaxDropDownHeight="auto" HorizontalAlignment="Center" MinWidth="90" SelectionChanged="flokkurComboBox_SelectionChanged">
                 <ComboBoxItem x:Name="isl">Íslenska</ComboBoxItem>
                 <ComboBoxItem x:Name="eng">Enska</ComboBoxItem>
                 <ComboBoxItem x:Name="mid">Miðin</ComboBoxItem>
             </ComboBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <ComboBox x:Name="textComboBox" ItemTemplate="{DynamicResource TextaspaTemplate}" 
-                              HorizontalAlignment="Center" Height="25" Width="240" MaxWidth="240" SelectionChanged="textComboBox_SelectionChanged"  Grid.Column="2"/>
+                        MaxDropDownHeight="auto" HorizontalAlignment="Center" Height="25" Width="240" MaxWidth="240" SelectionChanged="textComboBox_SelectionChanged"  Grid.Column="2"/>
                 <Button x:Name="getTextButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="getTextButton_Click"></Button>
             </StackPanel>
 

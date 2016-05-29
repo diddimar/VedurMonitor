@@ -75,11 +75,7 @@
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="textClass.cs" />
-    <Compile Include="VedurmonitorDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="VedurmonitorDataSet.Designer.cs" />
     <Page Include="aboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +131,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ImageFolder\Thumbs.db" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,9 +141,9 @@
       <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
     </None>
     <None Include="VedurmonitorDataSet.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VedurmonitorDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>VedurmonitorDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="VedurmonitorDataSet.xss">
       <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
@@ -161,21 +158,6 @@
     <Resource Include="ImageFolder\world_globe.png" />
     <Resource Include="ImageFolder\world_globe_invert.png" />
     <Resource Include="ImageFolder\load_simple.gif" />
-    <Resource Include="ImageFolder\eldhraun.png" />
-    <Resource Include="ImageFolder\fagurholsm.png" />
-    <Resource Include="ImageFolder\gigjukvisl.png" />
-    <Resource Include="ImageFolder\hofnihorna.png" />
-    <Resource Include="ImageFolder\ingolfshofdi.png" />
-    <Resource Include="ImageFolder\kirkjuklaust.png" />
-    <Resource Include="ImageFolder\kvisker.png" />
-    <Resource Include="ImageFolder\kvisker_veg.png" />
-    <Resource Include="ImageFolder\lomagnupur.png" />
-    <Resource Include="ImageFolder\myrdalssandur.png" />
-    <Resource Include="ImageFolder\oraefi.png" />
-    <Resource Include="ImageFolder\reynisfjall.png" />
-    <Resource Include="ImageFolder\sa_allar.png" />
-    <Resource Include="ImageFolder\skaftafell.png" />
-    <Resource Include="ImageFolder\skardsfjviti.png" />
     <None Include="ImageFolder\sunsky1.gif" />
     <Resource Include="ImageFolder\rain.gif" />
     <Resource Include="ImageFolder\hurricane.gif" />
@@ -193,7 +175,26 @@
     <Resource Include="ImageFolder\pvf.png" />
     <Resource Include="ImageFolder\allt.png" />
     <Resource Include="ImageFolder\psu.png" />
-    <Content Include="VedurGagnagrunnur.sql" />
+    <Resource Include="ImageFolder\breakTheNorm.png" />
+    <Resource Include="ImageFolder\empty.png" />
+    <Resource Include="ImageFolder\norm.png" />
+    <Resource Include="ImageFolder\nv.png" />
+    <Resource Include="ImageFolder\snowing.gif" />
+    <Resource Include="ImageFolder\eldhraun.png" />
+    <Resource Include="ImageFolder\fagurholsm.png" />
+    <Resource Include="ImageFolder\gigjukvisl.png" />
+    <Resource Include="ImageFolder\hofnihorna.png" />
+    <Resource Include="ImageFolder\ingolfshofdi.png" />
+    <Resource Include="ImageFolder\kirkjuklaust.png" />
+    <Resource Include="ImageFolder\kvisker.png" />
+    <Resource Include="ImageFolder\kvisker_veg.png" />
+    <Resource Include="ImageFolder\lomagnupur.png" />
+    <Resource Include="ImageFolder\myrdalssandur.png" />
+    <Resource Include="ImageFolder\oraefi.png" />
+    <Resource Include="ImageFolder\reynisfjall.png" />
+    <Resource Include="ImageFolder\sa_allar.png" />
+    <Resource Include="ImageFolder\skaftafell.png" />
+    <Resource Include="ImageFolder\skardsfjviti.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ImageFolder\af.gif" />
@@ -227,6 +228,9 @@
     <Resource Include="ImageFolder\su_invert.gif" />
     <Resource Include="ImageFolder\vf.gif" />
     <Resource Include="ImageFolder\vf_invert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VedurGagnagrunnur.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

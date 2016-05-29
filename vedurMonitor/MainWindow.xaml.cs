@@ -66,7 +66,7 @@ namespace VedurMonitor
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
         }
-        private void Save_click(object sender, RoutedEventArgs e)
+        private void screenShot_click(object sender, RoutedEventArgs e)
         {
             _screenshot.SS();
 
