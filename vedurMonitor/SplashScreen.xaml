@@ -12,8 +12,8 @@
 
         <Image Source="ImageFolder\sol.jpg" Stretch="Fill" />
         <Grid VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Label x:Name="label" Content="       Veður3000" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="280" FontWeight="Bold" FontSize="30"/>
-            <Label x:Name="label1" Content="Útgáfa 1.0" HorizontalAlignment="Left" Margin="98,151,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="label" Content="       VeðurVaktin" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="280" FontWeight="Bold" FontSize="30"/>
+            <Label x:Name="label1" Content="Version 1.1" HorizontalAlignment="Left" Margin="98,151,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         </Grid>
         
 

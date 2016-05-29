@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>theIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -230,6 +233,9 @@
     <Resource Include="ImageFolder\vf_invert.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ImageFolder\abouttrue.JPG" />
+    <Resource Include="ImageFolder\theIcon.ico" />
+    <Resource Include="theIcon.ico" />
     <Content Include="VedurGagnagrunnur.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

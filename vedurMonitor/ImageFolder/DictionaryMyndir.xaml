@@ -4,6 +4,8 @@
 
     <BitmapImage x:Key="norm" UriSource="norm.png"></BitmapImage>
     <BitmapImage x:Key="breakNorm" UriSource="breakTheNorm.png"></BitmapImage>
+    
+    <BitmapImage x:Key="TrueAbout" UriSource="abouttrue.jpg"></BitmapImage>
 
 
 

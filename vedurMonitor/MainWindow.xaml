@@ -1,7 +1,7 @@
 ﻿<Window x:Class="VedurMonitor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Veður3000" WindowStartupLocation="CenterOwner"
+        Title="VeðurVaktin" WindowStartupLocation="CenterOwner"
                           Height="520" Width="650"
                           MinHeight="520" MinWidth="650" 
                           WindowState="Maximized"

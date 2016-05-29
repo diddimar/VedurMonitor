@@ -16,6 +16,6 @@
     </UserControl.Resources>
 
     <Grid>
-        <Image Source="{DynamicResource hair}"/>
+        <Image Margin="10" Source="{DynamicResource TrueAbout}" Opacity="0.75"/>
     </Grid>
 </UserControl>
