@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VedurMonitor.Properties {
+namespace vedurMonitor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -86,6 +86,17 @@ namespace VedurMonitor.Properties {
         public string vedurDatabaseConnectionString {
             get {
                 return ((string)(this["vedurDatabaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=vedurFinal;Integrated Security" +
+            "=True")]
+        public string vedurFinalConnectionString {
+            get {
+                return ((string)(this["vedurFinalConnectionString"]));
             }
         }
     }

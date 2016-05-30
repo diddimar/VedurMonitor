@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace VedurMonitor {
+namespace vedurMonitor {
     
     
     /// <summary>
@@ -30,7 +30,7 @@ namespace VedurMonitor {
         
         private StadirDataTable tableStadir;
         
-        private global::System.Data.DataRelation relationFK__Stadir__Spásvæði__25869641;
+        private global::System.Data.DataRelation relationFK__Stadir__Spásvæði__17F790F9;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -244,7 +244,7 @@ namespace VedurMonitor {
                     this.tableStadir.InitVars();
                 }
             }
-            this.relationFK__Stadir__Spásvæði__25869641 = this.Relations["FK__Stadir__Spásvæði__25869641"];
+            this.relationFK__Stadir__Spásvæði__17F790F9 = this.Relations["FK__Stadir__Spásvæði__17F790F9"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -261,10 +261,10 @@ namespace VedurMonitor {
             base.Tables.Add(this.tabletxtStadir);
             this.tableStadir = new StadirDataTable();
             base.Tables.Add(this.tableStadir);
-            this.relationFK__Stadir__Spásvæði__25869641 = new global::System.Data.DataRelation("FK__Stadir__Spásvæði__25869641", new global::System.Data.DataColumn[] {
+            this.relationFK__Stadir__Spásvæði__17F790F9 = new global::System.Data.DataRelation("FK__Stadir__Spásvæði__17F790F9", new global::System.Data.DataColumn[] {
                         this.tableLandshlutar.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableStadir.SpásvæðiColumn}, false);
-            this.Relations.Add(this.relationFK__Stadir__Spásvæði__25869641);
+            this.Relations.Add(this.relationFK__Stadir__Spásvæði__17F790F9);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1122,7 +1122,7 @@ namespace VedurMonitor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StadirRow AddStadirRow(string Nafn, string Tegund, int _WMO_Númer, string Skammsstöfun, LandshlutarRow parentLandshlutarRowByFK__Stadir__Spásvæði__25869641, string Staðsetning, double Hæð_yfir_sjó, int Upphaf_veðurathuguna, string Eigandi_stöðvar, int Stöðvanúmer) {
+            public StadirRow AddStadirRow(string Nafn, string Tegund, int _WMO_Númer, string Skammsstöfun, LandshlutarRow parentLandshlutarRowByFK__Stadir__Spásvæði__17F790F9, string Staðsetning, double Hæð_yfir_sjó, int Upphaf_veðurathuguna, string Eigandi_stöðvar, int Stöðvanúmer) {
                 StadirRow rowStadirRow = ((StadirRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1136,8 +1136,8 @@ namespace VedurMonitor {
                         Upphaf_veðurathuguna,
                         Eigandi_stöðvar,
                         Stöðvanúmer};
-                if ((parentLandshlutarRowByFK__Stadir__Spásvæði__25869641 != null)) {
-                    columnValuesArray[5] = parentLandshlutarRowByFK__Stadir__Spásvæði__25869641[0];
+                if ((parentLandshlutarRowByFK__Stadir__Spásvæði__17F790F9 != null)) {
+                    columnValuesArray[5] = parentLandshlutarRowByFK__Stadir__Spásvæði__17F790F9[0];
                 }
                 rowStadirRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStadirRow);
@@ -1396,11 +1396,11 @@ namespace VedurMonitor {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StadirRow[] GetStadirRows() {
-                if ((this.Table.ChildRelations["FK__Stadir__Spásvæði__25869641"] == null)) {
+                if ((this.Table.ChildRelations["FK__Stadir__Spásvæði__17F790F9"] == null)) {
                     return new StadirRow[0];
                 }
                 else {
-                    return ((StadirRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Stadir__Spásvæði__25869641"])));
+                    return ((StadirRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Stadir__Spásvæði__17F790F9"])));
                 }
             }
         }
@@ -1603,10 +1603,10 @@ namespace VedurMonitor {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public LandshlutarRow LandshlutarRow {
                 get {
-                    return ((LandshlutarRow)(this.GetParentRow(this.Table.ParentRelations["FK__Stadir__Spásvæði__25869641"])));
+                    return ((LandshlutarRow)(this.GetParentRow(this.Table.ParentRelations["FK__Stadir__Spásvæði__17F790F9"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Stadir__Spásvæði__25869641"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Stadir__Spásvæði__17F790F9"]);
                 }
             }
         }
@@ -1714,7 +1714,7 @@ namespace VedurMonitor {
         }
     }
 }
-namespace VedurMonitor.VedurmonitorDataSetTableAdapters {
+namespace vedurMonitor.VedurmonitorDataSetTableAdapters {
     
     
     /// <summary>
@@ -1866,7 +1866,7 @@ namespace VedurMonitor.VedurmonitorDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::VedurMonitor.Properties.Settings.Default.vedurDBConnectionString;
+            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.vedurMonitorDBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2180,7 +2180,7 @@ SELECT Id, Stadur, CatId, StodvaNr FROM txtStadir WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::VedurMonitor.Properties.Settings.Default.vedurDBConnectionString;
+            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.vedurMonitorDBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2529,7 +2529,7 @@ SELECT Id, Nafn, Tegund, [WMO-Númer], Skammsstöfun, Spásvæði, Staðsetning,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::VedurMonitor.Properties.Settings.Default.vedurDBConnectionString;
+            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.vedurMonitorDBConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

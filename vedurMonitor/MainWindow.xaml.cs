@@ -110,7 +110,7 @@ namespace VedurMonitor
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            myGifS.Source = new Uri(@"C:\Users\Audio Monster\Desktop\vedurMonitor\vedurMonitor\ImageFolder\rain.gif");
+            myGifS.Source = new Uri(@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\rain.gif");
 
 
         }
@@ -118,35 +118,35 @@ namespace VedurMonitor
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            var uri = (@"C:\Users\Audio Monster\Desktop\vedurMonitor\vedurMonitor\ImageFolder\sunSky.gif");
+            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\sunSky.gif");
             myGifS.Source =  new Uri(uri);
         }
         private void hurr_click(object sender, RoutedEventArgs e)
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            var uri = (@"C:\Users\Audio Monster\Desktop\TheMonitor\vedurMonitor\ImageFolder\hurricane.gif");
+            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\hurricane.gif");
             myGifS.Source = new Uri(uri);
         }
         private void snow_click(object sender, RoutedEventArgs e)
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            var uri = (@"C:\Users\Audio Monster\Desktop\TheMonitor\vedurMonitor\ImageFolder\snowing.gif");
+            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\snowing.gif");
             myGifS.Source = new Uri(uri);
         }
         private void mec_click(object sender, RoutedEventArgs e)
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            var uri = (@"C:\Users\Audio Monster\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecanoOut.gif");
+            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecanoOut.gif");
             myGifS.Source = new Uri(uri);
         }
         private void mec2_click(object sender, RoutedEventArgs e)
         {
             colorSliders.Visibility = Visibility.Collapsed;
             myGifS.Source = null;
-            var uri = (@"C:\Users\Audio Monster\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecano.gif");
+            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecano.gif");
             myGifS.Source = new Uri(uri);
         }
 

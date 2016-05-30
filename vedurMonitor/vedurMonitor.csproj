@@ -78,7 +78,11 @@
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="textClass.cs" />
-    <Compile Include="VedurmonitorDataSet.Designer.cs" />
+    <Compile Include="VedurmonitorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
+    </Compile>
     <Page Include="aboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,9 +148,9 @@
       <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
     </None>
     <None Include="VedurmonitorDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VedurmonitorDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VedurmonitorDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="VedurmonitorDataSet.xss">
       <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>

@@ -15,7 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using VedurClassLibrary;
-using VedurMonitor.VedurmonitorDataSetTableAdapters;
+using vedurMonitor;
+using vedurMonitor.VedurmonitorDataSetTableAdapters;
+
 
 
 namespace VedurMonitor
@@ -59,11 +61,9 @@ namespace VedurMonitor
 
         private void stadurCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int errIndicatorAutoSpa; // 1 allt í lagi, 2 error
-
             if (stadurCombo.SelectedIndex == -1)
             {
-                errIndicatorAutoSpa = 0;
+                
             }
             else
             {
@@ -71,8 +71,6 @@ namespace VedurMonitor
                 List<string> sjalfvirkarInfo = aC.sjalfvirkarXmlGet(stationNumber, languageSelection);
                 if (sjalfvirkarInfo[6] == string.Empty)
                 {
-                    errIndicatorAutoSpa = 1;
-
                     stadurTextBox.Text = sjalfvirkarInfo[0];
                     timiTextBox.Text = sjalfvirkarInfo[1];
                     hitiTextBox.Text = sjalfvirkarInfo[2];
@@ -101,8 +99,6 @@ namespace VedurMonitor
                 #region(ifError -> this)
                 else
                 {
-                    errIndicatorAutoSpa = 2;
-
                     hitiTextBox.Text = string.Empty;
                     vindstTextBox.Text = string.Empty;
                     vindhrTextBox.Text = string.Empty;
@@ -155,7 +151,6 @@ namespace VedurMonitor
             {
 
             }
-
 
             #region  --------------------------------------------------------------------------Sudausturland stations on map
             else if (landshlutiCombo.SelectedIndex == 7)
@@ -218,7 +213,6 @@ namespace VedurMonitor
             }
             #endregion
 
-
             else if (landshlutiCombo.SelectedIndex == 8)
             {
 
@@ -249,7 +243,6 @@ namespace VedurMonitor
         {
             stationNumber = hiddenStadur.Text;
         }
-
 
         #region  ------------------------------------------------------------------------------------Kort fyrir autoPage normal + invert
 
@@ -327,8 +320,6 @@ namespace VedurMonitor
 
 
 
-        #endregion
-
-        
+        #endregion        
     }
 }

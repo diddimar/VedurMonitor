@@ -15,7 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 using VedurClassLibrary;
-using VedurMonitor.VedurmonitorDataSetTableAdapters;
+using vedurMonitor;
+using vedurMonitor.VedurmonitorDataSetTableAdapters;
+
 
 namespace VedurMonitor
 {
@@ -127,7 +129,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 6)
+            else if (textComboBox.SelectedIndex == 7)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pmh");
                 textClass tC = new textClass();
@@ -139,7 +141,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 7)
+            else if (textComboBox.SelectedIndex == 8)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "psu");
                 textClass tC = new textClass();
@@ -151,7 +153,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 8)
+            else if (textComboBox.SelectedIndex == 9)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pfa");
                 textClass tC = new textClass();
@@ -163,7 +165,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 9)
+            else if (textComboBox.SelectedIndex == 10)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pbr");
                 textClass tC = new textClass();
@@ -175,7 +177,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 10)
+            else if (textComboBox.SelectedIndex == 11)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pvf");
                 textClass tC = new textClass();
@@ -187,7 +189,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 11)
+            else if (textComboBox.SelectedIndex == 12)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pnv");
                 textClass tC = new textClass();
@@ -199,7 +201,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 12)
+            else if (textComboBox.SelectedIndex == 13)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pna");
                 textClass tC = new textClass();
@@ -211,7 +213,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 13)
+            else if (textComboBox.SelectedIndex == 14)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pal");
                 textClass tC = new textClass();
@@ -223,7 +225,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 14)
+            else if (textComboBox.SelectedIndex == 15)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "paf");
                 textClass tC = new textClass();
@@ -235,7 +237,7 @@ namespace VedurMonitor
                 string diff = differenceInTime.ToString().Substring(0, 5);
                 descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
             }
-            else if (textComboBox.SelectedIndex == 15)
+            else if (textComboBox.SelectedIndex == 16)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "psa");
                 textClass tC = new textClass();
