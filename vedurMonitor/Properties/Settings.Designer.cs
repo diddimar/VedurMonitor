@@ -12,7 +12,7 @@ namespace vedurMonitor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,77 +26,11 @@ namespace vedurMonitor.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=stadir_landshlutar_complete;In" +
-            "tegrated Security=True")]
-        public string stadir_landshlutar_completeConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=miscprojects.database.windows.net;Initial Catalog=VedurMonitorWPF;Per" +
+            "sist Security Info=True;User ID={username};Password={password}")]
+        public string VedurMonitorWPFConnectionString {
             get {
-                return ((string)(this["stadir_landshlutar_completeConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CHEAPHEAP\\SQLEXPRESS;Initial Catalog=vedurDB;Integrated Security=True" +
-            ";Pooling=False")]
-        public string vedurDBConnectionString {
-            get {
-                return ((string)(this["vedurDBConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localDb)\\MSSQLLocalDb;Initial Catalog=vedurMonitorDB;Integrated Secu" +
-            "rity=True")]
-        public string vedurMonitorDBConnectionString {
-            get {
-                return ((string)(this["vedurMonitorDBConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=VedurstodvarComplete;Integrate" +
-            "d Security=True")]
-        public string VedurstodvarCompleteConnectionString {
-            get {
-                return ((string)(this["VedurstodvarCompleteConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Skólaverkefni;Integrated Secur" +
-            "ity=True")]
-        public string SkólaverkefniConnectionString {
-            get {
-                return ((string)(this["SkólaverkefniConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=vedurDatabase;Integrated Secur" +
-            "ity=True")]
-        public string vedurDatabaseConnectionString {
-            get {
-                return ((string)(this["vedurDatabaseConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDb;Initial Catalog=vedurFinal;Integrated Security" +
-            "=True")]
-        public string vedurFinalConnectionString {
-            get {
-                return ((string)(this["vedurFinalConnectionString"]));
+                return ((string)(this["VedurMonitorWPFConnectionString"]));
             }
         }
     }
