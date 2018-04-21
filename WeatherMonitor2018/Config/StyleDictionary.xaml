@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="back" Color="White"/>
+    <SolidColorBrush x:Key="for" Color="Black"/>
+    <SolidColorBrush x:Key="col1" Color="LightBlue"/>
+
+    <FontFamily x:Key="mainFont"/>
+
+    <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontFamily" Value="Georgia"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style TargetType="{x:Type Control}" x:Key="nrTwoStyle">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontFamily" Value="Georgia"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+</ResourceDictionary>
