@@ -61,34 +61,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="aboutPage.xaml.cs">
-      <DependentUpon>aboutPage.xaml</DependentUpon>
+    <Compile Include="AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="autoClass.cs" />
-    <Compile Include="autoPage.xaml.cs">
-      <DependentUpon>autoPage.xaml</DependentUpon>
+    <Compile Include="LeftPageSection.xaml.cs">
+      <DependentUpon>LeftPageSection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="leftPage1.xaml.cs">
-      <DependentUpon>leftPage1.xaml</DependentUpon>
+    <Compile Include="LeftPage.xaml.cs">
+      <DependentUpon>LeftPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="rightPage1.xaml.cs">
-      <DependentUpon>rightPage1.xaml</DependentUpon>
+    <Compile Include="RightPage.xaml.cs">
+      <DependentUpon>RightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ScreenShot.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="textClass.cs" />
     <Compile Include="VedurmonitorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VedurmonitorDataSet.xsd</DependentUpon>
     </Compile>
-    <Page Include="aboutPage.xaml">
+    <Page Include="AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="autoPage.xaml">
+    <Page Include="LeftPageSection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,7 +93,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="leftPage1.xaml">
+    <Page Include="LeftPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +109,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="rightPage1.xaml">
+    <Page Include="RightPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,6 +239,12 @@
     <Resource Include="ImageFolder\sol.jpg" />
     <Resource Include="ImageFolder\Backgrounds\sunSky.gif" />
     <Content Include="VedurGagnagrunnur.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VedurMonitorClassLibrary\VedurMonitorClassLibrary.csproj">
+      <Project>{8b4b722b-ffbc-42a2-b85e-693cb12a96a4}</Project>
+      <Name>VedurMonitorClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

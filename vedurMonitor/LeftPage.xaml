@@ -1,11 +1,10 @@
-﻿<UserControl x:Class="VedurMonitor.LeftPage1"
+﻿<UserControl x:Class="VedurMonitor.LeftPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:VedurMonitor"
       mc:Ignorable="d"
-      d:DesignHeight="500" d:DesignWidth="325" Loaded="UserControlLeftPage1Loaded">
+      d:DesignHeight="500" d:DesignWidth="325" Loaded="UserControlLeftPageLoaded">
 
     <UserControl.Resources>
         <Style TargetType="{x:Type TabItem}">

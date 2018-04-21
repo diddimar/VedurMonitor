@@ -1,21 +1,16 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace VedurClassLibrary
+namespace VedurMonitorClassLibrary
 {
-    class ScreenShot1
+    public class ScreenShot
     {
         public Rectangle Bounds { get; private set; }
 
-        
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 
@@ -58,7 +53,7 @@ namespace VedurClassLibrary
 
             return result;
         }
-        public void SS()
+        public string SaveScreenshot()
         {
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "";
@@ -73,9 +68,13 @@ namespace VedurClassLibrary
 
                 string filename = dlg.FileName;
                 Thread.Sleep(1000);
-                var image = ScreenShot1.CaptureActiveWindow();
+                var image = ScreenShot.CaptureActiveWindow();
                 image.Save(Convert.ToString(filename), ImageFormat.Jpeg);
-                System.Windows.MessageBox.Show("Mynd vistuð");
+                return "Mynd vistuð";
+            }
+            else
+            {
+                return "Eitthvað fór úrskeiðis..";
             }
 
         }

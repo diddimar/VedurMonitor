@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
-using VedurClassLibrary;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Reflection;
 using System.Windows.Controls;
+using VedurMonitorClassLibrary;
 
 namespace VedurMonitor
 {
@@ -17,11 +17,16 @@ namespace VedurMonitor
         private string _backgroundPath;
         public MainWindow()
         {
+            InitializeComponent();
+            SetBackgroundPath();
+            rightFrame.Content = new RightPage(languageSelection);
+            leftFrame.Content = new LeftPage(languageSelection);
+        }
+
+        private void SetBackgroundPath()
+        {
             string basePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
             _backgroundPath = System.IO.Path.Combine(basePath, "../../ImageFolder/Backgrounds/");
-            InitializeComponent();
-            rightFrame.Content = new rightPage1(languageSelection);
-            leftFrame.Content = new LeftPage1(languageSelection);
         }
 
         //klukka
@@ -49,12 +54,12 @@ namespace VedurMonitor
         }
         private void about_Click(object sender, RoutedEventArgs e)
         {
-            rightFrame.Content = new aboutPage();
+            rightFrame.Content = new AboutPage();
             closeAbout.Visibility = Visibility.Visible;
         }
         private void ok_click(object sender, RoutedEventArgs e)
         {
-            rightFrame.Content = new rightPage1(languageSelection);
+            rightFrame.Content = new RightPage(languageSelection);
             closeAbout.Visibility = Visibility.Hidden;
         }
         private void quit_click(object sender, RoutedEventArgs e)
@@ -68,24 +73,24 @@ namespace VedurMonitor
         }
         private void screenShot_click(object sender, RoutedEventArgs e)
         {
-            _screenshot.SS();
-
+            string response = _screenshot.SaveScreenshot();
+            MessageBox.Show(response);
         }
         public static string kortasource = "";
         public int languageSelection = 1;
         public Rectangle Bounds { get; private set; }
-        ScreenShot1 _screenshot = new ScreenShot1();
+        ScreenShot _screenshot = new ScreenShot();
         private void engCheck_Checked(object sender, RoutedEventArgs e)
         {
             languageSelection = 2;
-            rightFrame.Content = new rightPage1(languageSelection);
-            leftFrame.Content = new LeftPage1(languageSelection);
+            rightFrame.Content = new RightPage(languageSelection);
+            leftFrame.Content = new LeftPage(languageSelection);
         }
         private void engCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             languageSelection = 1;
-            rightFrame.Content = new rightPage1(languageSelection);
-            leftFrame.Content = new LeftPage1(languageSelection);
+            rightFrame.Content = new RightPage(languageSelection);
+            leftFrame.Content = new LeftPage(languageSelection);
         }
 
         //Gif stuff

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace VedurClassLibrary
+namespace VedurMonitorClassLibrary
 {
-    public class textClass
+    public class WrittenForcast
     {
 
         public List<string> textiXmlGet(string selectionId, int langSel)

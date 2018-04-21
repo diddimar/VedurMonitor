@@ -2,35 +2,24 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
-using VedurClassLibrary;
 using vedurMonitor;
 using vedurMonitor.VedurmonitorDataSetTableAdapters;
-
+using VedurMonitorClassLibrary;
 
 namespace VedurMonitor
 {
     /// <summary>
     /// Interaction logic for rightPage1.xaml
     /// </summary>
-    public partial class rightPage1 : UserControl
+    public partial class RightPage : UserControl
     {
         public int txtCat = 0;
         public string textStationNumber = null;
         public int languageSelection = 1;
 
-        public rightPage1(int langSel)
+        public RightPage(int langSel)
         {
             InitializeComponent();
             languageSelection = langSel;
@@ -38,8 +27,10 @@ namespace VedurMonitor
             //txtStadirTableAdapter tsta = new txtStadirTableAdapter();
             //textComboBox.ItemsSource = tsta.GetData();
         }
-        private void UserControl_rightPage1_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_RightPage_Loaded(object sender, RoutedEventArgs e)
         {
+            flokkurComboBox.SelectedIndex = 0;
+            textComboBox.SelectedIndex = 0;
         }
 
         #region --------------  Textaspár  -----------------------------------
@@ -119,7 +110,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 1 )
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "phb");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
 
                 textDescriptionBox.Text = textaInfo[0];
@@ -132,7 +123,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 7)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pmh");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -144,7 +135,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 8)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "psu");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -156,7 +147,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 9)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pfa");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -168,7 +159,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 10)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pbr");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -180,7 +171,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 11)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pvf");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -192,7 +183,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 12)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pnv");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -204,7 +195,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 13)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pna");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -216,7 +207,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 14)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "pal");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -228,7 +219,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 15)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "paf");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -240,7 +231,7 @@ namespace VedurMonitor
             else if (textComboBox.SelectedIndex == 16)
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "psa");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);
@@ -252,7 +243,7 @@ namespace VedurMonitor
             else
             {
                 kortalayer.SetResourceReference(Image.SourceProperty, "allt");
-                textClass tC = new textClass();
+                WrittenForcast tC = new WrittenForcast();
                 List<string> textaInfo = tC.textiXmlGet(textStationNumber, languageSelection);
                 textDescriptionBox.Text = textaInfo[0];
                 DateTime createdTime = DateTime.Parse(textaInfo[1]);

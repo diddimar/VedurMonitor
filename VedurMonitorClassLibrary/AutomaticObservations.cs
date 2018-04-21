@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace VedurClassLibrary
+namespace VedurMonitorClassLibrary
 {
-    public class autoClass
+    public class AutomaticObservations
     {
         public List<String> sjalfvirkarXmlGet(string stationId, int langSel)
         {

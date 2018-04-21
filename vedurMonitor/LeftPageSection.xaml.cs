@@ -2,23 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
-using VedurClassLibrary;
 using vedurMonitor;
 using vedurMonitor.VedurmonitorDataSetTableAdapters;
-
-
+using VedurMonitorClassLibrary;
 
 namespace VedurMonitor
 {
@@ -26,15 +14,11 @@ namespace VedurMonitor
     /// Interaction logic for autoPage.xaml
     /// </summary>
     /// 
-
-
-
-    public partial class autoPage : UserControl
+    public partial class LeftPageSection : UserControl
     {
-
         public string stationNumber = null;
         public int languageSelection = 1;
-        public autoPage(int langSel)
+        public LeftPageSection(int langSel)
         {
             languageSelection = langSel;
             InitializeComponent();
@@ -42,10 +26,9 @@ namespace VedurMonitor
             invertMap.Visibility = Visibility.Hidden;
           
         }
-        private void UserControl_autoAndText_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_LeftPageSection_Loaded(object sender, RoutedEventArgs e)
         {
         }
-
 
         //-----------------Sjálfvirkar Spár-------------------------
 
@@ -55,7 +38,6 @@ namespace VedurMonitor
             StadirTableAdapter sta = new StadirTableAdapter();
             landshlutiCombo.ItemsSource = lta.GetData();
             stadurCombo.ItemsSource = sta.GetData();
-
         }
 
 
@@ -67,7 +49,7 @@ namespace VedurMonitor
             }
             else
             {
-                autoClass aC = new autoClass();
+                AutomaticObservations aC = new AutomaticObservations();
                 List<string> sjalfvirkarInfo = aC.sjalfvirkarXmlGet(stationNumber, languageSelection);
                 if (sjalfvirkarInfo[6] == string.Empty)
                 {

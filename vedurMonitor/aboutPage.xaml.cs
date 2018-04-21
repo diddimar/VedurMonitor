@@ -6,9 +6,9 @@ namespace VedurMonitor
     /// <summary>
     /// Interaction logic for aboutPage.xaml
     /// </summary>
-    public partial class aboutPage : UserControl
+    public partial class AboutPage : UserControl
     {
-        public aboutPage()
+        public AboutPage()
         {
             InitializeComponent();
         }
