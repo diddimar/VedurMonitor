@@ -4,6 +4,7 @@ using System.Windows.Media;
 using VedurClassLibrary;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Reflection;
 using System.Windows.Controls;
 
 namespace VedurMonitor
@@ -13,16 +14,15 @@ namespace VedurMonitor
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private string _backgroundPath;
         public MainWindow()
         {
+            string basePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
+            _backgroundPath = System.IO.Path.Combine(basePath, "../../ImageFolder/Backgrounds/");
             InitializeComponent();
             rightFrame.Content = new rightPage1(languageSelection);
             leftFrame.Content = new LeftPage1(languageSelection);
-
-            
         }
-        
 
         //klukka
         private void TimerTick(object sender, EventArgs e)    
@@ -102,70 +102,23 @@ namespace VedurMonitor
             File.Foreground = brush;
             Presets.Foreground = brush;
             About.Foreground = brush;
-
-
         }
-
-        private void RainClick(object sender, RoutedEventArgs e)
+        private void ChangeBackground(object sender, RoutedEventArgs e)
         {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            myGifS.Source = new Uri(@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\rain.gif");
-
-
+            MenuItem mi = e.Source as MenuItem;
+            string name = mi.Name;
+            if(name == "Off")
+            {
+                myGifS.Source = null;
+                colorSliders.Visibility = Visibility.Visible;
+            } else
+            {
+                colorSliders.Visibility = Visibility.Collapsed;
+                myGifS.Source = null;
+                var uri = (_backgroundPath + name + ".gif");
+                myGifS.Source = new Uri(uri);
+            }
         }
-        private void Sunset_click(object sender, RoutedEventArgs e)
-        {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\sunSky.gif");
-            myGifS.Source =  new Uri(uri);
-        }
-        private void hurr_click(object sender, RoutedEventArgs e)
-        {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\hurricane.gif");
-            myGifS.Source = new Uri(uri);
-        }
-        private void snow_click(object sender, RoutedEventArgs e)
-        {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\snowing.gif");
-            myGifS.Source = new Uri(uri);
-        }
-        private void mec_click(object sender, RoutedEventArgs e)
-        {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecanoOut.gif");
-            myGifS.Source = new Uri(uri);
-        }
-        private void mec2_click(object sender, RoutedEventArgs e)
-        {
-            colorSliders.Visibility = Visibility.Collapsed;
-            myGifS.Source = null;
-            var uri = (@"\\MORDOR.ntv.local\NemendurData$\davidg.v16\Desktop\TheMonitor\vedurMonitor\ImageFolder\mecano.gif");
-            myGifS.Source = new Uri(uri);
-        }
-
-
-
-
-
-        private void Off_click(object sender, RoutedEventArgs e)
-        {
-            myGifS.Source = null;
-
-            colorSliders.Visibility = Visibility.Visible;
-            
-        }
-        
-
-
-
-
 
     }
 }

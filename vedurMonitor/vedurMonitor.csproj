@@ -169,11 +169,7 @@
     <Resource Include="ImageFolder\world_globe.png" />
     <Resource Include="ImageFolder\world_globe_invert.png" />
     <Resource Include="ImageFolder\load_simple.gif" />
-    <None Include="ImageFolder\sunsky1.gif" />
-    <Resource Include="ImageFolder\rain.gif" />
-    <Resource Include="ImageFolder\hurricane.gif" />
-    <Resource Include="ImageFolder\mecano.gif" />
-    <Resource Include="ImageFolder\mecanoOut.gif" />
+    <Resource Include="ImageFolder\Backgrounds\hurricane.gif" />
     <Resource Include="ImageFolder\paf.png" />
     <Resource Include="ImageFolder\pal.png" />
     <Resource Include="ImageFolder\pbr.png" />
@@ -190,7 +186,6 @@
     <Resource Include="ImageFolder\empty.png" />
     <Resource Include="ImageFolder\norm.png" />
     <Resource Include="ImageFolder\nv.png" />
-    <Resource Include="ImageFolder\snowing.gif" />
     <Resource Include="ImageFolder\eldhraun.png" />
     <Resource Include="ImageFolder\fagurholsm.png" />
     <Resource Include="ImageFolder\gigjukvisl.png" />
@@ -233,9 +228,7 @@
     <Resource Include="ImageFolder\rvk_invert.gif" />
     <Resource Include="ImageFolder\sa.gif" />
     <Resource Include="ImageFolder\sa_invert.gif" />
-    <Resource Include="ImageFolder\sol.jpg" />
     <Resource Include="ImageFolder\su.gif" />
-    <Resource Include="ImageFolder\sunSky.gif" />
     <Resource Include="ImageFolder\su_invert.gif" />
     <Resource Include="ImageFolder\vf.gif" />
     <Resource Include="ImageFolder\vf_invert.gif" />
@@ -244,6 +237,10 @@
     <Resource Include="ImageFolder\abouttrue.JPG" />
     <Resource Include="ImageFolder\theIcon.ico" />
     <Resource Include="theIcon.ico" />
+    <Resource Include="ImageFolder\Backgrounds\rain.gif" />
+    <Resource Include="ImageFolder\Backgrounds\snowing.gif" />
+    <Resource Include="ImageFolder\sol.jpg" />
+    <Resource Include="ImageFolder\Backgrounds\sunSky.gif" />
     <Content Include="VedurGagnagrunnur.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
