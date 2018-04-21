@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System.Configuration;
+
 namespace vedurMonitor {
     
     
@@ -1866,7 +1868,8 @@ namespace vedurMonitor.VedurmonitorDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.VedurMonitorWPFConnectionString;
+            this._connection.ConnectionString = "Data Source=miscprojects.database.windows.net;Initial Catalog=VedurMonitorWPF;Per" +
+                "sist Security Info=True;User ID=davidmar;Password=" + System.Configuration.ConfigurationManager.AppSettings["password"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2207,7 +2210,8 @@ SELECT Id, Nafn, Tegund, [WMO-Númer], Skammsstöfun, Spásvæði, Staðsetning,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.VedurMonitorWPFConnectionString;
+            this._connection.ConnectionString = "Data Source=miscprojects.database.windows.net;Initial Catalog=VedurMonitorWPF;Per" +
+                "sist Security Info=True;User ID=davidmar;Password=" + System.Configuration.ConfigurationManager.AppSettings["password"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2638,7 +2642,8 @@ SELECT Id, Stadur, CatId, StodvaNr FROM txtStadir WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vedurMonitor.Properties.Settings.Default.VedurMonitorWPFConnectionString;
+            this._connection.ConnectionString = "Data Source=miscprojects.database.windows.net;Initial Catalog=VedurMonitorWPF;Per" +
+                "sist Security Info=True;User ID=davidmar;Password=" + System.Configuration.ConfigurationManager.AppSettings["password"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

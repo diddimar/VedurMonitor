@@ -22,16 +22,5 @@ namespace vedurMonitor.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=miscprojects.database.windows.net;Initial Catalog=VedurMonitorWPF;Per" +
-            "sist Security Info=True;User ID={username};Password={password}")]
-        public string VedurMonitorWPFConnectionString {
-            get {
-                return ((string)(this["VedurMonitorWPFConnectionString"]));
-            }
-        }
     }
 }
