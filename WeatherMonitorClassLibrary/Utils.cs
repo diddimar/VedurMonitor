@@ -10,6 +10,16 @@ namespace WeatherMonitorClassLibrary
         {
             return (index >= 0) && (index < array.Count());
         }
+        public static bool IsStringEmpty(string check)
+        {
+            if (string.IsNullOrEmpty(check.Trim()) || string.IsNullOrWhiteSpace(check.Trim()))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
         public static string Truncate(this string str, int length)
         {
             if (length < 0)

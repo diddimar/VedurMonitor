@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Xml;
 using System.Xml.Serialization;
 using WeatherMonitorClassLibrary.Models;
@@ -7,7 +8,6 @@ namespace WeatherMonitorClassLibrary
 {
     public class ObservationService
     {
-        private static Station SationError = new Station { Id="", Valid=0, Name="", Time="", Err="", Link= "", Vindhradi="", Vindstefna="Reynið aftur seinna...", MestaVindhvida="", MestiVindradi="", Hiti="Villa: Engar upplýsingar í augnablikinu", Vedurlysing="", Skyggni="", Urkoma="" };
         WindDirection _windDirection;
         public ObservationService()
         {
@@ -19,8 +19,8 @@ namespace WeatherMonitorClassLibrary
             XmlDocument document = Utils.GetXmlDocument(path);
             Station response = DeserializeObservationDocument(document);
 
-            if (response == null || !Convert.ToBoolean(response.Valid))
-            { return SationError; }
+            if (response == null)
+            { return new Station { Valid= 0, Err = "Villa. Reynið aftur seinna..." }; }
 
             return EditStationResponse(response);
         }
@@ -37,10 +37,15 @@ namespace WeatherMonitorClassLibrary
         }
         private Station EditStationResponse(Station response)
         {
-            response.Time = $"Klukkan: {response.Time.Substring(11).Remove(5, 3)}";
+            DateTime parsed;
+            if (DateTime.TryParse(response.Time, out parsed))
+                parsed = DateTime.Parse(response.Time);
+            response.Time = parsed.ToString("dd MMMM HH:MM");
+
+            if (response.Vindhradi == response.MestiVindradi)
+                response.MestiVindradi = string.Empty;
+
             response.Vindstefna = _windDirection.GetWindDirection(response.Vindstefna);
-            response.Vindhradi = $"Vindhraði: {response.Vindhradi} m/s";
-            response.Hiti = $"Hitastig: {response.Hiti} °C";
             return response;
         }
 

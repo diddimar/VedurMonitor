@@ -20,7 +20,6 @@ namespace WeatherMonitor2018
             //ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
             //configMap.ExeConfigFilename = "App.config";
             //Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
-
             Stopwatch timer = new Stopwatch();
             StartScreen splash = new StartScreen();
             splash.Show();

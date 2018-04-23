@@ -12,10 +12,13 @@ namespace WeatherMonitor2018.Pages
 {
     public partial class ObservationTab : UserControl
     {
+        public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
+            "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ObservationTab));
         private ObservationService _observationService;
         private ObservationImageResolver _observationImageResolver;
         LandshlutarDataTable _landshlutaTable;
         StadirDataTable _stationTable;
+
         public ObservationTab(LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
         {
             _landshlutaTable = landshlutar;
@@ -26,8 +29,6 @@ namespace WeatherMonitor2018.Pages
             landshlutaDropdown.ItemsSource = _landshlutaTable;
             landshlutaDropdown.SelectedIndex = selectedIndex;
         }
-        public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
-            "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ObservationTab));
         public event RoutedEventHandler LandshlutiChanged
         {
             add { AddHandler(LandshlutiChangedEvent, value); }
@@ -38,7 +39,7 @@ namespace WeatherMonitor2018.Pages
             int landshlutaId = (e.AddedItems[0] as DataRowView).Row.Field<int>("Id");
             UpdateStationDropdown(landshlutaId);
             RaiseUpdateTabHeaderEvent(landshlutaId);
-            ChangeImages();
+            //ChangeImages();
         }
         private void RaiseUpdateTabHeaderEvent(int landshlutaId)
         {
@@ -50,16 +51,35 @@ namespace WeatherMonitor2018.Pages
         private void StationSelect(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) { return; }
-            string stationId = (e.AddedItems[0] as StadirRow).Field<int>("Stöðvanúmer").ToString();
+
+            StadirRow selectedStation = (e.AddedItems[0] as StadirRow);
+            string stationId = selectedStation.Stöðvanúmer.ToString();
+
             stationIdText.Text = "Stöðvanúmer: " + stationId;
             Station response = _observationService.GetStationObservation(stationId);
-            nameTextBox.Text = response.Name;
+            FillTextBoxes(response);
+            SetTextVisibility();
+            SetStationDbInfo(selectedStation);
+            ChangeImages();
+            CheckSationIndicator();
+        }
+        private void FillTextBoxes(Station response)
+        {
             timiTextBox.Text = response.Time;
             hitiTextBox.Text = response.Hiti;
             vindstefnaTextBox.Text = response.Vindstefna;
             vindhradiTextBox.Text = response.Vindhradi;
-            SetVedurlysingTextBox(response.Vedurlysing);
-            CheckSationIndicator();
+            mestiVindhradiTextBox.Text = response.MestiVindradi;
+            vindhvidaTextBox.Text = response.MestaVindhvida;
+            urkomaTextBox.Text = response.Urkoma;
+            vedurlysingTextBox.Text = response.Vedurlysing;
+            skyggniTextBox.Text = response.Skyggni;
+            villaTextBox.Text = response.Err;
+        }
+        private void SetStationDbInfo(StadirRow selectedStation)
+        {
+            altitudeTextBox.Text = Convert.ToInt32(selectedStation.Hæð_yfir_sjó).ToString() + " metrar";
+            ownerTextBox.Text = selectedStation.Eigandi_stöðvar;
         }
         private void UpdateStationDropdown(int landshlutaId)
         {
@@ -117,19 +137,43 @@ namespace WeatherMonitor2018.Pages
             }
             mapRootLayer.SetResourceReference(Image.SourceProperty, active);
         }
-        private void SetVedurlysingTextBox(string vedurlysing)
+        private void SetTextVisibility()
         {
-            if (vedurlysing.Trim() == string.Empty)
+            foreach (FrameworkElement element in responseFields.Children)
             {
-                vedurlysingTextBox.Text = string.Empty;
-                vedurlysingTextBox.Visibility = Visibility.Hidden;
+                if (element is StackPanel)
+                {
+                    StackPanel panel = (StackPanel)element;
+                    foreach (TextBox textBox in panel.Children)
+                    {
+                        if (textBox.Uid == "res")
+                        {
+                            if (Utils.IsStringEmpty(textBox.Text))
+                            {
+                                CollapseAll(panel);
+                            }
+                            else
+                            {
+                                ShowAll(panel);
+                            }
+                        }
+                    }
+                }
             }
-            else
+        }
+        private void CollapseAll(StackPanel panel)
+        {
+            foreach (TextBox box in panel.Children)
             {
-                vedurlysingTextBox.Text = vedurlysing;
-                vedurlysingTextBox.Visibility = Visibility.Visible;
+                box.Visibility = Visibility.Collapsed;
             }
-        } 
-
+        }
+        private void ShowAll(StackPanel panel)
+        {
+            foreach (TextBox box in panel.Children)
+            {
+                box.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

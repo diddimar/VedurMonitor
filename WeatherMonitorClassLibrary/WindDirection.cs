@@ -14,39 +14,77 @@ namespace WeatherMonitorClassLibrary
                 case "Logn":
                     return "Logn";
                 case "N":
-                    return "Vindátt: Norðanátt";
+                    return "Norðanátt";
                 case "NNA":
-                    return "Vindátt: Norð-norð-austanátt";
+                    return "Norð-norð-austanátt";
                 case "ANA":
-                    return "Vindátt: Aust-norð-austanátt";
+                    return "Aust-norð-austanátt";
                 case "A":
-                    return "Vindátt: Austanátt";
+                    return "Austanátt";
                 case "ASA":
-                    return "Vindátt: Aust-suð-austanátt";
+                    return "Aust-suð-austanátt";
                 case "SA":
-                    return "Vindátt: Suð-austanátt";
+                    return "Suð-austanátt";
                 case "SSA":
-                    return "Vindátt: Suð-suð-austanátt";
+                    return "Suð-suð-austanátt";
                 case "S":
-                    return "Vindátt: Sunnanátt";
+                    return "Sunnanátt";
                 case "SSV":
-                    return "Vindátt: Suð-suð-vestanátt";
+                    return "Suð-suð-vestanátt";
                 case "VSV":
-                    return "Vindátt: Vest-suð-vestanátt";
+                    return "Vest-suð-vestanátt";
                 case "SV":
-                    return "Vindátt: Suð-vestanátt";
+                    return "Suð-vestanátt";
                 case "V":
-                    return "Vindátt: Vestanátt";
+                    return "Vestanátt";
                 case "VNV":
-                    return "Vindátt: Vest-norð-vestanátt";
+                    return "Vest-norð-vestanátt";
                 case "NV":
-                    return "Vindátt: Norð-vestanátt";
-                case "NNC":
-                    return "Vindátt: Norð-norð-vestanátt";
+                    return "Norð-vestanátt";
+                case "NNV":
+                    return "Norð-norð-vestanátt";
                 default:
                     return String.Empty;
             };
 
+        }
+
+        private string GetEnglish(string vindstefna)
+        {
+            if (vindstefna == "Logn" || vindstefna == "Calm")
+                return "Calm";
+            else if (vindstefna == "N")
+                return "North";
+            else if (vindstefna == "NNA" || vindstefna == "NNE")
+                return "North-north-east";
+            else if (vindstefna == "ANA" || vindstefna == "ENE")
+                return "East-east-north";
+            else if (vindstefna == "A" || vindstefna == "E")
+                return "East";
+            else if (vindstefna == "ASA" || vindstefna == "ESE")
+                return "East-south-east";
+            else if (vindstefna == "SA" || vindstefna == "SE")
+                return "South-east";
+            else if (vindstefna == "SSA" || vindstefna == "SSE")
+                return "South-south-east";
+            else if (vindstefna == "S")
+                return "South";
+            else if (vindstefna == "SSV" || vindstefna == "SSW")
+                return "South-south-west";
+            else if (vindstefna == "SV" || vindstefna == "SW")
+                return "South-west";
+            else if (vindstefna == "VSV" || vindstefna == "WSW")
+                return "West-south-west";
+            else if (vindstefna == "V" || vindstefna == "W")
+                return "West";
+            else if (vindstefna == "VNV" || vindstefna == "WNW")
+                return "West-north-west";
+            else if (vindstefna == "NV" || vindstefna == "NW")
+                return "North-west";
+            else if (vindstefna == "NNV" || vindstefna == "NNW")
+                return "North-north-west";
+            else
+                return string.Empty;
         }
     }
 }

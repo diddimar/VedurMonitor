@@ -14,7 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\dmrgu\Desktop\Notes\</PublishUrl>
+    <PublishUrl>C:\Users\dmrgu\Documents\WPF\IcelandicWeatherMonitor\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,11 +24,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,6 +70,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -186,59 +190,165 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Map\Observation\af.gif" />
-    <Resource Include="Assets\Map\Observation\af_invert.gif" />
-    <Resource Include="Assets\Map\Forecast\allt.png" />
-    <Resource Include="Assets\Map\Observation\br.gif" />
-    <Resource Include="Assets\Map\Observation\br_invert.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\eldhraun.png" />
-    <Resource Include="Assets\Map\empty.png" />
-    <Resource Include="Assets\Map\Observation\fa.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\fagurholsm.png" />
-    <Resource Include="Assets\Map\Observation\fa_invert.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\gigjukvisl.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\hofnihorna.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\ingolfshofdi.png" />
-    <Resource Include="Assets\Map\isl.gif" />
-    <Resource Include="Assets\Map\isl_invert.gif" />
-    <Resource Include="Assets\Map\isl_trans.png" />
-    <Resource Include="Assets\Map\isl_trans_invert.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\kirkjuklaust.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker_veg.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\lomagnupur.png" />
-    <Resource Include="Assets\Map\Observation\mh.gif" />
-    <Resource Include="Assets\Map\Observation\mh_invert.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\myrdalssandur.png" />
-    <Resource Include="Assets\Map\Observation\na.gif" />
-    <Resource Include="Assets\Map\Observation\na_invert.gif" />
-    <Resource Include="Assets\Map\Observation\nv.gif" />
-    <Resource Include="Assets\Map\nv.png" />
-    <Resource Include="Assets\Map\Observation\nv_invert.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\oraefi.png" />
-    <Resource Include="Assets\Map\Forecast\paf.png" />
-    <Resource Include="Assets\Map\Forecast\pal.png" />
-    <Resource Include="Assets\Map\Forecast\pbr.png" />
-    <Resource Include="Assets\Map\Forecast\pfa.png" />
-    <Resource Include="Assets\Map\Forecast\phb.png" />
-    <Resource Include="Assets\Map\Forecast\pmh.png" />
-    <Resource Include="Assets\Map\Forecast\pna.png" />
-    <Resource Include="Assets\Map\Forecast\pnv.png" />
-    <Resource Include="Assets\Map\Forecast\psa.png" />
-    <Resource Include="Assets\Map\Forecast\psu.png" />
-    <Resource Include="Assets\Map\Forecast\pvf.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\reynisfjall.png" />
-    <Resource Include="Assets\Map\rvk.gif" />
-    <Resource Include="Assets\Map\rvk_invert.gif" />
-    <Resource Include="Assets\Map\Observation\sa.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\sa_allar.png" />
-    <Resource Include="Assets\Map\Observation\sa_invert.gif" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\skaftafell.png" />
-    <Resource Include="Assets\Map\ObservationIndicators\Sa\skardsfjviti.png" />
-    <Resource Include="Assets\Map\Observation\su.gif" />
-    <Resource Include="Assets\Map\Observation\su_invert.gif" />
-    <Resource Include="Assets\Map\Observation\vf.gif" />
-    <Resource Include="Assets\Map\Observation\vf_invert.gif" />
+    <Resource Include="Assets\Map\Observation\af.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\af_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\allt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\br.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\br_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\eldhraun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\empty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\fa.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\fagurholsm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\fa_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\gigjukvisl.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\hofnihorna.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\ingolfshofdi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\isl.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\isl_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\isl_trans.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\isl_trans_invert.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kirkjuklaust.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker_veg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\lomagnupur.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\mh.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\mh_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\myrdalssandur.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\na.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\na_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\nv.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\nv.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\nv_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\oraefi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\paf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pbr.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pfa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\phb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pmh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pna.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pnv.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\psa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\psu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Forecast\pvf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\reynisfjall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\rvk.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\rvk_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\sa.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\sa_allar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\sa_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\skaftafell.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\skardsfjviti.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\su.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\su_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\vf.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\vf_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -253,19 +363,26 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Icons\breakTheNorm.png" />
-    <Resource Include="Assets\Icons\norm.png" />
-    <Resource Include="Assets\Icons\Refresh.png" />
-    <Resource Include="Assets\Icons\RefreshFilled.png" />
+    <Resource Include="Assets\Icons\Refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\RefreshFilled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Misc\splashscreen.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Background\hurricane.gif" />
-    <Resource Include="Assets\Background\rain.gif" />
-    <Resource Include="Assets\Background\snowing.gif" />
-    <Resource Include="Assets\Background\sunSky.gif" />
+    <Resource Include="Assets\Background\hurricane.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Background\snowing.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Background\sunSky.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Misc\about.JPG" />
@@ -281,9 +398,12 @@
     <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Map\Observation\al.gif" />
-    <Resource Include="Assets\Map\Observation\al_invert.gif" />
+    <Resource Include="Assets\Map\Observation\al.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Map\Observation\al_invert.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
