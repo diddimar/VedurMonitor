@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forecast.cs" />
-    <Compile Include="MapImageResolver.cs" />
+    <Compile Include="ForecastService.cs" />
+    <Compile Include="ImageService\ForecastImageResolver.cs" />
+    <Compile Include="ImageService\ObservationImageResolver.cs" />
     <Compile Include="Models\Observation.cs" />
     <Compile Include="Models\Station.cs" />
+    <Compile Include="Models\Texts.cs" />
     <Compile Include="OldObservation.cs" />
     <Compile Include="ObservationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,5 +55,6 @@
     <Compile Include="Utils.cs" />
     <Compile Include="WindDirection.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

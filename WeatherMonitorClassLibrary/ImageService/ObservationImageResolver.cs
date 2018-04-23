@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WeatherMonitorClassLibrary
+﻿namespace WeatherMonitorClassLibrary.ImageService
 {
-    public class MapImageResolver
+    public class ObservationImageResolver
     {
-        public string[] SetObservationMap(int landshlutaIndex)
+        public string[] GetObservationMap(int landshlutaIndex)
         {
             switch (landshlutaIndex)
             {
@@ -95,8 +89,6 @@ namespace WeatherMonitorClassLibrary
                 case 11:
                     return "skaftafell";
             }
-            
-
         }
 
     }

@@ -30,15 +30,15 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="10 0 0 0">
         <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel>
-                    <ComboBox x:Name="landshlutaDropdown" SelectedIndex="-1" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="5000" ToolTipService.BetweenShowDelay="10000" ToolTip="Landshlutar" Margin="5,2.5,0,0" Width="180" Height="25" HorizontalAlignment="Left" Background="White" Foreground="Black"/>
-                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StadurTemplate}" ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="5000" ToolTipService.BetweenShowDelay="10000" ToolTip="Staðir" Margin="5,10,0,10" Width="180" Height="25" HorizontalAlignment="Left" Background="White" Foreground="Black"/>
-                </StackPanel>
+            <StackPanel Margin="20 0 0 0" Orientation="Vertical" HorizontalAlignment="Center">
+                <ComboBox Margin="2" x:Name="landshlutaDropdown" SelectedIndex="-1" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" 
+                        MaxDropDownHeight="auto" Width="190" Height="25"  HorizontalAlignment="Center"/>
+                <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StadurTemplate}"
+                        Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
             </StackPanel>
-            <Rectangle Fill="{StaticResource col1}" Margin="40 0 35 4" Height="2" />
+            <Rectangle Fill="{StaticResource col1}" Margin="50 4 30 4" Height="2" />
             <Grid Grid.Row="3">
                 <StackPanel>
                     <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">

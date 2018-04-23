@@ -15,26 +15,17 @@ namespace WeatherMonitorClassLibrary
         }
         public Station GetStationObservation(string stationId)
         {
-            XmlDocument document = GetXmlDocument(stationId);
-            Station response = DeserializeDocument(document);
+            string path = @"http://xmlweather.vedur.is/?op_w=xml&type=obs&lang=is&view=xml&ids=" + stationId;
+            XmlDocument document = Utils.GetXmlDocument(path);
+            Station response = DeserializeObservationDocument(document);
 
             if (response == null || !Convert.ToBoolean(response.Valid))
             { return SationError; }
 
             return EditStationResponse(response);
         }
-        private XmlDocument GetXmlDocument(string stationId)
-        {
-            string islPath = @"http://xmlweather.vedur.is/?op_w=xml&type=obs&lang=is&view=xml&ids=" + stationId;
-            XmlDocument doc = new XmlDocument();
-            try
-            {
-                doc.Load(islPath);
-                return doc;
-            }
-            finally { doc = null; }
-        }
-        private Station DeserializeDocument(XmlDocument doc)
+        
+        private Station DeserializeObservationDocument(XmlDocument doc)
         {
             Observation response = null;
             XmlSerializer serializer = new XmlSerializer(typeof(Observation));

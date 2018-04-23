@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      d:DesignHeight="420" d:DesignWidth="325" Loaded="UserControl_RightPage_Loaded">
+      d:DesignHeight="500" d:DesignWidth="325" Loaded="ForecastPage_Loaded">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
@@ -35,49 +35,41 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <StackPanel Name="textaspa" Margin="15 -25 15 0">
-            <TextBlock Text="Textaspár" FontSize="24" Foreground="Gray" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="flokkurComboBox" Margin="15" ItemTemplate="{DynamicResource txtStadurTemplate}" 
+        <StackPanel Name="textaspa" Margin="15 20 15 0">
+            <!--<ComboBox x:Name="flokkurComboBox" Margin="15" ItemTemplate="{DynamicResource txtStadurTemplate}" 
                      MaxDropDownHeight="auto" HorizontalAlignment="Center" MinWidth="90" SelectionChanged="flokkurComboBox_SelectionChanged">
                 <ComboBoxItem x:Name="isl">Íslenska</ComboBoxItem>
                 <ComboBoxItem x:Name="eng">Enska</ComboBoxItem>
                 <ComboBoxItem x:Name="mid">Miðin</ComboBoxItem>
-            </ComboBox>
+            </ComboBox>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <ComboBox x:Name="textComboBox" ItemTemplate="{DynamicResource TextaspaTemplate}" 
+                <ComboBox x:Name="textspaDropdown" ItemTemplate="{DynamicResource TextaspaTemplate}" 
                         MaxDropDownHeight="auto" HorizontalAlignment="Center" Height="25" Width="240" MaxWidth="240" SelectionChanged="textComboBox_SelectionChanged"  Grid.Column="2"/>
                 <Button x:Name="getTextButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="getTextButton_Click"></Button>
             </StackPanel>
 
 
-
-            <StackPanel MaxHeight="170" MinHeight="170">
+            <StackPanel>
                 <Rectangle Fill="{StaticResource col1}" Height="2" Margin="65 15 65 10" />
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15">
-                    <TextBox x:Name="textDescriptionBox" Margin="0 -18 0 0" Padding="5 10 5 10" Background="{StaticResource back}" Foreground="{StaticResource for}" Opacity="0.9"
-                         MaxHeight="120" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Width="260" BorderThickness="0" IsReadOnly="True"/>
-                    <TextBlock Width="auto" x:Name="descriptionInfoBox" TextAlignment="Center" Background="White" Opacity="0.75"  />
-                    <Rectangle Margin="40 7 40 0" Fill="{StaticResource col1}" Height="2" />
+                <Grid>
+                    <Image x:Name="kortamynd" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Source="{DynamicResource isl_trans}" Stretch="Uniform"/>
+                    <Image x:Name="kortalayer" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Source="{DynamicResource empty}" Stretch="Uniform"/>
+                </Grid>
+                <StackPanel>
+                    <StackPanel Margin="15 10 0 5">
+                        <ScrollViewer MaxHeight="160" VerticalScrollBarVisibility="Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBox x:Name="forecastTextBox" Margin="0 0 0 5" Padding="5 10 5 10" Background="{StaticResource back}" Foreground="{StaticResource for}" Opacity="0.9"
+                                MinHeight="40" TextWrapping="Wrap" TextAlignment="Center" Width="260" BorderThickness="0" IsReadOnly="True"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <Rectangle Margin="40 0 40 10" Fill="{StaticResource col1}" Height="2" />
+                    <TextBlock Width="auto" x:Name="forecastInfoBox" TextAlignment="Center" VerticalAlignment="Center" Background="White" Opacity="0.75"  />
                 </StackPanel>
             </StackPanel>
 
-
-
-
-            <Grid>
-                <Grid>
-                    <Image x:Name="kortamynd" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   Source="{DynamicResource isl_trans}" Stretch="Uniform"/>
-                    <Image x:Name="kortalayer" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   Source="{DynamicResource empty}" Stretch="Uniform"/>
-                </Grid>
-            </Grid>
-
         </StackPanel>
 
-
-        <TextBox x:Name="textIdHidden" Text="{Binding SelectedItem.StodvaNr, ElementName=textComboBox, Mode=OneWay}" Visibility="Hidden"/>
-        <TextBox x:Name="textspaHidden" Text="{Binding ElementName=textComboBox, Path=SelectedItem.Id, Mode=OneWay}" TextChanged="textspaHidden_TextChanged" Visibility="Hidden"/>
-        <TextBox x:Name="flokkurHidden" Visibility="Hidden"/>
     </Grid>
 </UserControl>

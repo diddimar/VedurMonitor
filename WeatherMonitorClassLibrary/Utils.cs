@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Xml;
 
 namespace WeatherMonitorClassLibrary
 {
@@ -22,6 +23,16 @@ namespace WeatherMonitorClassLibrary
 
             int maxLength = Math.Min(str.Length, length);
             return str.Substring(0, maxLength);
+        }
+        public static XmlDocument GetXmlDocument(string path)
+        {
+            XmlDocument doc = new XmlDocument();
+            try
+            {
+                doc.Load(path);
+                return doc;
+            }
+            finally { doc = null; }
         }
     }
 }

@@ -7,6 +7,9 @@ using System.Windows.Controls;
 using WeatherMonitor2018.Data;
 using WeatherMonitor2018.Data.WeatherMonitorDataSetTableAdapters;
 using WeatherMonitorClassLibrary;
+using WeatherMonitorClassLibrary.ImageService;
+using WeatherMonitorClassLibrary.Models;
+using static WeatherMonitor2018.Data.WeatherMonitorDataSet;
 
 namespace WeatherMonitor2018.Pages
 {
@@ -15,22 +18,22 @@ namespace WeatherMonitor2018.Pages
     /// </summary>
     public partial class ForecastPage : UserControl
     {
-        public int txtCat = 0;
-        public string textStationNumber = null;
-        public int languageSelection = 1;
-
+        private ForecastService _forecastService;
+        private ForecastImageResolver _forecastImageResolver;
+        txtStadirDataTable _txtStadirDataTable;
         public ForecastPage(int langSel)
         {
             InitializeComponent();
-            languageSelection = langSel;
-            textDescriptionBox.Text = "Veljið Flokk";
-            //txtStadirTableAdapter tsta = new txtStadirTableAdapter();
-            //textComboBox.ItemsSource = tsta.GetData();
+            txtStadirTableAdapter tsta = new txtStadirTableAdapter();
+            _txtStadirDataTable = tsta.GetData();
+            tsta.Dispose();
+            _forecastService = new ForecastService();
+            _forecastImageResolver = new ForecastImageResolver();
         }
-        private void UserControl_RightPage_Loaded(object sender, RoutedEventArgs e)
+        private void ForecastPage_Loaded(object sender, RoutedEventArgs e)
         {
-            flokkurComboBox.SelectedIndex = 0;
-            textComboBox.SelectedIndex = 0;
+            //flokkurComboBox.SelectedIndex = 0;
+            SetTextComboBox(1);
         }
 
         //public string basicTextPath = "http://xmlweather.vedur.is/?op_w=xml&type=txt&lang=is&view=xml&ids=";
@@ -61,201 +64,40 @@ namespace WeatherMonitor2018.Pages
 
         private void flokkurComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (flokkurComboBox.SelectedIndex == 0)
-            {
-                txtCat = 1;
-                textDescriptionBox.Text = "Veljið Textaspá";
-                descriptionInfoBox.Text = "";
-
-            }
-            else if (flokkurComboBox.SelectedIndex == 1)
-            {
-                txtCat = 3;
-            }
-            else
-            {
-                txtCat = 2;
-            }
-            txtStadirTableAdapter tsta = new txtStadirTableAdapter();
-
-            var rows = from row in tsta.GetData()
-                       where row.CatId.Equals(txtCat)
-                       select row;
-
-            WeatherMonitorDataSet.txtStadirDataTable vmTSDT = new WeatherMonitorDataSet.txtStadirDataTable();
-            rows.CopyToDataTable(vmTSDT, LoadOption.OverwriteChanges);
-            textComboBox.ItemsSource = vmTSDT;
-
-
         }
 
+        private void SetTextComboBox(int catId)
+        {
+            var rows = from row in _txtStadirDataTable
+                       where row.CatId.Equals(catId)
+                       select row;
+            textspaDropdown.ItemsSource = rows;
+            textspaDropdown.SelectedIndex = 0;
+        }
 
+        private void GetNewForecast(string stodvaNr)
+        {
+            Forecast textaInfo = _forecastService.GetForecast(stodvaNr);
+            forecastTextBox.Text = textaInfo.Content;
+            DateTime createdTime = DateTime.Parse(textaInfo.Creation);
+            forecastInfoBox.Text = "Spá skrifuð " + createdTime;
+            var validFrom = textaInfo.Valid_from;
+            var validTo = textaInfo.Valid_to;
+
+        }
+        private void SetNewMapimage(int stodvaNr)
+        {
+            kortalayer.SetResourceReference(Image.SourceProperty, _forecastImageResolver.GetForecastMap(stodvaNr));
+        }
 
         private void textComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (textComboBox.SelectedIndex == -1)
-            {
+            //string stationId = (e.AddedItems[0] as txtStadirRow).Field<int>("CatId").ToString();
+            int stodvaNr = (e.AddedItems[0] as txtStadirRow).Field<int>("StodvaNr");
 
-            }
-            else if (textComboBox.SelectedIndex == 1)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "phb");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 7)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pmh");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 8)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "psu");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 9)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pfa");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 10)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pbr");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 11)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pvf");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 12)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pnv");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 13)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pna");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 14)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "pal");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 15)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "paf");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else if (textComboBox.SelectedIndex == 16)
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "psa");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-            }
-            else
-            {
-                kortalayer.SetResourceReference(Image.SourceProperty, "allt");
-                Forecast tC = new Forecast();
-                List<string> textaInfo = tC.GetForecast(textStationNumber, languageSelection);
-                textDescriptionBox.Text = textaInfo[0];
-                DateTime createdTime = DateTime.Parse(textaInfo[1]);
-                DateTime currentTime = DateTime.Now;
-                double differenceInTime = (createdTime - currentTime).TotalHours;    //er einhver vitleysa að eiga sér stað hér ? Gæti verið regional vesen!
-                string diff = differenceInTime.ToString().Substring(0, 5);
-                descriptionInfoBox.Text = "Spá skrifuð fyrir " + diff + " klst. síðan.";
-
-
-            }
-
-
-
-
-
-
-
+            GetNewForecast(stodvaNr.ToString());
+            SetNewMapimage(stodvaNr);
         }
 
-        private void textspaHidden_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            textStationNumber = textIdHidden.Text;
-        }
     }
 }

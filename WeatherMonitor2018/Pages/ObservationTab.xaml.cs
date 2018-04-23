@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitorClassLibrary;
+using WeatherMonitorClassLibrary.ImageService;
 using WeatherMonitorClassLibrary.Models;
 using static WeatherMonitor2018.Data.WeatherMonitorDataSet;
 
@@ -12,7 +13,7 @@ namespace WeatherMonitor2018.Pages
     public partial class ObservationTab : UserControl
     {
         private ObservationService _observationService;
-        private MapImageResolver _mapImageResolver;
+        private ObservationImageResolver _observationImageResolver;
         LandshlutarDataTable _landshlutaTable;
         StadirDataTable _stationTable;
         public ObservationTab(LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
@@ -21,7 +22,7 @@ namespace WeatherMonitor2018.Pages
             _stationTable = stations;
             InitializeComponent();
             _observationService = new ObservationService();
-            _mapImageResolver = new MapImageResolver();
+            _observationImageResolver = new ObservationImageResolver();
             landshlutaDropdown.ItemsSource = _landshlutaTable;
             landshlutaDropdown.SelectedIndex = selectedIndex;
         }
@@ -77,7 +78,7 @@ namespace WeatherMonitor2018.Pages
             allIndicatorsLayer.SetResourceReference(Image.SourceProperty, "empty");
             singleIndicatorLayer.SetResourceReference(Image.SourceProperty, "empty");
             string inverted = invertCheckbox.IsChecked == true ? "_inv" : String.Empty;
-            string[] newMapLayers = _mapImageResolver.SetObservationMap(landshlutaDropdown.SelectedIndex);
+            string[] newMapLayers = _observationImageResolver.GetObservationMap(landshlutaDropdown.SelectedIndex);
             mapRootLayer.SetResourceReference(Image.SourceProperty, newMapLayers[0] + inverted);
             CheckIndicatorLayers(newMapLayers);
         }
@@ -91,7 +92,7 @@ namespace WeatherMonitor2018.Pages
         }
         private void CheckSationIndicator()
         {
-            string indicator = _mapImageResolver.SetStationIndicator(landshlutaDropdown.SelectedIndex, stationDropdown.SelectedIndex);
+            string indicator = _observationImageResolver.SetStationIndicator(landshlutaDropdown.SelectedIndex, stationDropdown.SelectedIndex);
             if (!string.IsNullOrEmpty(indicator))
             {
                 singleIndicatorLayer.SetResourceReference(Image.SourceProperty, indicator);
@@ -101,7 +102,7 @@ namespace WeatherMonitor2018.Pages
         {
             var active = mapRootLayer.GetValue(Image.SourceProperty).ToString();
             bool wasInverted = active.IndexOf("_invert", StringComparison.OrdinalIgnoreCase) >= 0;
-            int startIndex = 4 + active.IndexOf("Map/", StringComparison.OrdinalIgnoreCase);
+            int startIndex = 4 + active.IndexOf("ion/", StringComparison.OrdinalIgnoreCase);
             if (invertCheckbox.IsChecked == true & !wasInverted)
             {
                 active = active.Substring(startIndex, (active.Length - startIndex - 4)) + "_inv";

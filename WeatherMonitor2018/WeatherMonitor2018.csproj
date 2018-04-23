@@ -186,61 +186,59 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Map\af.gif" />
-    <Resource Include="Assets\Map\af_invert.gif" />
-    <Resource Include="Assets\Map\al.gif" />
-    <Resource Include="Assets\Map\allt.png" />
-    <Resource Include="Assets\Map\al_invert.gif" />
-    <Resource Include="Assets\Map\br.gif" />
-    <Resource Include="Assets\Map\br_invert.gif" />
-    <Resource Include="Assets\Map\eldhraun.png" />
+    <Resource Include="Assets\Map\Observation\af.gif" />
+    <Resource Include="Assets\Map\Observation\af_invert.gif" />
+    <Resource Include="Assets\Map\Forecast\allt.png" />
+    <Resource Include="Assets\Map\Observation\br.gif" />
+    <Resource Include="Assets\Map\Observation\br_invert.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\eldhraun.png" />
     <Resource Include="Assets\Map\empty.png" />
-    <Resource Include="Assets\Map\fa.gif" />
-    <Resource Include="Assets\Map\fagurholsm.png" />
-    <Resource Include="Assets\Map\fa_invert.gif" />
-    <Resource Include="Assets\Map\gigjukvisl.png" />
-    <Resource Include="Assets\Map\hofnihorna.png" />
-    <Resource Include="Assets\Map\ingolfshofdi.png" />
+    <Resource Include="Assets\Map\Observation\fa.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\fagurholsm.png" />
+    <Resource Include="Assets\Map\Observation\fa_invert.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\gigjukvisl.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\hofnihorna.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\ingolfshofdi.png" />
     <Resource Include="Assets\Map\isl.gif" />
     <Resource Include="Assets\Map\isl_invert.gif" />
     <Resource Include="Assets\Map\isl_trans.png" />
     <Resource Include="Assets\Map\isl_trans_invert.png" />
-    <Resource Include="Assets\Map\kirkjuklaust.png" />
-    <Resource Include="Assets\Map\kvisker.png" />
-    <Resource Include="Assets\Map\kvisker_veg.png" />
-    <Resource Include="Assets\Map\lomagnupur.png" />
-    <Resource Include="Assets\Map\mh.gif" />
-    <Resource Include="Assets\Map\mh_invert.gif" />
-    <Resource Include="Assets\Map\myrdalssandur.png" />
-    <Resource Include="Assets\Map\na.gif" />
-    <Resource Include="Assets\Map\na_invert.gif" />
-    <Resource Include="Assets\Map\nv.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kirkjuklaust.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\kvisker_veg.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\lomagnupur.png" />
+    <Resource Include="Assets\Map\Observation\mh.gif" />
+    <Resource Include="Assets\Map\Observation\mh_invert.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\myrdalssandur.png" />
+    <Resource Include="Assets\Map\Observation\na.gif" />
+    <Resource Include="Assets\Map\Observation\na_invert.gif" />
+    <Resource Include="Assets\Map\Observation\nv.gif" />
     <Resource Include="Assets\Map\nv.png" />
-    <Resource Include="Assets\Map\nv_invert.gif" />
-    <Resource Include="Assets\Map\oraefi.png" />
-    <Resource Include="Assets\Map\paf.png" />
-    <Resource Include="Assets\Map\pal.png" />
-    <Resource Include="Assets\Map\pbr.png" />
-    <Resource Include="Assets\Map\pfa.png" />
-    <Resource Include="Assets\Map\phb.png" />
-    <Resource Include="Assets\Map\pmh.png" />
-    <Resource Include="Assets\Map\pna.png" />
-    <Resource Include="Assets\Map\pnv.png" />
-    <Resource Include="Assets\Map\psa.png" />
-    <Resource Include="Assets\Map\psu.png" />
-    <Resource Include="Assets\Map\pvf.png" />
-    <Resource Include="Assets\Map\reynisfjall.png" />
+    <Resource Include="Assets\Map\Observation\nv_invert.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\oraefi.png" />
+    <Resource Include="Assets\Map\Forecast\paf.png" />
+    <Resource Include="Assets\Map\Forecast\pal.png" />
+    <Resource Include="Assets\Map\Forecast\pbr.png" />
+    <Resource Include="Assets\Map\Forecast\pfa.png" />
+    <Resource Include="Assets\Map\Forecast\phb.png" />
+    <Resource Include="Assets\Map\Forecast\pmh.png" />
+    <Resource Include="Assets\Map\Forecast\pna.png" />
+    <Resource Include="Assets\Map\Forecast\pnv.png" />
+    <Resource Include="Assets\Map\Forecast\psa.png" />
+    <Resource Include="Assets\Map\Forecast\psu.png" />
+    <Resource Include="Assets\Map\Forecast\pvf.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\reynisfjall.png" />
     <Resource Include="Assets\Map\rvk.gif" />
     <Resource Include="Assets\Map\rvk_invert.gif" />
-    <Resource Include="Assets\Map\sa.gif" />
-    <Resource Include="Assets\Map\sa_allar.png" />
-    <Resource Include="Assets\Map\sa_invert.gif" />
-    <Resource Include="Assets\Map\skaftafell.png" />
-    <Resource Include="Assets\Map\skardsfjviti.png" />
-    <Resource Include="Assets\Map\su.gif" />
-    <Resource Include="Assets\Map\su_invert.gif" />
-    <Resource Include="Assets\Map\vf.gif" />
-    <Resource Include="Assets\Map\vf_invert.gif" />
+    <Resource Include="Assets\Map\Observation\sa.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\sa_allar.png" />
+    <Resource Include="Assets\Map\Observation\sa_invert.gif" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\skaftafell.png" />
+    <Resource Include="Assets\Map\ObservationIndicators\Sa\skardsfjviti.png" />
+    <Resource Include="Assets\Map\Observation\su.gif" />
+    <Resource Include="Assets\Map\Observation\su_invert.gif" />
+    <Resource Include="Assets\Map\Observation\vf.gif" />
+    <Resource Include="Assets\Map\Observation\vf_invert.gif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -281,6 +279,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Map\Observation\al.gif" />
+    <Resource Include="Assets\Map\Observation\al_invert.gif" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

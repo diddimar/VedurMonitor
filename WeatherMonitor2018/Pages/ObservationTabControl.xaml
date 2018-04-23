@@ -36,17 +36,19 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Name="tabs">
-        <StackPanel Grid.Row="1" Margin="15 15 15 0">
-            <TabControl x:Name="observationTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectedIndex="4" Background="Transparent" BorderThickness="0">
-                <TabItem x:Name="tab1" Header="Faxaflói"></TabItem>
-                <TabItem x:Name="tab2" Header="Breiðafjörður"></TabItem>
-                <TabItem x:Name="tab3" Header="Vestfirðir"></TabItem>
-                <TabItem x:Name="tab4" Header="Suðurland"></TabItem>
-                <TabItem x:Name="tab5" Header="Suðausturland"></TabItem>
-            </TabControl>
-        </StackPanel>
-    </Grid>
+    <StackPanel>
+        <Grid Name="tabs">
+            <StackPanel Grid.Row="1" Margin="5 5 15 0">
+                <TabControl Margin="10" x:Name="observationTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectedIndex="4" Background="Transparent" BorderThickness="0">
+                    <TabItem x:Name="tab1" Header="Faxaflói"></TabItem>
+                    <TabItem x:Name="tab2" Header="Breiðafjörður"></TabItem>
+                    <TabItem x:Name="tab3" Header="Vestfirðir"></TabItem>
+                    <TabItem x:Name="tab4" Header="Suðurland"></TabItem>
+                    <TabItem x:Name="tab5" Header="Suðausturland"></TabItem>
+                </TabControl>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 
 
 </UserControl>

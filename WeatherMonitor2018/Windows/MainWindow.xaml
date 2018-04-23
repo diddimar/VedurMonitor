@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="WeatherMonitor" Loaded="WindowLoaded"
+        Title="VedurMonitor" Loaded="WindowLoaded"
         Icon="../favicon.ico"
         WindowStartupLocation="CenterScreen"
         WindowStyle="ToolWindow"
@@ -53,7 +53,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--menu-->
-            <Menu x:Name="menu" Width="auto" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 5 0 0" Opacity=".75" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+            <Menu x:Name="menu" Padding="15 2 2 2" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left" Opacity=".75" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                 <MenuItem Header="File" Name="File">
                     <MenuItem Header="Screenshot" Click="ScreenShot_Click"/>
                     <MenuItem Header="Restart" Click="Reset_click"/>
