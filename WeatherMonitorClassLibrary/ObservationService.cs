@@ -7,7 +7,7 @@ namespace WeatherMonitorClassLibrary
 {
     public class ObservationService
     {
-        private static Station SationError = new Station { Id = "", Valid = 0, Name = "", Time = "", Err = "", Link= "", Vindhradi= "", Vindstefna= "Reynið aftur seinna...", FG= "", Hiti= "Villa: Engar upplýsingar í augnablikinu", Vedurlysing= "", V = "", R="" };
+        private static Station SationError = new Station { Id="", Valid=0, Name="", Time="", Err="", Link= "", Vindhradi="", Vindstefna="Reynið aftur seinna...", MestaVindhvida="", MestiVindradi="", Hiti="Villa: Engar upplýsingar í augnablikinu", Vedurlysing="", Skyggni="", Urkoma="" };
         WindDirection _windDirection;
         public ObservationService()
         {

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WeatherMonitor2018.Pages.ObservationPage"
+﻿<UserControl x:Class="WeatherMonitor2018.Pages.ObservationTabControl"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -38,13 +38,12 @@
 
     <Grid Name="tabs">
         <StackPanel Grid.Row="1" Margin="15 15 15 0">
-            <TabControl TabStripPlacement="Right" SelectedIndex="1" Background="Transparent" BorderThickness="0">
-                <TabItem Visibility="Hidden" Height="19"></TabItem>
-                <TabItem x:Name="spa1" Header="Stöð 1"></TabItem>
-                <TabItem x:Name="spa2" Header="Stöð 2"></TabItem>
-                <TabItem x:Name="spa3" Header="Stöð 3"></TabItem>
-                <TabItem x:Name="spa4" Header="Stöð 4"></TabItem>
-                <TabItem x:Name="spa5" Header="Stöð 5"></TabItem>
+            <TabControl x:Name="observationTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectedIndex="4" Background="Transparent" BorderThickness="0">
+                <TabItem x:Name="tab1" Header="Faxaflói"></TabItem>
+                <TabItem x:Name="tab2" Header="Breiðafjörður"></TabItem>
+                <TabItem x:Name="tab3" Header="Vestfirðir"></TabItem>
+                <TabItem x:Name="tab4" Header="Suðurland"></TabItem>
+                <TabItem x:Name="tab5" Header="Suðausturland"></TabItem>
             </TabControl>
         </StackPanel>
     </Grid>

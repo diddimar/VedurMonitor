@@ -4,15 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Loaded="WindowLoaded"
+        Title="WeatherMonitor" Loaded="WindowLoaded"
         Icon="../favicon.ico"
-        Height="600" Width="750"
-        MinHeight="450" MinWidth="500"
-        MaxHeight="800" MaxWidth="900">
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        ResizeMode="CanMinimize"
+        Height="650" Width="800"
+        MinHeight="650" MinWidth="800"
+        MaxHeight="650" MaxWidth="800"
+        >
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="magicBrush" Color="Transparent" Opacity=".2" />
             <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -47,19 +52,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-
             <!--menu-->
-            <Menu x:Name="menu" Width="auto" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-42 14 0 0" Opacity=".75" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+            <Menu x:Name="menu" Width="auto" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 5 0 0" Opacity=".75" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                 <MenuItem Header="File" Name="File">
-                    <MenuItem Header="Quit" Click="Quit_Click"/>
-                    <MenuItem Header="Restart" Click="Reset_click"/>
                     <MenuItem Header="Screenshot" Click="ScreenShot_Click"/>
-                </MenuItem>
-                <MenuItem Header="Presets" Name="Presets">
-                    <MenuItem Header="Load Preset"/>
-                    <MenuItem Header="Save Preset"/>
-                    <MenuItem Header="Delete Preset"/>
+                    <MenuItem Header="Restart" Click="Reset_click"/>
+                    <MenuItem Header="Quit" Click="Quit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Settings" Name="Settings">
                     <MenuItem Header="Languages">
@@ -93,7 +91,7 @@
                    HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
 
             <!--aboutPage close button-->
-            <Button x:Name="closeAbout" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Height="25" Width="25" Content="OK" Click="Close_About_Click" VerticalAlignment="Bottom" Margin="20" />
+            <Button x:Name="closeAbout" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Height="25" Content="Close about" Click="Close_About_Click" VerticalAlignment="Bottom" Margin="20" />
         </Grid>
     </Grid>
 

@@ -34,21 +34,24 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel>
-                    <ComboBox x:Name="landshlutaDropdown" SelectedIndex="-1" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="5000" ToolTipService.BetweenShowDelay="10000" ToolTip="Landshlutar" Margin="5,2.5,0,2.5" Width="180" Height="25" HorizontalAlignment="Left" Background="White" Foreground="Black"/>
+                    <ComboBox x:Name="landshlutaDropdown" SelectedIndex="-1" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="5000" ToolTipService.BetweenShowDelay="10000" ToolTip="Landshlutar" Margin="5,2.5,0,0" Width="180" Height="25" HorizontalAlignment="Left" Background="White" Foreground="Black"/>
                     <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StadurTemplate}" ToolTipService.InitialShowDelay="1000" ToolTipService.ShowDuration="5000" ToolTipService.BetweenShowDelay="10000" ToolTip="Staðir" Margin="5,10,0,10" Width="180" Height="25" HorizontalAlignment="Left" Background="White" Foreground="Black"/>
                 </StackPanel>
             </StackPanel>
+            <Rectangle Fill="{StaticResource col1}" Margin="40 0 35 4" Height="2" />
             <Grid Grid.Row="3">
                 <StackPanel>
-                    <StackPanel Margin="55 5">
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="ReloadButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="ReloadButton_Click"></Button>
+                    <StackPanel Width="190" Margin="5">
                         <TextBox x:Name="nameTextBox" TextAlignment="Center" BorderThickness="0" AllowDrop="False" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Background="#FFD1E4EA" Opacity="0.75"/>
                         <TextBox x:Name="timiTextBox" TextAlignment="Center" BorderThickness="0" AllowDrop="False" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Background="#FFD1E4EA" Opacity="0.75"/>
                     </StackPanel>
-                    <Rectangle Fill="{StaticResource col1}" Margin="40 10 30 4" Height="2" />
-                    <StackPanel Margin="25 10 25 10" MaxHeight="60">
+                    </StackPanel>
+                    <StackPanel Margin="25 5 25 10" MaxHeight="60">
                         <TextBox x:Name="hitiTextBox" TextAlignment="Center" BorderThickness="0" IsTabStop="False" Opacity="0.9"/>
-                        <TextBox x:Name="vindstefnaTextBox" TextAlignment="Center" BorderThickness="0" IsTabStop="False" Opacity="0.9"/>
                         <TextBox x:Name="vindhradiTextBox" TextAlignment="Center" BorderThickness="0" IsTabStop="False" Opacity="0.9"/>
+                        <TextBox x:Name="vindstefnaTextBox" TextAlignment="Center" BorderThickness="0" IsTabStop="False" Opacity="0.9"/>
                         <TextBox x:Name="vedurlysingTextBox" TextAlignment="Center" BorderThickness="0" IsTabStop="False"/>
                     </StackPanel>
                 </StackPanel>

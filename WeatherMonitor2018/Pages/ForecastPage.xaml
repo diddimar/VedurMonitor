@@ -12,19 +12,6 @@
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource baseStyle}"></Style>
             
-            <ControlTemplate x:Key="RealoadButton" TargetType="{x:Type Button}">
-                <Grid Grid.Column="3" Grid.Row="3">
-                    <Image x:Name="myimage" Source="{DynamicResource refresh}" Height="Auto" Width="Auto" />
-                    <Border Grid.Column="3" Grid.Row="3">
-                        <ContentPresenter Content="{TemplateBinding Content}"/>
-                    </Border>
-                </Grid>
-                <ControlTemplate.Triggers >
-                    <Trigger Property="Button.IsPressed" Value="True">
-                        <Setter TargetName="myimage" Property="Source" Value="{DynamicResource refreshFilled}" />
-                    </Trigger>
-                </ControlTemplate.Triggers>
-            </ControlTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -48,8 +35,8 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <StackPanel Name="textaspa" Margin="15 -35 15 0">
-
+        <StackPanel Name="textaspa" Margin="15 -25 15 0">
+            <TextBlock Text="Textaspár" FontSize="24" Foreground="Gray" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <ComboBox x:Name="flokkurComboBox" Margin="15" ItemTemplate="{DynamicResource txtStadurTemplate}" 
                      MaxDropDownHeight="auto" HorizontalAlignment="Center" MinWidth="90" SelectionChanged="flokkurComboBox_SelectionChanged">
                 <ComboBoxItem x:Name="isl">Íslenska</ComboBoxItem>

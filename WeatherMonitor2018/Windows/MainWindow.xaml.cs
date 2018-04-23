@@ -25,7 +25,7 @@ namespace WeatherMonitor2018.Windows
         {
             InitializeComponent();
             rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationPage();
+            leftFrame.Content = new ObservationTabControl();
         }
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
@@ -64,13 +64,13 @@ namespace WeatherMonitor2018.Windows
         {
             _languageSelection = 2;
             rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationPage();
+            leftFrame.Content = new ObservationTabControl();
         }
         private void English_Unchecked(object sender, RoutedEventArgs e)
         {
             _languageSelection = 1;
             rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationPage();
+            leftFrame.Content = new ObservationTabControl();
         }
         private void ScreenShot_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +98,6 @@ namespace WeatherMonitor2018.Windows
             SolidColorBrush brush = new SolidColorBrush(color);
             Settings.Foreground = brush;
             File.Foreground = brush;
-            Presets.Foreground = brush;
             About.Foreground = brush;
         }
         private void ChangeBackground(object sender, RoutedEventArgs e)
@@ -106,7 +105,7 @@ namespace WeatherMonitor2018.Windows
             MenuItem mi = e.Source as MenuItem;
             string name = mi.Name;
             backgroundGif.Source = null;
-            if (name == "Off")
+            if (name == "off")
             {
                 colorSliders.Visibility = Visibility.Visible;
             }

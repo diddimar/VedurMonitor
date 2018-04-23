@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="325">
 
-    <Grid>
-        <Image Margin="10" Source="C:\Users\dmrgu\Documents\WPF\IcelandicWeatherMonitor\WeatherMonitor2018\WeatherMonitor2018\Assets\Misc\about.JPG" Opacity="0.75"/>
+    <Grid Margin=" 0 -50 0 0">
+        <Image Margin="10" Source="{DynamicResource about}" Opacity="0.75"/>
     </Grid>
 </UserControl>

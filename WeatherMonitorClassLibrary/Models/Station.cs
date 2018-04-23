@@ -30,10 +30,10 @@ namespace WeatherMonitorClassLibrary.Models
         public string Vindstefna { get; set; }
 
         [XmlElement(ElementName = "FX")]
-        public string FX { get; set; }
+        public string MestiVindradi { get; set; }
 
         [XmlElement(ElementName = "FG")]
-        public string FG { get; set; }
+        public string MestaVindhvida { get; set; }
 
         [XmlElement(ElementName = "T")]
         public string Hiti { get; set; }
@@ -42,9 +42,19 @@ namespace WeatherMonitorClassLibrary.Models
         public string Vedurlysing { get; set; }
 
         [XmlElement(ElementName = "V")]
-        public string V { get; set; }
+        public string Skyggni { get; set; }
 
         [XmlElement(ElementName = "R")]
-        public string R { get; set; }
+        public string Urkoma { get; set; }
     }
 }
+
+
+// Vantar N - Skýjahula
+// P - Loftþrýstingur
+// RH - rakastig
+// SNC - Lýsing á snjó
+// SND - Snjódýpt
+// SED - Sjólag
+// RTE - Veghiti
+// TD - Daggarmark

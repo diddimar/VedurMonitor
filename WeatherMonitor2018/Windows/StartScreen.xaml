@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherMonitor2018.Windows"
         mc:Ignorable="d"
-        ResizeMode="NoResize" WindowStyle="None">
+        ResizeMode="NoResize" WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Width="350" Height="200">
 
     <Grid>
         <Image Source="{StaticResource splash}" Stretch="Fill" />
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 80 50 0">
-            <Label Foreground="White" x:Name="ProjectName" Content="VeðurVaktin" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold"/>
-            <Label Foreground="White" x:Name="Version" Content="Version 1.2" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 120 10 0">
+            <Label Foreground="White" Margin="0" Padding="0" x:Name="ProjectName" Content="VeðurVaktin" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold"/>
+            <Label Foreground="White" Margin="0" Padding="0" x:Name="Version" Content="Version 1.2" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
     

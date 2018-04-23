@@ -15,7 +15,7 @@ namespace WeatherMonitor2018.Pages
         private MapImageResolver _mapImageResolver;
         LandshlutarDataTable _landshlutaTable;
         StadirDataTable _stationTable;
-        public ObservationTab(LandshlutarDataTable landshlutar, StadirDataTable stations)
+        public ObservationTab(LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
         {
             _landshlutaTable = landshlutar;
             _stationTable = stations;
@@ -23,7 +23,7 @@ namespace WeatherMonitor2018.Pages
             _observationService = new ObservationService();
             _mapImageResolver = new MapImageResolver();
             landshlutaDropdown.ItemsSource = _landshlutaTable;
-            landshlutaDropdown.SelectedIndex = 0;
+            landshlutaDropdown.SelectedIndex = selectedIndex;
         }
         public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
             "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ObservationTab));
@@ -34,10 +34,17 @@ namespace WeatherMonitor2018.Pages
         }
         private void LandshlutiDropDownChange(object sender, SelectionChangedEventArgs e)
         {
-            //RaiseEvent(new RoutedEventArgs(ObservationTab.LandshlutiChangedEvent, "Hallo")); //Bubble Event to ObservationPage
             int landshlutaId = (e.AddedItems[0] as DataRowView).Row.Field<int>("Id");
             UpdateStationDropdown(landshlutaId);
+            RaiseUpdateTabHeaderEvent(landshlutaId);
             ChangeImages();
+        }
+        private void RaiseUpdateTabHeaderEvent(int landshlutaId)
+        {
+            string name = (from r in _landshlutaTable
+                           where r.Field<int>("Id") == landshlutaId
+                            select r.Field<string>("Nafn")).First();
+            RaiseEvent(new RoutedEventArgs(LandshlutiChangedEvent, name)); //Bubble Event to ObservationPageWrapper
         }
         private void StationSelect(object sender, SelectionChangedEventArgs e)
         {
@@ -61,6 +68,10 @@ namespace WeatherMonitor2018.Pages
             stationDropdown.ItemsSource = rows;
             stationDropdown.SelectedIndex = 0;
         }
+        private void ReloadButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void ChangeImages()
         {
             allIndicatorsLayer.SetResourceReference(Image.SourceProperty, "empty");
@@ -68,9 +79,9 @@ namespace WeatherMonitor2018.Pages
             string inverted = invertCheckbox.IsChecked == true ? "_inv" : String.Empty;
             string[] newMapLayers = _mapImageResolver.SetObservationMap(landshlutaDropdown.SelectedIndex);
             mapRootLayer.SetResourceReference(Image.SourceProperty, newMapLayers[0] + inverted);
-            ChecIndicatorLayers(newMapLayers);
+            CheckIndicatorLayers(newMapLayers);
         }
-        private void ChecIndicatorLayers(string[] newMapLayers)
+        private void CheckIndicatorLayers(string[] newMapLayers)
         {
             if ( Utils.ArrayInBounds(1, newMapLayers) )
             {

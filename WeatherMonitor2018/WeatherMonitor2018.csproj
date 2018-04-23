@@ -89,8 +89,8 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ObservationPage.xaml.cs">
-      <DependentUpon>ObservationPage.xaml</DependentUpon>
+    <Compile Include="Pages\ObservationTabControl.xaml.cs">
+      <DependentUpon>ObservationTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ForecastPage.xaml.cs">
       <DependentUpon>ForecastPage.xaml</DependentUpon>
@@ -126,7 +126,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ObservationPage.xaml">
+    <Page Include="Pages\ObservationTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
