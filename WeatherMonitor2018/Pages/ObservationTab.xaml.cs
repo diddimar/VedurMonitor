@@ -88,7 +88,7 @@ namespace WeatherMonitor2018.Pages
         private void SetStationDbInfo(StadirRow selectedStation)
         {
             altitudeTextBox.Text = Convert.ToInt32(selectedStation.Hæð_yfir_sjó).ToString() + " metrar";
-            ownerTextBox.Text = selectedStation.Eigandi_stöðvar;
+            ownerTextBox.Text = "Eigandi: " + selectedStation.Eigandi_stöðvar;
         }
         private void UpdateStationDropdown(int landshlutaId)
         {
