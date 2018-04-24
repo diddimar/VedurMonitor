@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WeatherMonitor2018"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="280"
              HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -35,7 +36,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="25 0 0 0" x:Name="ReloadButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="ReloadButton_Click"></Button>
                 <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center">
-                    <ComboBox Margin="2" x:Name="landshlutaDropdown" SelectedIndex="-1" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" 
+                    <ComboBox Margin="2" x:Name="landshlutaDropdown" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" 
                             MaxDropDownHeight="auto" Width="190" Height="25"  HorizontalAlignment="Center"/>
                     <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StadurTemplate}"
                             Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
@@ -101,7 +102,7 @@
             </Grid>
             <Grid Margin="10">
                 <Rectangle Fill="#FFD1E4EA" Opacity=".4"/>
-                <Image x:Name="mapRootLayer" Source="{DynamicResource isl_trans_inv}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Image>
+                <Image x:Name="mapRootLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Image>
                 <Image x:Name="allIndicatorsLayer" Source="{DynamicResource empty}" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
                 <Image x:Name="singleIndicatorLayer" Source="{DynamicResource empty}" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
             </Grid>

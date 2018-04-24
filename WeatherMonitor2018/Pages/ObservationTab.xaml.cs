@@ -12,6 +12,7 @@ namespace WeatherMonitor2018.Pages
 {
     public partial class ObservationTab : UserControl
     {
+        private StadirRow _selectedStation;
         public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
             "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ObservationTab));
         private ObservationService _observationService;
@@ -19,13 +20,15 @@ namespace WeatherMonitor2018.Pages
         LandshlutarDataTable _landshlutaTable;
         StadirDataTable _stationTable;
 
-        public ObservationTab(LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
+        public ObservationTab(
+            ObservationService observationService, ObservationImageResolver observationImageResolver,
+            LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
         {
             _landshlutaTable = landshlutar;
             _stationTable = stations;
             InitializeComponent();
-            _observationService = new ObservationService();
-            _observationImageResolver = new ObservationImageResolver();
+            _observationService = observationService;
+            _observationImageResolver = observationImageResolver;
             landshlutaDropdown.ItemsSource = _landshlutaTable;
             landshlutaDropdown.SelectedIndex = selectedIndex;
         }
@@ -52,20 +55,26 @@ namespace WeatherMonitor2018.Pages
         {
             if (e.AddedItems.Count == 0) { return; }
 
-            StadirRow selectedStation = (e.AddedItems[0] as StadirRow);
-            string stationId = selectedStation.Stöðvanúmer.ToString();
-
-            stationIdText.Text = "Stöðvanúmer: " + stationId;
-            Station response = _observationService.GetStationObservation(stationId);
+            _selectedStation = (e.AddedItems[0] as StadirRow);
+            stationIdText.Text = "Stöðvanúmer: " + _selectedStation.Stöðvanúmer.ToString();
+            LoadStation();
+        }
+        private void LoadStation()
+        {
+            Station response = _observationService.GetStationObservation(_selectedStation.Stöðvanúmer.ToString());
             FillTextBoxes(response);
             SetTextVisibility();
-            SetStationDbInfo(selectedStation);
+            SetStationDbInfo(_selectedStation);
             ChangeImages();
             CheckSationIndicator();
         }
         private void FillTextBoxes(Station response)
         {
-            timiTextBox.Text = response.Time;
+            DateTime parsed;
+            if (DateTime.TryParse(response.Time, out parsed))
+                parsed = DateTime.Parse(response.Time);
+            timiTextBox.Text = parsed.ToString("dd MMMM HH:MM");
+
             hitiTextBox.Text = response.Hiti;
             vindstefnaTextBox.Text = response.Vindstefna;
             vindhradiTextBox.Text = response.Vindhradi;
@@ -91,7 +100,7 @@ namespace WeatherMonitor2018.Pages
         }
         private void ReloadButton_Click(object sender, RoutedEventArgs e)
         {
-
+            LoadStation();
         }
         private void ChangeImages()
         {

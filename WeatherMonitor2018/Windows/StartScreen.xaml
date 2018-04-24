@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Width="350" Height="200">
+        Width="300" Height="290">
 
     <Grid>
-        <Image Source="{StaticResource splash}" Stretch="Fill" />
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 120 10 0">
+        <Image Source="{StaticResource vm_logo}" Stretch="Fill" />
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50 210 10 0">
             <Label Foreground="White" Margin="0" Padding="0" x:Name="ProjectName" Content="VedurMonitor" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold"/>
-            <Label Foreground="White" Margin="0" Padding="0" x:Name="Version" Content="Version 1.2" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold"/>
+            <Label Foreground="White" Margin="0" Padding="0" x:Name="Version" Content="Version 1.2" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
     

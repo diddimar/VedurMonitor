@@ -7,6 +7,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using WeatherMonitor2018.Pages;
 using WeatherMonitorClassLibrary;
+using System.Runtime.Caching;
+using System.IO;
 
 namespace WeatherMonitor2018.Windows
 {

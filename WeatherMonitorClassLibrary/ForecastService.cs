@@ -39,6 +39,7 @@ namespace WeatherMonitorClassLibrary
             if (string.IsNullOrEmpty(forecast.Content))
             {
                 forecast.Content = "Gögn ekki tiltæk einsog er.";
+                forecast.Creation = "";
             }
             return forecast;
         }

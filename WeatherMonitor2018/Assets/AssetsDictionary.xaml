@@ -10,7 +10,8 @@
     <BitmapImage x:Key="about" UriSource="Misc/about.jpg" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>
     <BitmapImage x:Key="hair" UriSource="Misc/hair_guy.jpg" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>
     <BitmapImage x:Key="splash" UriSource="Misc/splashscreen.jpg" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>
-
+    <BitmapImage x:Key="vm_logo" UriSource="Misc/vm_logo.png" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>
+    
     <!--Map Forecast Images-->
     <BitmapImage x:Key="allt" UriSource="Map/Forecast/allt.png" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>
     <BitmapImage x:Key="paf" UriSource="Map/Forecast/paf.png" BaseUri="{x:Static c:Constants.ImageRoot}"></BitmapImage>

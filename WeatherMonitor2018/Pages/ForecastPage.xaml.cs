@@ -79,10 +79,26 @@ namespace WeatherMonitor2018.Pages
         {
             Forecast textaInfo = _forecastService.GetForecast(stodvaNr);
             forecastTextBox.Text = textaInfo.Content;
-            DateTime createdTime = DateTime.Parse(textaInfo.Creation);
-            forecastInfoBox.Text = "Spá skrifuð " + createdTime;
-            var validFrom = textaInfo.Valid_from;
+
+            DateTime parsed;
+            if (DateTime.TryParse(textaInfo.Creation, out parsed))
+            {
+                parsed = DateTime.Parse(textaInfo.Creation);
+                DateTime now = DateTime.Now;
+                TimeSpan span = now.Subtract(parsed);
+                if(span.Hours > 0)
+                    forecastInfoBox.Text = $"Spá skrifuð fyrir {span.Hours} klst";
+                else
+                    forecastInfoBox.Text = $"Spá skrifuð fyrir {span.Minutes} min";
+
+            }else
+            {
+                forecastInfoBox.Text = $"Reynið aftur síðar";
+            }
             var validTo = textaInfo.Valid_to;
+            var validFrom = textaInfo.Valid_from;
+
+
 
         }
         private void SetNewMapimage(int stodvaNr)

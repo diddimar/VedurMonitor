@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using WeatherMonitorClassLibrary;
 using WeatherMonitor2018.Data.WeatherMonitorDataSetTableAdapters;
 using static WeatherMonitor2018.Data.WeatherMonitorDataSet;
+using WeatherMonitorClassLibrary.ImageService;
 
 namespace WeatherMonitor2018.Pages
 {
@@ -20,19 +21,23 @@ namespace WeatherMonitor2018.Pages
             StadirTableAdapter sta = new StadirTableAdapter();
             LandshlutarDataTable landshlutar = lta.GetData();
             StadirDataTable stations = sta.GetData();
-            LoadTabs(landshlutar, stations);
+            ObservationService os = new ObservationService();
+            ObservationImageResolver oir = new ObservationImageResolver();
+            LoadTabs(os, oir, landshlutar, stations);
             lta.Dispose();
             sta.Dispose();
             landshlutar.Dispose();
             stations.Dispose();
         }
-        public void LoadTabs(LandshlutarDataTable landshlutar, StadirDataTable stations)
+        public void LoadTabs(
+            ObservationService os, ObservationImageResolver oir,
+            LandshlutarDataTable landshlutar, StadirDataTable stations)
         {
-            tab1.Content = new ObservationTab(landshlutar, stations, 0);
-            tab2.Content = new ObservationTab(landshlutar, stations, 1);
-            tab3.Content = new ObservationTab(landshlutar, stations, 2);
-            tab4.Content = new ObservationTab(landshlutar, stations, 8);
-            tab5.Content = new ObservationTab(landshlutar, stations, 7);
+            tab1.Content = new ObservationTab(os, oir, landshlutar, stations, 0);
+            tab2.Content = new ObservationTab(os, oir, landshlutar, stations, 1);
+            tab3.Content = new ObservationTab(os, oir, landshlutar, stations, 2);
+            tab4.Content = new ObservationTab(os, oir, landshlutar, stations, 8);
+            tab5.Content = new ObservationTab(os, oir, landshlutar, stations, 7);
         }
         private void LandshlutiChangedEventHandler(object sender, RoutedEventArgs e)
         {

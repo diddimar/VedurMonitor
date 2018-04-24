@@ -4,15 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="VedurMonitor" Loaded="WindowLoaded"
-        Icon="../favicon.ico"
+        Loaded="WindowLoaded"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="ToolWindow"
         ResizeMode="CanMinimize"
         Height="650" Width="800"
         MinHeight="650" MinWidth="800"
         MaxHeight="650" MaxWidth="800"
-        >
+        WindowStyle="ToolWindow">
     <Window.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="magicBrush" Color="Transparent" Opacity=".2" />
@@ -89,7 +87,10 @@
             <!--rightpanel-->
             <Frame x:Name="rightFrame" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
-
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 30 0"  Grid.Column="1" Grid.Row="0" >
+                <TextBlock Margin="0 0 5 0" Text="VedurMonitor" Foreground="CadetBlue" FontSize="24" FontWeight="Bold" />
+                <Image Margin="2" Opacity="0.9" Source="{DynamicResource vm_logo}"/>
+            </StackPanel>
             <!--aboutPage close button-->
             <Button x:Name="closeAbout" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Height="25" Content="Close about" Click="Close_About_Click" VerticalAlignment="Bottom" Margin="20" />
         </Grid>
