@@ -17,13 +17,13 @@ namespace WeatherMonitor2018
     public partial class App : Application
     {
         private const int min_spl_time = 1000;
-        protected override void OnStartup(StartupEventArgs e)
+        private void Application_Startup(object sender, StartupEventArgs e)
         {
             //string basePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
             //ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
             //configMap.ExeConfigFilename = "App.config";
             //Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
-            InitStationCache();
+
             Stopwatch timer = new Stopwatch();
             StartScreen splash = new StartScreen();
             splash.Show();
@@ -33,17 +33,6 @@ namespace WeatherMonitor2018
             MainWindow mainWindow = new MainWindow();
             splash.Close();
             timer.Stop(); timer = null;
-        }
-         private void InitStationCache()
-        {
-            Station defaultStation = new Station { Time = "Nothing", Hiti = "0", Vedurlysing = "Hellað" };
-            List<Station> list = new List<Station>();
-            list.Add(defaultStation);
-            list.Add(defaultStation);
-            IEnumerable<Station> en = list;
-            ObjectCache stationCache = MemoryCache.Default;
-            var policy = new CacheItemPolicy { AbsoluteExpiration = DateTime.Now.AddMinutes(75) };
-            stationCache.Add("stations", en, policy);
         }
     }
 }

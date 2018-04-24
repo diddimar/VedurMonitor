@@ -24,9 +24,9 @@ namespace WeatherMonitor2018.Pages
             ObservationService observationService, ObservationImageResolver observationImageResolver,
             LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
         {
+            InitializeComponent();
             _landshlutaTable = landshlutar;
             _stationTable = stations;
-            InitializeComponent();
             _observationService = observationService;
             _observationImageResolver = observationImageResolver;
             landshlutaDropdown.ItemsSource = _landshlutaTable;

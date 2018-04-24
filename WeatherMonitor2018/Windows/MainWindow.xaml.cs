@@ -7,8 +7,6 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using WeatherMonitor2018.Pages;
 using WeatherMonitorClassLibrary;
-using System.Runtime.Caching;
-using System.IO;
 
 namespace WeatherMonitor2018.Windows
 {
@@ -19,17 +17,24 @@ namespace WeatherMonitor2018.Windows
     {
         public static string _kortasource = "";
         public TimeSpan _seconds = new TimeSpan(0, 0, 1);
-        public int _languageSelection = 1;
         public Rectangle _bounds { get; private set; }
         ScreenShot _screenshot = new ScreenShot();
-
+        ObservationService _observationService;
+        WindDirection _windDirection;
         public MainWindow()
         {
             InitializeComponent();
-            rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationTabControl();
+            _windDirection = new WindDirection();
+            _observationService = new ObservationService(_windDirection);
         }
-        private void WindowLoaded(object sender, RoutedEventArgs e)
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartClock();
+            rightFrame.Content = new ForecastPage();
+            leftFrame.Content = new ObservationTabControl(_observationService);
+        }
+        private void StartClock()
         {
             DispatcherTimer _timer = new DispatcherTimer();
             _timer.Tick += TimerTick;
@@ -45,12 +50,12 @@ namespace WeatherMonitor2018.Windows
         
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            rightFrame.Content = new AboutPage();
+            rightFrame.Content = new AboutPage(_observationService);
             closeAbout.Visibility = Visibility.Visible;
         }
         private void Close_About_Click(object sender, RoutedEventArgs e)
         {
-            rightFrame.Content = new ForecastPage(_languageSelection);
+            rightFrame.Content = new ForecastPage();
             closeAbout.Visibility = Visibility.Hidden;
         }
         private void Reset_click(object sender, RoutedEventArgs e)
@@ -64,15 +69,15 @@ namespace WeatherMonitor2018.Windows
         }
         private void English_Checked(object sender, RoutedEventArgs e)
         {
-            _languageSelection = 2;
-            rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationTabControl();
+            //_languageSelection = 2;
+            //rightFrame.Content = new ForecastPage();
+            //leftFrame.Content = new ObservationTabControl(_observationService);
         }
         private void English_Unchecked(object sender, RoutedEventArgs e)
         {
-            _languageSelection = 1;
-            rightFrame.Content = new ForecastPage(_languageSelection);
-            leftFrame.Content = new ObservationTabControl();
+            //_languageSelection = 1;
+            //rightFrame.Content = new ForecastPage(_languageSelection);
+            //leftFrame.Content = new ObservationTabControl(_observationService);
         }
         private void ScreenShot_Click(object sender, RoutedEventArgs e)
         {
@@ -104,17 +109,16 @@ namespace WeatherMonitor2018.Windows
         }
         private void ChangeBackground(object sender, RoutedEventArgs e)
         {
-            MenuItem mi = e.Source as MenuItem;
-            string name = mi.Name;
+            MenuItem menuItem = e.Source as MenuItem;
             backgroundGif.Source = null;
-            if (name == "off")
+            if (menuItem.Name == "off")
             {
                 colorSliders.Visibility = Visibility.Visible;
             }
             else
             {
                 colorSliders.Visibility = Visibility.Collapsed;
-                var uri = ( GetBackgroundPath() + name + ".gif");
+                var uri = ( GetBackgroundPath() + menuItem.Name + ".gif");
                 backgroundGif.Source = new Uri(uri);
             }
         }

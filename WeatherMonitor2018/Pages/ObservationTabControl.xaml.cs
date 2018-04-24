@@ -13,7 +13,7 @@ namespace WeatherMonitor2018.Pages
     /// </summary>
     public partial class ObservationTabControl : UserControl
     {
-        public ObservationTabControl()
+        public ObservationTabControl(ObservationService os)
         {
             AddHandler(ObservationTab.LandshlutiChangedEvent, new RoutedEventHandler(LandshlutiChangedEventHandler));
             InitializeComponent();
@@ -21,7 +21,6 @@ namespace WeatherMonitor2018.Pages
             StadirTableAdapter sta = new StadirTableAdapter();
             LandshlutarDataTable landshlutar = lta.GetData();
             StadirDataTable stations = sta.GetData();
-            ObservationService os = new ObservationService();
             ObservationImageResolver oir = new ObservationImageResolver();
             LoadTabs(os, oir, landshlutar, stations);
             lta.Dispose();

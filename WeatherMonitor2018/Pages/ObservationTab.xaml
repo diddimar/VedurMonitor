@@ -48,7 +48,7 @@
                     <TextBox Text="Hæð yfir sjó:" IsReadOnly="True" Foreground="DarkGray" />
                     <TextBox x:Name="altitudeTextBox" IsReadOnly="True" Foreground="DarkGray" />
             </StackPanel>
-            <Grid Margin="10" MaxHeight="260">
+            <Grid Margin="10" MaxHeight="250">
                 <Rectangle Fill="#FFD1E4EA" Opacity=".4"/>
                 
                 <Image x:Name="mapRootLayer" HorizontalAlignment="Left" VerticalAlignment="Stretch"></Image>

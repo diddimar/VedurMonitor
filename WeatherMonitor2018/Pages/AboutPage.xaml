@@ -4,10 +4,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WeatherMonitor2018.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="325">
+      mc:Ignorable="d" Loaded="AboutPage_Loaded"
+      d:DesignHeight="480" d:DesignWidth="325">
 
-    <Grid Margin=" 0 -50 0 0">
-        <Image Margin="10" Source="{DynamicResource about}" Opacity="0.75"/>
+    <Grid Margin=" 0 -30 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Margin="10" Source="{DynamicResource about}" Opacity="0.75"/>
+        <StackPanel Grid.Row="1" Margin="0 -40 0 0" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Background="White" x:Name="cachedTextBox" />
+            <TextBlock Background="White" x:Name="requestTextBox" />
+        </StackPanel>
     </Grid>
 </UserControl>

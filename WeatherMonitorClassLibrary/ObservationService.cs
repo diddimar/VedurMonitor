@@ -13,11 +13,11 @@ namespace WeatherMonitorClassLibrary
     {
         WindDirection _windDirection;
         ObjectCache _applicationCache;
-        private int cacheCount = 0;
-        private int httpCount = 0;
-        public ObservationService()
+        public int cacheCount = 0;
+        public int httpCount = 0;
+        public ObservationService(WindDirection windDirection)
         {
-            _windDirection = new WindDirection();
+            _windDirection = windDirection;
             _applicationCache = MemoryCache.Default;
         }
         public Station GetStationObservation(string stationId)
@@ -77,8 +77,18 @@ namespace WeatherMonitorClassLibrary
 
         private IEnumerable<Station> StationCache()
         {
-            var objectInCache = _applicationCache.Get("stations") as IEnumerable<Station>;
-            return objectInCache;
+            var stationsInCache = _applicationCache.Get("stations") as IEnumerable<Station>;
+            if(stationsInCache != null)
+                return stationsInCache;
+            else
+            {
+                Station defaultStation = new Station { Time = "Nothing", Hiti = "0", Vedurlysing = "" };
+                List<Station> list = new List<Station>();
+                list.Add(defaultStation);
+                list.Add(defaultStation);
+                IEnumerable<Station> en = list;
+                return en;
+            }
         }
         private Station CheckIfStationIsInCache(string stationId)
         {

@@ -38,7 +38,7 @@
 
     <StackPanel>
         <Grid Name="tabs">
-            <StackPanel Grid.Row="1" Margin="15 -15 0 0">
+            <StackPanel Grid.Row="1" Margin="15 10 0 0">
                 <TabControl Margin="10 0 0 10" x:Name="observationTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectedIndex="4" Background="Transparent" BorderThickness="0">
                     <TabItem x:Name="tab1" Header="Faxaflói"></TabItem>
                     <TabItem x:Name="tab2" Header="Breiðafjörður"></TabItem>
