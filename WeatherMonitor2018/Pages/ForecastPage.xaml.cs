@@ -26,7 +26,7 @@ namespace WeatherMonitor2018.Pages
 
         private void SetForecastComboBox(int catId)
         {
-            var rows = from row in SQLiteService.GetForecasts()
+            var rows = from row in LiteDbService.GetForecasts()
                        where row.CategoryId.Equals(catId)
                        select row;
             forecastDropdown.ItemsSource = rows;

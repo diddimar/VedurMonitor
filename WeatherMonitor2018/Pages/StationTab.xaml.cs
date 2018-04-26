@@ -21,7 +21,7 @@ namespace WeatherMonitor2018.Pages
         public StationTab(int selectedIndex)
         {
             InitializeComponent();
-            regionDropdown.ItemsSource = SQLiteService.GetRegions();
+            regionDropdown.ItemsSource = LiteDbService.GetRegions();
             regionDropdown.SelectedIndex = selectedIndex;
         }
         public event RoutedEventHandler LandshlutiChanged
@@ -38,7 +38,7 @@ namespace WeatherMonitor2018.Pages
         }
         private void RaiseUpdateTabHeaderEvent(int landshlutaId)
         {
-            string name = (from r in SQLiteService.GetRegions()
+            string name = (from r in LiteDbService.GetRegions()
                            where r.Id == landshlutaId
                             select r.Name).First();
             RaiseEvent(new RoutedEventArgs(LandshlutiChangedEvent, name)); //Bubble Event to ObservationPageWrapper
@@ -83,7 +83,7 @@ namespace WeatherMonitor2018.Pages
         }
         private void UpdateStationDropdown(int landshlutaId)
         {
-            var rows = from row in SQLiteService.GetStations()
+            var rows = from row in LiteDbService.GetStations()
                        where row.Region.Equals(landshlutaId)
                        select row;
             stationDropdown.ItemsSource = rows;
