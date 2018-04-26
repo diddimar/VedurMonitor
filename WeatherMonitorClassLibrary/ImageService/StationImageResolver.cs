@@ -1,8 +1,8 @@
 ﻿namespace WeatherMonitorClassLibrary.ImageService
 {
-    public class ObservationImageResolver
+    public static class StationImageResolver
     {
-        public string[] GetObservationMap(int landshlutaIndex)
+        public static string[] GetMap(int landshlutaIndex)
         {
             switch (landshlutaIndex)
             {
@@ -29,7 +29,7 @@
             }
         }
         
-        public string SetStationIndicator(int landshlutaIndex, int stationIndex)
+        public static string SetIndicator(int landshlutaIndex, int stationIndex)
         {
             switch (landshlutaIndex)
             {
@@ -58,7 +58,7 @@
             }
         }
 
-        private string SaIndicators(int stationIndex)
+        private static string SaIndicators(int stationIndex)
         {
             switch (stationIndex)
             {

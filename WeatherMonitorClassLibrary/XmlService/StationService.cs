@@ -1,43 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.Caching;
+using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-using WeatherMonitorClassLibrary.Models;
+using WeatherMonitorClassLibrary.Models.XmlResponses;
 
-namespace WeatherMonitorClassLibrary
+namespace WeatherMonitorClassLibrary.XmlService
 {
-    public class ObservationService
+    public static class StationService
     {
-        WindDirection _windDirection;
-        ObjectCache _applicationCache;
-        public int cacheCount = 0;
-        public int httpCount = 0;
-        public ObservationService(WindDirection windDirection)
-        {
-            _windDirection = windDirection;
-            _applicationCache = MemoryCache.Default;
-        }
-        public Station GetStationObservation(string stationId)
+        static ObjectCache _applicationCache = MemoryCache.Default;
+        public static int cacheCount = 0;
+        public static int httpCount = 0;
+
+        public static Station Get(string stationId)
         {
             var station = CheckIfStationIsInCache(stationId);
             if (station != null && CheckCachedStationAge(station))
             {
                 cacheCount++;
-                Console.WriteLine($"{cacheCount} stations received from cache.");
                 return station;
             }
             else
             {
                 httpCount++;
-                Console.WriteLine($"{httpCount} http request for stations made.");
                 return GetXML(stationId);
             }
         }
 
-        private Station GetXML(string stationId)
+        private static Station GetXML(string stationId)
         {
             string path = @"http://xmlweather.vedur.is/?op_w=xml&type=obs&lang=is&view=xml&ids=" + stationId;
             XmlDocument document = Utils.GetXmlDocument(path);
@@ -56,7 +49,7 @@ namespace WeatherMonitorClassLibrary
             return response;
         }
         
-        private Station DeserializeObservationDocument(XmlDocument doc)
+        private static Station DeserializeObservationDocument(XmlDocument doc)
         {
             Observation response = null;
             XmlSerializer serializer = new XmlSerializer(typeof(Observation));
@@ -66,16 +59,16 @@ namespace WeatherMonitorClassLibrary
             }
             return response.Station;
         }
-        private Station EditStationResponse(Station response)
+        private static Station EditStationResponse(Station response)
         {
             if (response.Vindhradi == response.MestiVindradi)
                 response.MestiVindradi = string.Empty;
 
-            response.Vindstefna = _windDirection.GetWindDirection(response.Vindstefna);
+            response.Vindstefna = StationWindSwitch.Get(response.Vindstefna);
             return response;
         }
 
-        private IEnumerable<Station> StationCache()
+        private static IEnumerable<Station> StationCache()
         {
             var stationsInCache = _applicationCache.Get("stations") as IEnumerable<Station>;
             if(stationsInCache != null)
@@ -90,7 +83,7 @@ namespace WeatherMonitorClassLibrary
                 return en;
             }
         }
-        private Station CheckIfStationIsInCache(string stationId)
+        private static Station CheckIfStationIsInCache(string stationId)
         {
             var stations = StationCache();
             Station station = (from c in stations
@@ -98,7 +91,7 @@ namespace WeatherMonitorClassLibrary
                      select c).FirstOrDefault();
             return station;
         }
-        private void CacheResponse(Station response)
+        private static void CacheResponse(Station response)
         {
             var oldStation = (from st in StationCache()
                               where st.Id == response.Id
@@ -116,7 +109,7 @@ namespace WeatherMonitorClassLibrary
                 _applicationCache.Add("stations", result, policy);
             }
         }
-        private bool CheckCachedStationAge(Station station)
+        private static bool CheckCachedStationAge(Station station)
         {
             DateTime parsed;
             if (DateTime.TryParse(station.Time, out parsed))
@@ -133,4 +126,5 @@ namespace WeatherMonitorClassLibrary
         }
 
     }
+
 }

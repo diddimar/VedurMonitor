@@ -1,9 +1,9 @@
 ﻿using System;
-namespace WeatherMonitorClassLibrary
+namespace WeatherMonitorClassLibrary.XmlService
 {
-    public class WindDirection
+    public static class StationWindSwitch
     {
-        public string GetWindDirection(string windDirection)
+        public static string Get(string windDirection)
         {
             if (String.IsNullOrEmpty(windDirection))
             {
@@ -49,7 +49,7 @@ namespace WeatherMonitorClassLibrary
 
         }
 
-        private string GetEnglish(string vindstefna)
+        private static string GetEnglish(string vindstefna)
         {
             if (vindstefna == "Logn" || vindstefna == "Calm")
                 return "Calm";
@@ -87,4 +87,5 @@ namespace WeatherMonitorClassLibrary
                 return string.Empty;
         }
     }
+
 }

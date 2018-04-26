@@ -1,9 +1,9 @@
 ﻿
 namespace WeatherMonitorClassLibrary.ImageService
 {
-    public class ForecastImageResolver
+    public static class ForecastImageResolver
     {
-        public string GetForecastMap(int textStationNumber)
+        public static string GetMap(int textStationNumber)
         {
             switch (textStationNumber)
             {

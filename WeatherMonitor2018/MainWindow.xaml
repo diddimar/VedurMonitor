@@ -1,4 +1,4 @@
-﻿<Window x:Class="WeatherMonitor2018.Windows.MainWindow"
+﻿<Window x:Class="WeatherMonitor2018.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -64,7 +64,6 @@
                     </MenuItem>
                     <MenuItem Header ="Backround Animition" MenuItem.Click="ChangeBackground" Foreground="Black" Focusable="False">
                         <MenuItem Header="Off" Name="off" BorderThickness="3"/>
-                        <MenuItem Header="Rain" Name="rain" BorderThickness="3" />
                         <MenuItem Header="Sunset" Name="sunSky" BorderThickness="3" />
                         <MenuItem Header="Hurricane" Name="hurricane" BorderThickness="3"/>
                         <MenuItem Header="Snowing" Name="snowing" BorderThickness="3"/>

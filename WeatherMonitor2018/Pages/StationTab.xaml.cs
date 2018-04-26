@@ -3,65 +3,56 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using WeatherMonitor2018.Data;
 using WeatherMonitorClassLibrary;
 using WeatherMonitorClassLibrary.ImageService;
-using WeatherMonitorClassLibrary.Models;
-using static WeatherMonitor2018.Data.WeatherMonitorDataSet;
+using WeatherMonitorClassLibrary.Models.DbObjects;
+using WeatherMonitorClassLibrary.Models.XmlResponses;
+using WeatherMonitorClassLibrary.XmlService;
 
 namespace WeatherMonitor2018.Pages
 {
-    public partial class ObservationTab : UserControl
+    public partial class StationTab : UserControl
     {
-        private StadirRow _selectedStation;
+        private StationInfo _selectedStation;
         public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
-            "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ObservationTab));
-        private ObservationService _observationService;
-        private ObservationImageResolver _observationImageResolver;
-        LandshlutarDataTable _landshlutaTable;
-        StadirDataTable _stationTable;
+            "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(StationTab));
 
-        public ObservationTab(
-            ObservationService observationService, ObservationImageResolver observationImageResolver,
-            LandshlutarDataTable landshlutar, StadirDataTable stations, int selectedIndex)
+        public StationTab(int selectedIndex)
         {
             InitializeComponent();
-            _landshlutaTable = landshlutar;
-            _stationTable = stations;
-            _observationService = observationService;
-            _observationImageResolver = observationImageResolver;
-            landshlutaDropdown.ItemsSource = _landshlutaTable;
-            landshlutaDropdown.SelectedIndex = selectedIndex;
+            regionDropdown.ItemsSource = SQLiteService.GetRegions();
+            regionDropdown.SelectedIndex = selectedIndex;
         }
         public event RoutedEventHandler LandshlutiChanged
         {
             add { AddHandler(LandshlutiChangedEvent, value); }
             remove { RemoveHandler(LandshlutiChangedEvent, value); }
         }
-        private void LandshlutiDropDownChange(object sender, SelectionChangedEventArgs e)
+        private void RegionDropDownChange(object sender, SelectionChangedEventArgs e)
         {
-            int landshlutaId = (e.AddedItems[0] as DataRowView).Row.Field<int>("Id");
+            int landshlutaId = (e.AddedItems[0] as Region).Id;
             UpdateStationDropdown(landshlutaId);
             RaiseUpdateTabHeaderEvent(landshlutaId);
-            //ChangeImages();
+            ChangeImages();
         }
         private void RaiseUpdateTabHeaderEvent(int landshlutaId)
         {
-            string name = (from r in _landshlutaTable
-                           where r.Field<int>("Id") == landshlutaId
-                            select r.Field<string>("Nafn")).First();
+            string name = (from r in SQLiteService.GetRegions()
+                           where r.Id == landshlutaId
+                            select r.Name).First();
             RaiseEvent(new RoutedEventArgs(LandshlutiChangedEvent, name)); //Bubble Event to ObservationPageWrapper
         }
         private void StationSelect(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) { return; }
-
-            _selectedStation = (e.AddedItems[0] as StadirRow);
-            stationIdText.Text = "Stöðvanúmer: " + _selectedStation.Stöðvanúmer.ToString();
+            _selectedStation = (e.AddedItems[0] as StationInfo);
+            stationIdText.Text = "Stöðvanúmer: " + _selectedStation.StationNumber.ToString();
             LoadStation();
         }
         private void LoadStation()
         {
-            Station response = _observationService.GetStationObservation(_selectedStation.Stöðvanúmer.ToString());
+            Station response = StationService.Get(_selectedStation.StationNumber.ToString());
             FillTextBoxes(response);
             SetTextVisibility();
             SetStationDbInfo(_selectedStation);
@@ -85,15 +76,15 @@ namespace WeatherMonitor2018.Pages
             skyggniTextBox.Text = response.Skyggni;
             villaTextBox.Text = response.Err;
         }
-        private void SetStationDbInfo(StadirRow selectedStation)
+        private void SetStationDbInfo(StationInfo selectedStation)
         {
-            altitudeTextBox.Text = Convert.ToInt32(selectedStation.Hæð_yfir_sjó).ToString() + " metrar";
-            ownerTextBox.Text = "Eigandi: " + selectedStation.Eigandi_stöðvar;
+            altitudeTextBox.Text = Convert.ToInt32(selectedStation.Altitude).ToString() + " metrar";
+            ownerTextBox.Text = "Eigandi: " + selectedStation.Owner;
         }
         private void UpdateStationDropdown(int landshlutaId)
         {
-            var rows = from row in _stationTable
-                       where row.Spásvæði.Equals(landshlutaId)
+            var rows = from row in SQLiteService.GetStations()
+                       where row.Region.Equals(landshlutaId)
                        select row;
             stationDropdown.ItemsSource = rows;
             stationDropdown.SelectedIndex = 0;
@@ -107,7 +98,7 @@ namespace WeatherMonitor2018.Pages
             allIndicatorsLayer.SetResourceReference(Image.SourceProperty, "empty");
             singleIndicatorLayer.SetResourceReference(Image.SourceProperty, "empty");
             string inverted = invertCheckbox.IsChecked == true ? "_inv" : String.Empty;
-            string[] newMapLayers = _observationImageResolver.GetObservationMap(landshlutaDropdown.SelectedIndex);
+            string[] newMapLayers = StationImageResolver.GetMap(regionDropdown.SelectedIndex);
             mapRootLayer.SetResourceReference(Image.SourceProperty, newMapLayers[0] + inverted);
             CheckIndicatorLayers(newMapLayers);
         }
@@ -121,7 +112,7 @@ namespace WeatherMonitor2018.Pages
         }
         private void CheckSationIndicator()
         {
-            string indicator = _observationImageResolver.SetStationIndicator(landshlutaDropdown.SelectedIndex, stationDropdown.SelectedIndex);
+            string indicator = StationImageResolver.SetIndicator(regionDropdown.SelectedIndex, stationDropdown.SelectedIndex);
             if (!string.IsNullOrEmpty(indicator))
             {
                 singleIndicatorLayer.SetResourceReference(Image.SourceProperty, indicator);

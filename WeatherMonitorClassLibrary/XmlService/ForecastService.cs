@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using WeatherMonitorClassLibrary.Models;
+using WeatherMonitorClassLibrary.Models.XmlResponses;
 
-namespace WeatherMonitorClassLibrary
+namespace WeatherMonitorClassLibrary.XmlService
 {
-    public class ForecastService
+    public static class ForecastService
     {
-        public Forecast GetForecast(string selectionId)
+        public static Forecast GetForecast(string selectionId)
         {
             string path = @"http://xmlweather.vedur.is/?op_w=xml&type=txt&lang=is&view=xml&ids=" + selectionId;
             XmlDocument document = Utils.GetXmlDocument(path);
@@ -23,7 +20,7 @@ namespace WeatherMonitorClassLibrary
             return EditForecast(response);
             
         }
-        private Forecast DeserializeForecastXMLText(string forecastXml)
+        private static Forecast DeserializeForecastXMLText(string forecastXml)
         {
             XmlSerializer serializers = new XmlSerializer(typeof(ForecastRoot));
             ForecastRoot response = null;
@@ -34,7 +31,7 @@ namespace WeatherMonitorClassLibrary
             }
             return response.Forecast;
         }
-        private Forecast EditForecast(Forecast forecast)
+        private static Forecast EditForecast(Forecast forecast)
         {
             if (string.IsNullOrEmpty(forecast.Content))
             {

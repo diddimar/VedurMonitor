@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WeatherMonitor2018.Pages.ObservationTab"
+﻿<UserControl x:Class="WeatherMonitor2018.Pages.StationTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,14 +17,14 @@
             <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource nrTwoStyle}"></Style>
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource nrTwoStyle}"></Style>
 
-            <DataTemplate x:Key="LandshlutiTemplate">
+            <DataTemplate x:Key="RegionTemplate">
                 <Grid>
-                    <TextBlock Text="{Binding Path=Nafn}"/>
+                    <TextBlock Text="{Binding Path=Name}"/>
                 </Grid>
             </DataTemplate>
-            <DataTemplate x:Key="StadurTemplate">
+            <DataTemplate x:Key="StationTemplate">
                 <Grid>
-                    <TextBlock Text="{Binding Path=Nafn}"/>
+                    <TextBlock Text="{Binding Path=Name}"/>
                 </Grid>
             </DataTemplate>
 
@@ -36,9 +36,9 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="25 0 0 0" x:Name="ReloadButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="ReloadButton_Click"></Button>
                 <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center">
-                    <ComboBox Margin="2" x:Name="landshlutaDropdown" SelectionChanged="LandshlutiDropDownChange" ItemTemplate="{DynamicResource LandshlutiTemplate}" 
+                    <ComboBox Margin="2" x:Name="regionDropdown" SelectionChanged="RegionDropDownChange" ItemTemplate="{DynamicResource RegionTemplate}" 
                             MaxDropDownHeight="auto" Width="190" Height="25"  HorizontalAlignment="Center"/>
-                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StadurTemplate}"
+                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StationTemplate}"
                             Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

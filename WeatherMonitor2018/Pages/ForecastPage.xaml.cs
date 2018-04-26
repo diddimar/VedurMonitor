@@ -5,45 +5,37 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitor2018.Data;
-using WeatherMonitor2018.Data.WeatherMonitorDataSetTableAdapters;
-using WeatherMonitorClassLibrary;
 using WeatherMonitorClassLibrary.ImageService;
-using WeatherMonitorClassLibrary.Models;
-using static WeatherMonitor2018.Data.WeatherMonitorDataSet;
+using WeatherMonitorClassLibrary.Models.DbObjects;
+using WeatherMonitorClassLibrary.Models.XmlResponses;
+using WeatherMonitorClassLibrary.XmlService;
 
 namespace WeatherMonitor2018.Pages
 {
     public partial class ForecastPage : UserControl
     {
-        private ForecastService _forecastService;
-        private ForecastImageResolver _forecastImageResolver;
-        txtStadirDataTable _txtStadirDataTable;
         public ForecastPage()
         {
             InitializeComponent();
-            txtStadirTableAdapter tsta = new txtStadirTableAdapter();
-            _txtStadirDataTable = tsta.GetData();
-            tsta.Dispose();
-            _forecastService = new ForecastService();
-            _forecastImageResolver = new ForecastImageResolver();
-        }
-        private void ForecastPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            SetTextComboBox(1);
         }
 
-        private void SetTextComboBox(int catId)
+        private void ForecastPage_Loaded(object sender, RoutedEventArgs e)
         {
-            var rows = from row in _txtStadirDataTable
-                       where row.CatId.Equals(catId)
+            SetForecastComboBox(1);
+        }
+
+        private void SetForecastComboBox(int catId)
+        {
+            var rows = from row in SQLiteService.GetForecasts()
+                       where row.CategoryId.Equals(catId)
                        select row;
-            textspaDropdown.ItemsSource = rows;
-            textspaDropdown.SelectedIndex = 0;
+            forecastDropdown.ItemsSource = rows;
+            forecastDropdown.SelectedIndex = 0;
         }
 
         private void GetNewForecast(string stodvaNr)
         {
-            Forecast textaInfo = _forecastService.GetForecast(stodvaNr);
+            Forecast textaInfo = ForecastService.GetForecast(stodvaNr);
             forecastTextBox.Text = textaInfo.Content;
 
             DateTime parsed;
@@ -68,14 +60,14 @@ namespace WeatherMonitor2018.Pages
  
         private void SetNewMapimage(int stodvaNr)
         {
-            kortalayer.SetResourceReference(Image.SourceProperty, _forecastImageResolver.GetForecastMap(stodvaNr));
+            kortalayer.SetResourceReference(Image.SourceProperty, ForecastImageResolver.GetMap(stodvaNr));
         }
 
         private void textComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int stodvaNr = (e.AddedItems[0] as txtStadirRow).Field<int>("StodvaNr");
-            GetNewForecast(stodvaNr.ToString());
-            SetNewMapimage(stodvaNr);
+            int forecastNr = (e.AddedItems[0] as ForecastInfo).ForecastNumber;
+            GetNewForecast(forecastNr.ToString());
+            SetNewMapimage(forecastNr);
         }
 
     }

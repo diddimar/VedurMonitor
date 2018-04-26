@@ -1,38 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
+using System.Net.Mail;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using WeatherMonitor2018.Data;
 using WeatherMonitor2018.Pages;
 using WeatherMonitorClassLibrary;
+using WeatherMonitorClassLibrary.XmlService;
 
-namespace WeatherMonitor2018.Windows
+namespace WeatherMonitor2018
 {
-    /// <summary>
-    /// MainWindow = Gif bakgrunnur / klukka / MenuItem Suff / leftPage- & rightPage-frame 
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public static string _kortasource = "";
         public TimeSpan _seconds = new TimeSpan(0, 0, 1);
         public Rectangle _bounds { get; private set; }
         ScreenShot _screenshot = new ScreenShot();
-        ObservationService _observationService;
-        WindDirection _windDirection;
+
         public MainWindow()
         {
             InitializeComponent();
-            _windDirection = new WindDirection();
-            _observationService = new ObservationService(_windDirection);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             StartClock();
             rightFrame.Content = new ForecastPage();
-            leftFrame.Content = new ObservationTabControl(_observationService);
+            leftFrame.Content = new StationPage();
         }
         private void StartClock()
         {
@@ -50,7 +49,7 @@ namespace WeatherMonitor2018.Windows
         
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            rightFrame.Content = new AboutPage(_observationService);
+            rightFrame.Content = new AboutPage();
             closeAbout.Visibility = Visibility.Visible;
         }
         private void Close_About_Click(object sender, RoutedEventArgs e)
@@ -124,8 +123,12 @@ namespace WeatherMonitor2018.Windows
         }
         private string GetBackgroundPath()
         {
-            string basePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
-            return System.IO.Path.Combine(basePath, "../../Assets/Background/");
+            var outPutDirectory = System.IO.Path.GetDirectoryName(Directory.GetCurrentDirectory());
+
+
+            var path = outPutDirectory + "\\Assets\\Background\\";
+            Console.WriteLine(path);
+            return path;
         }
         #endregion BackgroundGif
 

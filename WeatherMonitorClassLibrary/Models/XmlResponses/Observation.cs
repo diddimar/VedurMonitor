@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace WeatherMonitorClassLibrary.Models
+namespace WeatherMonitorClassLibrary.Models.XmlResponses
 {
     [XmlRoot(ElementName = "observations")]
     public class Observation
