@@ -57,7 +57,7 @@
             </Grid>
             <CheckBox x:Name="invertCheckbox" Click="InvertCheckbox_Click" Content="Invert" HorizontalAlignment="Right" Margin="0 -30 15 0" Opacity=".5"/>
 
-            <TextBox x:Name="stationName" Width="Auto" Padding="2" Margin="0 0 0 5" Text="{Binding ElementName=stationDropdown, Path=SelectedItem.Nafn}" TextAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White" Background="DarkSeaGreen" Opacity="0.9" Style="{DynamicResource observationText}"/>
+            <TextBox x:Name="stationName" Width="Auto" Padding="2" Margin="0 0 0 5" Text="{Binding ElementName=stationDropdown, Path=SelectedItem.Name}" TextAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White" Background="DarkSeaGreen" Opacity="0.9" Style="{DynamicResource observationText}"/>
             <Grid Grid.Row="3">
                 <StackPanel>
                     <StackPanel x:Name="responseFields" Margin="15 0 15 0">
