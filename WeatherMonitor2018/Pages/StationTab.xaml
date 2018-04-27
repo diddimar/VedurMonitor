@@ -38,7 +38,7 @@
                 <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center">
                     <ComboBox Margin="2" x:Name="regionDropdown" SelectionChanged="RegionDropDownChange" ItemTemplate="{DynamicResource RegionTemplate}" 
                             MaxDropDownHeight="auto" Width="190" Height="25"  HorizontalAlignment="Center"/>
-                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelect" ItemTemplate="{DynamicResource StationTemplate}"
+                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelectChanged" ItemTemplate="{DynamicResource StationTemplate}"
                             Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

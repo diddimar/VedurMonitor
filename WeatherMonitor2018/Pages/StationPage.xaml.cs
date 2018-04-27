@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using WeatherMonitor2018.Data;
+using WeatherMonitor2018.Data.Models;
 using WeatherMonitorClassLibrary;
 
 namespace WeatherMonitor2018.Pages
@@ -15,11 +19,12 @@ namespace WeatherMonitor2018.Pages
 
         public void LoadTabs()
         {
-            tab1.Content = new StationTab(0);
-            tab2.Content = new StationTab(1);
-            tab3.Content = new StationTab(2);
-            tab4.Content = new StationTab(8);
-            tab5.Content = new StationTab(7);
+            List<Region> regions = ReadDatabase.GetRegions();
+            tab1.Content = new StationTab(regions, ReadDatabase.GetStations(), 0);
+            tab2.Content = new StationTab(regions, ReadDatabase.GetStations(), 1);
+            tab3.Content = new StationTab(regions, ReadDatabase.GetStations(), 2);
+            tab4.Content = new StationTab(regions, ReadDatabase.GetStations(), 8);
+            tab5.Content = new StationTab(regions, ReadDatabase.GetStations(), 7);
         }
 
         private void LandshlutiChangedEventHandler(object sender, RoutedEventArgs e)

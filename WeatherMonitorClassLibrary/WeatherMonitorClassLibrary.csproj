@@ -52,9 +52,6 @@
     <Compile Include="XmlService\ForecastService.cs" />
     <Compile Include="ImageService\ForecastImageResolver.cs" />
     <Compile Include="ImageService\StationImageResolver.cs" />
-    <Compile Include="Models\DbObjects\ForecastInfo.cs" />
-    <Compile Include="Models\DbObjects\Region.cs" />
-    <Compile Include="Models\DbObjects\StationInfo.cs" />
     <Compile Include="Models\XmlResponses\Observation.cs" />
     <Compile Include="Models\XmlResponses\Station.cs" />
     <Compile Include="Models\XmlResponses\Texts.cs" />

@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitor2018.Data;
+using WeatherMonitor2018.Data.Models;
 using WeatherMonitorClassLibrary;
 using WeatherMonitorClassLibrary.ImageService;
-using WeatherMonitorClassLibrary.Models.DbObjects;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
 using WeatherMonitorClassLibrary.XmlService;
 
@@ -15,14 +16,18 @@ namespace WeatherMonitor2018.Pages
     public partial class StationTab : UserControl
     {
         private StationInfo _selectedStation;
+        private IEnumerable<Region> _regionList;
+        private IEnumerable<StationInfo> _stationList;
         public static readonly RoutedEvent LandshlutiChangedEvent = EventManager.RegisterRoutedEvent(
             "LandshlutiChangedEvent", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(StationTab));
 
-        public StationTab(int selectedIndex)
+        public StationTab(IEnumerable<Region> regionList, IEnumerable<StationInfo> stationList, int selectedRegion)
         {
             InitializeComponent();
-            regionDropdown.ItemsSource = SQLiteService.GetRegions();
-            regionDropdown.SelectedIndex = selectedIndex;
+            _regionList = regionList;
+            _stationList = stationList;
+            regionDropdown.ItemsSource = _regionList;
+            regionDropdown.SelectedIndex = selectedRegion;
         }
         public event RoutedEventHandler LandshlutiChanged
         {
@@ -31,19 +36,17 @@ namespace WeatherMonitor2018.Pages
         }
         private void RegionDropDownChange(object sender, SelectionChangedEventArgs e)
         {
-            int landshlutaId = (e.AddedItems[0] as Region).Id;
-            UpdateStationDropdown(landshlutaId);
-            RaiseUpdateTabHeaderEvent(landshlutaId);
+            int regionId = (e.AddedItems[0] as Region).Id;
+            UpdateStationDropdown(regionId);
+            RaiseUpdateTabHeaderEvent(regionId);
             ChangeImages();
         }
-        private void RaiseUpdateTabHeaderEvent(int landshlutaId)
+        private void RaiseUpdateTabHeaderEvent(int regionId)
         {
-            string name = (from r in SQLiteService.GetRegions()
-                           where r.Id == landshlutaId
-                            select r.Name).First();
+            string name = _regionList.Where(x => x.Id == regionId).Select(x => x.Name).First();
             RaiseEvent(new RoutedEventArgs(LandshlutiChangedEvent, name)); //Bubble Event to ObservationPageWrapper
         }
-        private void StationSelect(object sender, SelectionChangedEventArgs e)
+        private void StationSelectChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) { return; }
             _selectedStation = (e.AddedItems[0] as StationInfo);
@@ -81,11 +84,9 @@ namespace WeatherMonitor2018.Pages
             altitudeTextBox.Text = Convert.ToInt32(selectedStation.Altitude).ToString() + " metrar";
             ownerTextBox.Text = "Eigandi: " + selectedStation.Owner;
         }
-        private void UpdateStationDropdown(int landshlutaId)
+        private void UpdateStationDropdown(int regionId)
         {
-            var rows = from row in SQLiteService.GetStations()
-                       where row.Region.Equals(landshlutaId)
-                       select row;
+            var rows = _stationList.Where(x => x.Region == regionId);
             stationDropdown.ItemsSource = rows;
             stationDropdown.SelectedIndex = 0;
         }

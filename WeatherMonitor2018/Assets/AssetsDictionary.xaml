@@ -2,16 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:c="clr-namespace:WeatherMonitor2018.Config">
 
+    <!--Icons-->
     <BitmapImage x:Key="refresh" UriSource="Icons/Refresh.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="refreshFilled" UriSource="Icons/RefreshFilled.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="norm" UriSource="Icons/norm.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="breakNorm" UriSource="/Icons/breakTheNorm.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
 
+    <!--Misc-->
     <BitmapImage x:Key="about" UriSource="Misc/about.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="hair" UriSource="Misc/hair_guy.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="splash" UriSource="Misc/splashscreen.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="vm_logo" UriSource="Misc/vm_logo.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    
+
+    <!-- Base Map images -->
+    <BitmapImage x:Key="isl" UriSource="Map/isl.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="isl_inv" UriSource="Map/isl_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="isl_trans" UriSource="Map/isl_trans.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="isl_trans_inv" UriSource="Map/isl_trans_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="empty" UriSource="Map/empty.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+
     <!--Map Forecast Images-->
     <BitmapImage x:Key="allt" UriSource="Map/Forecast/allt.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="paf" UriSource="Map/Forecast/paf.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
@@ -27,53 +33,46 @@
     <BitmapImage x:Key="pvf" UriSource="Map/Forecast/pvf.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <!--Map Forecast Images End -->
 
-    <BitmapImage x:Key="isl" UriSource="Map/isl.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="isl_inv" UriSource="Map/isl_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="isl_trans" UriSource="Map/isl_trans.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="isl_trans_inv" UriSource="Map/isl_trans_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-
-    <BitmapImage x:Key="rvk" UriSource="Map/rvk.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="rvk_inv" UriSource="Map/rvk_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-
-
-    <BitmapImage x:Key="empty" UriSource="Map/empty.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <!--Observation Map images-->
-    <BitmapImage x:Key="af" UriSource="Map/Observation/af.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="af_inv" UriSource="Map/Observation/af_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="al" UriSource="Map/Observation/al.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="al_inv" UriSource="Map/Observation/al_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="br" UriSource="Map/Observation/br.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="br_inv" UriSource="Map/Observation/br_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="fa" UriSource="Map/Observation/fa.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="fa_inv" UriSource="Map/Observation/fa_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="mh" UriSource="Map/Observation/mh.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="mh_inv" UriSource="Map/Observation/mh_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="na" UriSource="Map/Observation/na.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="na_inv" UriSource="Map/Observation/na_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="nv" UriSource="Map/Observation/nv.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="nv_inv" UriSource="Map/Observation/nv_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="sa" UriSource="Map/Observation/sa.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="sa_inv" UriSource="Map/Observation/sa_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="su" UriSource="Map/Observation/su.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="su_inv" UriSource="Map/Observation/su_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="vf" UriSource="Map/Observation/vf.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="vf_inv" UriSource="Map/Observation/vf_invert.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <!-- Region Map images-->
+    <BitmapImage x:Key="af" UriSource="Map/Regions/af.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="af_inv" UriSource="Map/Regions/af_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="al" UriSource="Map/Regions/al.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="al_inv" UriSource="Map/Regions/al_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="br" UriSource="Map/Regions/br.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="br_inv" UriSource="Map/Regions/br_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="fa" UriSource="Map/Regions/fa.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="fa_inv" UriSource="Map/Regions/fa_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="mh" UriSource="Map/Regions/mh.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="mh_inv" UriSource="Map/Regions/mh_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="na" UriSource="Map/Regions/na.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="na_inv" UriSource="Map/Regions/na_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="nv" UriSource="Map/Regions/nv.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="nv_inv" UriSource="Map/Regions/nv_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="sa" UriSource="Map/Regions/sa.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="sa_inv" UriSource="Map/Regions/sa_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="su" UriSource="Map/Regions/su.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="su_inv" UriSource="Map/Regions/su_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="vf" UriSource="Map/Regions/vf.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="vf_inv" UriSource="Map/Regions/vf_invert.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
    
-<!-- Observation Indicators -->
-    <!--Suð austurland Observation Indicators -->
-    <BitmapImage x:Key="sa_allar" UriSource="Map/ObservationIndicators/Sa/sa_allar.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="eldhraun" UriSource="Map/ObservationIndicators/Sa/eldhraun.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="fagurholsm" UriSource="Map/ObservationIndicators/Sa/fagurholsm.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="gigjukvisl" UriSource="Map/ObservationIndicators/Sa/gigjukvisl.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="hofnihorna" UriSource="Map/ObservationIndicators/Sa/hofnihorna.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="ingolfshofdi" UriSource="Map/ObservationIndicators/Sa/ingolfshofdi.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="kirkjuklaust" UriSource="Map/ObservationIndicators/Sa/kirkjuklaust.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="kvisker" UriSource="Map/ObservationIndicators/Sa/kvisker.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="kvisker_veg" UriSource="Map/ObservationIndicators/Sa/kvisker_veg.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="lomagnupur" UriSource="Map/ObservationIndicators/Sa/lomagnupur.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="myrdalssandur" UriSource="Map/ObservationIndicators/Sa/myrdalssandur.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="oraefi" UriSource="Map/ObservationIndicators/Sa/oraefi.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="reynisfjall" UriSource="Map/ObservationIndicators/Sa/reynisfjall.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="skaftafell" UriSource="Map/ObservationIndicators/Sa/skaftafell.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
-    <BitmapImage x:Key="skardsfjviti" UriSource="Map/ObservationIndicators/Sa/skardsfjviti.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <!-- Station Indicators -->
+    
+    <!-- SA Indicators START -->
+    <BitmapImage x:Key="sa_allar" UriSource="Map/Stations/Sa/sa_allar.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="eldhraun" UriSource="Map/Stations/Sa/eldhraun.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="fagurholsm" UriSource="Map/Stations/Sa/fagurholsm.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="gigjukvisl" UriSource="Map/Stations/Sa/gigjukvisl.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="hofnihorna" UriSource="Map/Stations/Sa/hofnihorna.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="ingolfshofdi" UriSource="Map/Stations/Sa/ingolfshofdi.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="kirkjuklaust" UriSource="Map/Stations/Sa/kirkjuklaust.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="kvisker" UriSource="Map/Stations/Sa/kvisker.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="kvisker_veg" UriSource="Map/Stations/Sa/kvisker_veg.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="lomagnupur" UriSource="Map/Stations/Sa/lomagnupur.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="myrdalssandur" UriSource="Map/Stations/Sa/myrdalssandur.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="oraefi" UriSource="Map/Stations/Sa/oraefi.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="reynisfjall" UriSource="Map/Stations/Sa/reynisfjall.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="skaftafell" UriSource="Map/Stations/Sa/skaftafell.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="skardsfjviti" UriSource="Map/Stations/Sa/skardsfjviti.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <!--SA Indicators END -->
+
 </ResourceDictionary>

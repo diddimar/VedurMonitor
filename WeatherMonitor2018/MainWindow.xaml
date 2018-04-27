@@ -64,9 +64,9 @@
                     </MenuItem>
                     <MenuItem Header ="Backround Animition" MenuItem.Click="ChangeBackground" Foreground="Black" Focusable="False">
                         <MenuItem Header="Off" Name="off" BorderThickness="3"/>
-                        <MenuItem Header="Sunset" Name="sunSky" BorderThickness="3" />
-                        <MenuItem Header="Hurricane" Name="hurricane" BorderThickness="3"/>
-                        <MenuItem Header="Snowing" Name="snowing" BorderThickness="3"/>
+                        <MenuItem Header="Sunset" Name="sunsetx" BorderThickness="3" />
+                        <MenuItem Header="Hurricane" Name="hurricanex" BorderThickness="3"/>
+                        <MenuItem Header="Snowing" Name="snowingx" BorderThickness="3"/>
                     </MenuItem>
                     <MenuItem Header="Color" x:Name="colorSliders">
                         <StackPanel Orientation="Vertical" Width="Auto" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">

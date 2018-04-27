@@ -5,8 +5,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitor2018.Data;
+using WeatherMonitor2018.Data.Models;
 using WeatherMonitorClassLibrary.ImageService;
-using WeatherMonitorClassLibrary.Models.DbObjects;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
 using WeatherMonitorClassLibrary.XmlService;
 
@@ -26,7 +26,7 @@ namespace WeatherMonitor2018.Pages
 
         private void SetForecastComboBox(int catId)
         {
-            var rows = from row in SQLiteService.GetForecasts()
+            var rows = from row in ReadDatabase.GetForecasts()
                        where row.CategoryId.Equals(catId)
                        select row;
             forecastDropdown.ItemsSource = rows;
