@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WeatherMonitor2018.UserControls.SharedStationControls.StationInfoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             d:DesignHeight="48" d:DesignWidth="280">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource infoStyle}"></Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBox x:Name="ownerSinceTextBox" Text="Testing Owner" IsReadOnly="True" Foreground="DarkGray" />
+        <TextBox x:Name="stationType" Text="Type" IsReadOnly="True" Foreground="DarkGray" />
+        <TextBox x:Name="altitudeTextBox" Text="23 metrar" IsReadOnly="True" Foreground="DarkGray"/>
+    </StackPanel>
+</UserControl>

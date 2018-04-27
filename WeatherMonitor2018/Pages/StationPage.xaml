@@ -45,7 +45,7 @@
                     <TabItem x:Name="tab3" Header="Vestfirðir"></TabItem>
                     <TabItem x:Name="tab4" Header="Suðurland"></TabItem>
                     <TabItem x:Name="tab5" Header="Suðausturland"></TabItem>
-                    <TabItem x:Name="all" Header="Allar Stöðvar"></TabItem>
+                    <!--<TabItem x:Name="all" Header="Allar Stöðvar"></TabItem>-->
                 </TabControl>
             </StackPanel>
         </Grid>

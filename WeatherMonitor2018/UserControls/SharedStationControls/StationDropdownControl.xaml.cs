@@ -6,7 +6,7 @@ using WeatherMonitor2018.Data.Models;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
 using WeatherMonitorClassLibrary.XmlService;
 
-namespace WeatherMonitor2018.UserControls
+namespace WeatherMonitor2018.UserControls.SharedStationControls
 {
     public partial class StationDropdownControl : UserControl
     {
@@ -16,13 +16,13 @@ namespace WeatherMonitor2018.UserControls
         {
             InitializeComponent();
         }
-        public static readonly RoutedEvent StationDropDownChangedEvent = EventManager.RegisterRoutedEvent(
+        public static readonly RoutedEvent StationLoadedEvent = EventManager.RegisterRoutedEvent(
             "RegionDropDownChanged", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(RegionDropdownControl));
 
-        public event RoutedEventHandler StationDropDownChangedHandler
+        public event RoutedEventHandler StationLoadedEventHandler
         {
-            add { AddHandler(StationDropDownChangedEvent, value); }
-            remove { RemoveHandler(StationDropDownChangedEvent, value); }
+            add { AddHandler(StationLoadedEvent, value); }
+            remove { RemoveHandler(StationLoadedEvent, value); }
         }
         public void UpdateStationDropdown(int regionId)
         {
@@ -39,7 +39,7 @@ namespace WeatherMonitor2018.UserControls
         public void GetStationXML()
         {
             Station response = StationService.Get(selectedStation.StationNumber.ToString());
-            RaiseEvent(new RoutedEventArgs(StationDropDownChangedEvent, response));
+            RaiseEvent(new RoutedEventArgs(StationLoadedEvent, response));
    
         }
     }

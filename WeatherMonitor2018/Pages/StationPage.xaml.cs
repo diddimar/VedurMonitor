@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitor2018.Data;
 using WeatherMonitor2018.Data.Models;
+using WeatherMonitor2018.UserControls;
 using WeatherMonitorClassLibrary;
 
 namespace WeatherMonitor2018.Pages

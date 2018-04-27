@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using WeatherMonitor2018.Data;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using WeatherMonitor2018.Data.Models;
-using WeatherMonitor2018.UserControls;
+using WeatherMonitor2018.UserControls.SharedStationControls;
 using WeatherMonitorClassLibrary;
-using WeatherMonitorClassLibrary.ImageService;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
-using WeatherMonitorClassLibrary.XmlService;
 
-namespace WeatherMonitor2018.Pages
+namespace WeatherMonitor2018.UserControls
 {
+    /// <summary>
+    /// Interaction logic for StationTab.xaml
+    /// </summary>
     public partial class StationTab : UserControl
     {
         private IEnumerable<Region> _regionList;
@@ -22,7 +30,7 @@ namespace WeatherMonitor2018.Pages
         {
             InitializeComponent();
             AddHandler(RegionDropdownControl.RegionDropDownChangedEvent, new RoutedEventHandler(RegionDropDownChangedEventHandler));
-            AddHandler(StationDropdownControl.StationDropDownChangedEvent, new RoutedEventHandler(StationDropDownChangedEventHandler));
+            AddHandler(StationDropdownControl.StationLoadedEvent, new RoutedEventHandler(StationLoadedEventHandler));
             _regionList = regionList;
             stationDropdown.stationList = stationList;
             regionDropdown.Dropdown.ItemsSource = _regionList;
@@ -48,12 +56,11 @@ namespace WeatherMonitor2018.Pages
             string shortname = Utils.Truncate(e.OriginalSource.ToString(), 13);
             RaiseUpdateTabHeaderEvent(changes[0]);
             stationDropdown.UpdateStationDropdown(changes[0]);
-            stationMap.ChangeImages( changes[1], stationDropdown.Dropdown.SelectedIndex);
+            stationMap.ChangeImages(changes[1], stationDropdown.Dropdown.SelectedIndex);
         }
-        private void StationDropDownChangedEventHandler(object sender, RoutedEventArgs e)
+        private void StationLoadedEventHandler(object sender, RoutedEventArgs e)
         {
             Station response = e.OriginalSource as Station;
-            stationInfo.stationIdText.Text = "Stöðvanúmer: " + response.Id;
             stationResponse.FillTextBoxes(response);
             LoadStation();
         }
@@ -66,6 +73,6 @@ namespace WeatherMonitor2018.Pages
         {
             stationDropdown.GetStationXML();
         }
-        
+
     }
 }

@@ -28,7 +28,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -129,17 +129,11 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StationTabAll.xaml.cs">
-      <DependentUpon>StationTabAll.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\StationPage.xaml.cs">
       <DependentUpon>StationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ForecastPage.xaml.cs">
       <DependentUpon>ForecastPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\StationTab.xaml.cs">
-      <DependentUpon>StationTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -147,20 +141,23 @@
     <Compile Include="UserControls\PageSearchControl.xaml.cs">
       <DependentUpon>PageSearchControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\RegionDropdownControl.xaml.cs">
+    <Compile Include="UserControls\SharedStationControls\RegionDropdownControl.xaml.cs">
       <DependentUpon>RegionDropdownControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StationDropdownControl.xaml.cs">
+    <Compile Include="UserControls\SharedStationControls\StationDropdownControl.xaml.cs">
       <DependentUpon>StationDropdownControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StationInfoControl.xaml.cs">
+    <Compile Include="UserControls\SharedStationControls\StationInfoControl.xaml.cs">
       <DependentUpon>StationInfoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StationMapControl.xaml.cs">
+    <Compile Include="UserControls\SharedStationControls\StationMapControl.xaml.cs">
       <DependentUpon>StationMapControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StationResponseControl.xaml.cs">
+    <Compile Include="UserControls\SharedStationControls\StationResponseControl.xaml.cs">
       <DependentUpon>StationResponseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StationTab.xaml.cs">
+      <DependentUpon>StationTab.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\AssetsDictionary.xaml">
       <SubType>Designer</SubType>
@@ -179,19 +176,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\StationTabAll.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\StationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ForecastPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\StationTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,23 +192,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\RegionDropdownControl.xaml">
+    <Page Include="UserControls\SharedStationControls\RegionDropdownControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\StationDropdownControl.xaml">
+    <Page Include="UserControls\SharedStationControls\StationDropdownControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\StationInfoControl.xaml">
+    <Page Include="UserControls\SharedStationControls\StationInfoControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\StationMapControl.xaml">
+    <Page Include="UserControls\SharedStationControls\StationMapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\StationResponseControl.xaml">
+    <Page Include="UserControls\SharedStationControls\StationResponseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StationTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

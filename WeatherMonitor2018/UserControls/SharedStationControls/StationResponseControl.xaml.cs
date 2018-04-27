@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using WeatherMonitorClassLibrary;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
 
-namespace WeatherMonitor2018.UserControls
+namespace WeatherMonitor2018.UserControls.SharedStationControls
 {
     /// <summary>
     /// Interaction logic for StationResponseControl.xaml

@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using WeatherMonitor2018.Data.Models;
 
-namespace WeatherMonitor2018.UserControls
+namespace WeatherMonitor2018.UserControls.SharedStationControls
 {
     public partial class RegionDropdownControl : UserControl
     {

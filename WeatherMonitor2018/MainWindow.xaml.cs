@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Net.Mail;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using WeatherMonitor2018.Data;
 using WeatherMonitor2018.Pages;
 using WeatherMonitorClassLibrary;
-using WeatherMonitorClassLibrary.XmlService;
 
 namespace WeatherMonitor2018
 {

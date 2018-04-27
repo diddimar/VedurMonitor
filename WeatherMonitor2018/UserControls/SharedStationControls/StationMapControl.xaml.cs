@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using WeatherMonitorClassLibrary;
 using WeatherMonitorClassLibrary.ImageService;
 
-namespace WeatherMonitor2018.UserControls
+namespace WeatherMonitor2018.UserControls.SharedStationControls
 {
     public partial class StationMapControl : UserControl
     {
@@ -12,6 +12,7 @@ namespace WeatherMonitor2018.UserControls
         {
             InitializeComponent();
         }
+
         public void ChangeImages(int regionDropdownIndex, int stationDropdownIndex)
         {
             allIndicatorsLayer.SetResourceReference(Image.SourceProperty, "empty");
@@ -30,6 +31,7 @@ namespace WeatherMonitor2018.UserControls
                 CheckSationIndicator(regionDropdownIndex, stationDropdownIndex);
             };
         }
+
         public void CheckSationIndicator(int regionDropdownIndex, int stationDropdownIndex)
         {
             string indicator = StationImageResolver.SetIndicator(regionDropdownIndex, stationDropdownIndex);
@@ -38,7 +40,6 @@ namespace WeatherMonitor2018.UserControls
                 singleIndicatorLayer.SetResourceReference(Image.SourceProperty, indicator);
             }
         }
-
 
         private void InvertCheckbox_Click(object sender, RoutedEventArgs e)
         {

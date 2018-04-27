@@ -64,9 +64,9 @@
                     </MenuItem>
                     <MenuItem Header ="Backround Animition" MenuItem.Click="ChangeBackground" Foreground="Black" Focusable="False">
                         <MenuItem Header="Off" Name="off" BorderThickness="3"/>
-                        <MenuItem Header="Sunset" Name="sunsetx" BorderThickness="3" />
-                        <MenuItem Header="Hurricane" Name="hurricanex" BorderThickness="3"/>
-                        <MenuItem Header="Snowing" Name="snowingx" BorderThickness="3"/>
+                        <MenuItem Header="Sunset" Name="sunset" BorderThickness="3" />
+                        <MenuItem Header="Hurricane" Name="hurricane" BorderThickness="3"/>
+                        <MenuItem Header="Snowing" Name="snowing" BorderThickness="3"/>
                     </MenuItem>
                     <MenuItem Header="Color" x:Name="colorSliders">
                         <StackPanel Orientation="Vertical" Width="Auto" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
@@ -87,7 +87,7 @@
             <!--rightpanel-->
             <Frame x:Name="rightFrame" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 30 0"  Grid.Column="1" Grid.Row="0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 40 0"  Grid.Column="1" Grid.Row="0" >
                 <TextBlock Margin="0 0 5 0" Text="VedurMonitor" Foreground="CadetBlue" FontSize="24" FontWeight="Bold" />
                 <Image Margin="2" Opacity="0.9" Source="{DynamicResource vm_logo}"/>
             </StackPanel>
