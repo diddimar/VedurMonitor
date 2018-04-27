@@ -129,6 +129,9 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\StationTabAll.xaml.cs">
+      <DependentUpon>StationTabAll.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StationPage.xaml.cs">
       <DependentUpon>StationPage.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,24 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PageSearchControl.xaml.cs">
+      <DependentUpon>PageSearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegionDropdownControl.xaml.cs">
+      <DependentUpon>RegionDropdownControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StationDropdownControl.xaml.cs">
+      <DependentUpon>StationDropdownControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StationInfoControl.xaml.cs">
+      <DependentUpon>StationInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StationMapControl.xaml.cs">
+      <DependentUpon>StationMapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StationResponseControl.xaml.cs">
+      <DependentUpon>StationResponseControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\AssetsDictionary.xaml">
       <SubType>Designer</SubType>
@@ -158,6 +179,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\StationTabAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\StationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +196,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PageSearchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RegionDropdownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StationDropdownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StationInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StationMapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StationResponseControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

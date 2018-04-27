@@ -13,7 +13,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
-    <Style TargetType="{x:Type Control}" x:Key="nrTwoStyle">
+    <Style TargetType="{x:Type Control}" x:Key="baseStyle2">
         <Setter Property="FontSize" Value="13" />
         <Setter Property="FontFamily" Value="Georgia"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>

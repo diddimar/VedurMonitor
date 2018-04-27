@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WeatherMonitor2018.UserControls.StationMapControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeatherMonitor2018.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource baseStyle2}"></Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid Margin="10" MaxHeight="250">
+            <Rectangle Fill="#FFD1E4EA" Opacity=".4"/>
+            <Image x:Name="mapRootLayer" HorizontalAlignment="Left" VerticalAlignment="Stretch"></Image>
+            <Image x:Name="allIndicatorsLayer" Source="{DynamicResource empty}" HorizontalAlignment="Left" VerticalAlignment="Center"></Image>
+            <Image x:Name="singleIndicatorLayer" Source="{DynamicResource empty}" HorizontalAlignment="Left" VerticalAlignment="Center"></Image>
+        </Grid>
+        <CheckBox x:Name="invertCheckbox" Click="InvertCheckbox_Click" Content="Invert" HorizontalAlignment="Right" Margin="0 -30 15 0" Opacity=".5"/>
+    </StackPanel>
+
+</UserControl>

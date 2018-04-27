@@ -4,113 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WeatherMonitor2018"
+             xmlns:controls="clr-namespace:WeatherMonitor2018.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="280"
              HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
     <UserControl.Resources>
-
         <ResourceDictionary>
             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
-            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
-            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
-            <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource nrTwoStyle}"></Style>
-            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource nrTwoStyle}"></Style>
-
-            <DataTemplate x:Key="RegionTemplate">
-                <Grid>
-                    <TextBlock Text="{Binding Path=Name}"/>
-                </Grid>
-            </DataTemplate>
-            <DataTemplate x:Key="StationTemplate">
-                <Grid>
-                    <TextBlock Text="{Binding Path=Name}"/>
-                </Grid>
-            </DataTemplate>
-
         </ResourceDictionary>
     </UserControl.Resources>
-
     <Grid Margin="10 0 0 0">
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Margin="25 0 0 0" x:Name="ReloadButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}" Click="ReloadButton_Click"></Button>
+                <Button Click="ReloadButton_Click" Margin="35 0 0 0" x:Name="ReloadButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}"></Button>
                 <StackPanel Margin="10 0 0 0" Orientation="Vertical" HorizontalAlignment="Center">
-                    <ComboBox Margin="2" x:Name="regionDropdown" SelectionChanged="RegionDropDownChange" ItemTemplate="{DynamicResource RegionTemplate}" 
-                            MaxDropDownHeight="auto" Width="190" Height="25"  HorizontalAlignment="Center"/>
-                    <ComboBox x:Name="stationDropdown" SelectionChanged="StationSelectChanged" ItemTemplate="{DynamicResource StationTemplate}"
-                            Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
+                    <controls:RegionDropdownControl x:Name="regionDropdown" />
+                    <controls:StationDropdownControl x:Name="stationDropdown" />
                 </StackPanel>
             </StackPanel>
-            <TextBox x:Name="stationIdText" IsReadOnly="True" Foreground="DarkGray" />
-            <TextBox x:Name="ownerTextBox" IsReadOnly="True" Foreground="DarkGray" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <TextBox Text="Hæð yfir sjó:" IsReadOnly="True" Foreground="DarkGray" />
-                    <TextBox x:Name="altitudeTextBox" IsReadOnly="True" Foreground="DarkGray" />
-            </StackPanel>
-            <Grid Margin="10" MaxHeight="250">
-                <Rectangle Fill="#FFD1E4EA" Opacity=".4"/>
-                
-                <Image x:Name="mapRootLayer" HorizontalAlignment="Left" VerticalAlignment="Stretch"></Image>
-                <Image x:Name="allIndicatorsLayer" Source="{DynamicResource empty}" HorizontalAlignment="Left" VerticalAlignment="Center"></Image>
-                <Image x:Name="singleIndicatorLayer" Source="{DynamicResource empty}" HorizontalAlignment="Left" VerticalAlignment="Center"></Image>
-            </Grid>
-            <CheckBox x:Name="invertCheckbox" Click="InvertCheckbox_Click" Content="Invert" HorizontalAlignment="Right" Margin="0 -30 15 0" Opacity=".5"/>
-
-            <TextBox x:Name="stationName" Width="Auto" Padding="2" Margin="0 0 0 5" Text="{Binding ElementName=stationDropdown, Path=SelectedItem.Name}" TextAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="White" Background="DarkSeaGreen" Opacity="0.9" Style="{DynamicResource observationText}"/>
-            <Grid Grid.Row="3">
-                <StackPanel>
-                    <StackPanel x:Name="responseFields" Margin="15 0 15 0">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBox Uid="res" TextAlignment="Center" Padding="2" x:Name="timiTextBox" Style="{DynamicResource observationText}"/>
-                        </StackPanel>
-                        <Rectangle Fill="{StaticResource col1}" Margin="20 4 20 4" Height="2" />
-
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Uid="res" x:Name="vindstefnaTextBox" TextAlignment="Center" Width="240" Style="{DynamicResource observationText}"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Uid="res" x:Name="vedurlysingTextBox" TextAlignment="Center" Width="240" Style="{DynamicResource observationText}"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Vindhraði:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="vindhradiTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="m/s" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Mesti vindhraði:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="mestiVindhradiTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="m/s" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Mesta vindhviða:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="vindhvidaTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="m/s" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Hitastig:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="hitiTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="°C" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Uppsöfnuð úrkoma:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="urkomaTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="( mm/klst )" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Text="Skyggni:" TextAlignment="Right" Style="{DynamicResource observationText}"/>
-                            <TextBox Uid="res" x:Name="skyggniTextBox" TextAlignment="Right" Style="{DynamicResource observationText}" Width="30"/>
-                            <TextBox Text="km" TextAlignment="Left" Style="{DynamicResource observationText}" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
-                            <TextBox Uid="res" x:Name="villaTextBox" TextAlignment="Center" Width="240" Style="{DynamicResource observationText}"/>
-                        </StackPanel>
-                        <Rectangle Fill="{StaticResource col1}" Margin="0 4 0 4" Height="2" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
+            <controls:StationInfoControl x:Name="stationInfo" />
+            <controls:StationMapControl x:Name="stationMap" />
+            <controls:StationResponseControl x:Name="stationResponse" />
         </StackPanel>
-
     </Grid>
-
 </UserControl>

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WeatherMonitor2018.UserControls.StationDropdownControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeatherMonitor2018.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="190">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource baseStyle2}"></Style>
+            <DataTemplate x:Key="StationTemplate">
+                <Grid>
+                    <TextBlock Text="{Binding Path=Name}"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ComboBox x:Name="Dropdown" SelectionChanged="StationSelectChanged"
+                              ItemTemplate="{DynamicResource StationTemplate}"
+                            Margin="2" Width="190" Height="25" MaxDropDownHeight="auto" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>
