@@ -9,7 +9,7 @@
     <ProjectGuid>{ADF7A00B-5D2C-4E5C-A0AD-F0456AF2D28A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WeatherMonitor2018</RootNamespace>
-    <AssemblyName>WeatherMonitor2018</AssemblyName>
+    <AssemblyName>VedurMonitor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -28,7 +28,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -115,6 +115,10 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.16\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -126,6 +130,9 @@
     <Compile Include="Data\Models\StationInfo.cs" />
     <Compile Include="Data\InitializeDB.cs" />
     <Compile Include="Data\ReadDatabase.cs" />
+    <Compile Include="DialogWindows\NoConnectionDialog.xaml.cs">
+      <DependentUpon>NoConnectionDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +144,21 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CoreControls\AppTimerControl.xaml.cs">
+      <DependentUpon>AppTimerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CoreControls\MainWindowControls.xaml.cs">
+      <DependentUpon>MainWindowControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CoreControls\TimerControl.xaml.cs">
+      <DependentUpon>TimerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CoreControls\MainMenuControl.xaml.cs">
+      <DependentUpon>MainMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CoreControls\GifPlayerControl.xaml.cs">
+      <DependentUpon>GifPlayerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PageSearchControl.xaml.cs">
       <DependentUpon>PageSearchControl.xaml</DependentUpon>
@@ -163,7 +185,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Config\StyleDictionary.xaml">
+    <Page Include="DialogWindows\NoConnectionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StyleDump.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,6 +198,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Config\Constants.cs" />
+    <Page Include="Styles\FlatButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +215,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CoreControls\AppTimerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CoreControls\MainWindowControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CoreControls\TimerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CoreControls\MainMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CoreControls\GifPlayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,13 +286,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Assets\Background\hurricane.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Background\snowing.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Background\sunset.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Map\Forecast\allt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -406,6 +456,9 @@
     <Resource Include="Assets\Map\Regions\br.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Icons\WinClose.png" />
+    <Resource Include="Assets\Icons\WinMaximize.png" />
+    <Resource Include="Assets\Icons\WinMinimize.png" />
     <Content Include="Data\database.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

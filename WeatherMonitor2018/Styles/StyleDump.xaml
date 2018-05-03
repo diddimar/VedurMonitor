@@ -2,10 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="back" Color="White"/>
+    <Color x:Key="MainGray" A="255" R="24" G ="24" B="24"/>
+
     <SolidColorBrush x:Key="for" Color="Black"/>
     <SolidColorBrush x:Key="col1" Color="LightBlue"/>
 
     <FontFamily x:Key="mainFont"/>
+
+            <SolidColorBrush x:Key="magicBrush" Color="Transparent" Opacity=".2" />
+            <Style x:Key="sd" TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
+            <Style x:Key="sd2" TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
 
     <Style TargetType="{x:Type Control}" x:Key="baseStyle">
         <Setter Property="FontSize" Value="15" />

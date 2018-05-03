@@ -5,6 +5,21 @@
     <!--Icons-->
     <BitmapImage x:Key="refresh" UriSource="Icons/Refresh.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="refreshFilled" UriSource="Icons/RefreshFilled.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="win_close" UriSource="Icons/WinClose.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="win_minimize" UriSource="Icons/WinMinimize.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="win_mmaximize" UriSource="Icons/WinMaximize.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <!--UriSource="Background/sunset.gif" BaseUri="{x:Static c:Constants.AssetsRoot}"-->
+    <!--<ImageSource x:Key="hurricane"  >Images/Sync Failed.png</ImageSource>-->
+
+    <!--<MediaElement x:Key="sunset" Source="{x:Static c:Constants.AssetsRoot}" ></MediaElement>
+    <MediaElement x:Key="hurricane">
+        <MediaElement.Source>
+            <MultiBinding StringFormat="{}{0} , {1}">
+                <Binding Path="{x:Static c:Constants.AssetsRoot}" />
+                <Binding Path="Background/hurricane.gif" />
+            </MultiBinding>
+        </MediaElement.Source>
+    </MediaElement>-->
 
     <!--Misc-->
     <BitmapImage x:Key="about" UriSource="Misc/about.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>

@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WeatherMonitor2018")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("VedurMonitor")]
+[assembly: AssemblyDescription("WPF app sem sækjir nýjustu staðarspár, textaspár og veðurathuganir í gegnum XML þjónustu Veðurstofu Íslands.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WeatherMonitor2018")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyProduct("WeatherMonitor")]
+[assembly: AssemblyCopyright("Copyright ©  2018 Davíð Már Gunnarsson")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
