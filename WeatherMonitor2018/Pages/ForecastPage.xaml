@@ -42,7 +42,7 @@
                 <ComboBoxItem x:Name="mid">Miðin</ComboBoxItem>
             </ComboBox>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <ComboBox x:Name="forecastDropdown" MaxDropDownHeight="auto" ItemTemplate="{DynamicResource ForecastTemplate}" HorizontalAlignment="Center" Height="25" Width="240" MaxWidth="240" SelectionChanged="textComboBox_SelectionChanged"  Grid.Column="2"/>
+                <ComboBox x:Name="forecastDropdown" MaxDropDownHeight="auto" ItemTemplate="{DynamicResource ForecastTemplate}" HorizontalAlignment="Center" Height="25" Width="240" MaxWidth="240" SelectionChanged="ForecastComboBox_SelectionChanged"  Grid.Column="2"/>
                 <Button x:Name="getTextButton" MinWidth="20" Height="20" Template="{StaticResource RealoadButton}"></Button>
             </StackPanel>
 

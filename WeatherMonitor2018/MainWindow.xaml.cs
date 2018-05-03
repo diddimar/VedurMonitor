@@ -26,7 +26,7 @@ namespace WeatherMonitor2018
 
         private void ConfirmInternetConnection()
         {
-            if (Utils.IsNetworkAvailable())
+            if (Utils.IsConnected())
             {
                 OpenContent();
             }
@@ -36,7 +36,7 @@ namespace WeatherMonitor2018
             }
         }
 
-        private new bool? DialogResult()
+        public new bool? DialogResult()
         {
             var dialog = new NoConnectionDialog();
             dialog.Owner = this;

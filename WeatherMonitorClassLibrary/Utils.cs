@@ -47,26 +47,47 @@ namespace WeatherMonitorClassLibrary
                 doc.Load(path);
                 return doc;
             }
-            catch (WebException e)
+            catch
             {
-                XmlNode docNode = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
-                doc.AppendChild(docNode);
+                // Handle WebException
+                string rootname = path.Contains("txt&lang") ? "texts" : "observations";
+                XmlNode rootNode = doc.CreateElement(rootname);
+                doc.AppendChild(rootNode);
                 return doc;
             }
             finally { doc = null; }
         }
-        public static bool IsNetworkAvailable()
+        public static bool IsConnected()
         {
             bool connection;
             if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() == true)
             {
-                connection = true;
+                connection = CheckConnection();
             }
             else
             {
                 connection = false;
             }
             return connection;
+        }
+        private static bool CheckConnection()
+        {
+            WebClient client = new WebClient();
+            try
+            {
+                using (client.OpenRead("http://www.google.com"))
+                {
+                }
+                return true;
+            }
+            catch (WebException)
+            {
+                return false;
+            }
+            finally
+            {
+                client.Dispose();
+            }
         }
 
     }

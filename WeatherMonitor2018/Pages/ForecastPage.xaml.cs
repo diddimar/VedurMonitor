@@ -63,7 +63,7 @@ namespace WeatherMonitor2018.Pages
             kortalayer.SetResourceReference(Image.SourceProperty, ForecastImageResolver.GetMap(stodvaNr));
         }
 
-        private void textComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ForecastComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int forecastNr = (e.AddedItems[0] as ForecastInfo).ForecastNumber;
             GetNewForecast(forecastNr.ToString());
