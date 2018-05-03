@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:core="clr-namespace:WeatherMonitor2018.UserControls.CoreControls"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
@@ -11,88 +12,61 @@
         Height="650" Width="800"
         MinHeight="650" MinWidth="800"
         MaxHeight="650" MaxWidth="800"
-        WindowStyle="ToolWindow">
-    <Window.Resources>
-        <ResourceDictionary>
-            <SolidColorBrush x:Key="magicBrush" Color="Transparent" Opacity=".2" />
-            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
-            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
-        </ResourceDictionary>
-    </Window.Resources>
+        WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        BorderBrush="{DynamicResource DefaultBrush}"
+        BorderThickness="3">
+    <Grid>
+        <Canvas>
+            <core:GifPlayerControl Panel.ZIndex="0" />
+        </Canvas>
+        <Grid Name="Groot">
 
-    <Grid Name="Groot" Background="{StaticResource magicBrush}">
-
-        <Grid x:Name="backgroundGifs">
-            <MediaElement x:Name="backgroundGif" MediaEnded="MyGifMediaEnded" UnloadedBehavior="Manual" LoadedBehavior="Play" 
-                          Stretch="UniformToFill"/>
-        </Grid>
-
-        <Grid Name="klukkuGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Grid.Column="1" Grid.Row="1" Fill="White" Opacity="0.75" MaxWidth="65" MaxHeight="15" />
-            <Label x:Name="klukka" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Background="{x:Null}"  Margin="0 5 0 0"/>
-        </Grid>
+            <Grid Grid.Row="0" Panel.ZIndex="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <core:MainMenuControl Margin="10 10 0 0" />
+                <StackPanel Grid.Column="1" Margin="0 10 0 0" Orientation="Vertical" HorizontalAlignment="Center">
+                    <Grid x:Name="Logo">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="VedurMonitor" Grid.Column="0" Foreground="CadetBlue" FontSize="24" FontWeight="Bold" />
+                        <Image Height="30" Grid.Column="1" Opacity="0.9" Source="{DynamicResource vm_logo}"/>
+                    </Grid>
+                </StackPanel>
+                <core:AppTimerControl Grid.Column="1" VerticalAlignment="Top" Margin="0 47 0 0" />
+                <core:MainWindowControls Grid.Column="2" Height="20" Margin="0 -35 10 0" HorizontalAlignment="Right" />
+            </Grid>
+            <Grid Grid.Row="1" Name="mainGrid" Margin="0 15 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid Name="mainGrid">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <!--menu-->
-            <Menu x:Name="menu" Padding="15 2 2 2" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left" Opacity=".75" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-                <MenuItem Header="File" Name="File">
-                    <MenuItem Header="Screenshot" Click="ScreenShot_Click"/>
-                    <MenuItem Header="Restart" Click="Reset_click"/>
-                    <MenuItem Header="Quit" Click="Quit_Click"/>
-                </MenuItem>
-                <MenuItem Header="Settings" Name="Settings">
-                    <MenuItem Header="Languages">
-                        <CheckBox x:Name="engCheck" Content="English" Checked="English_Checked"  Unchecked="English_Unchecked"/>
-                    </MenuItem>
-                    <MenuItem Header ="Backround Animition" MenuItem.Click="ChangeBackground" Foreground="Black" Focusable="False">
-                        <MenuItem Header="Off" Name="off" BorderThickness="3"/>
-                        <MenuItem Header="Sunset" Name="sunset" BorderThickness="3" />
-                        <MenuItem Header="Hurricane" Name="hurricane" BorderThickness="3"/>
-                        <MenuItem Header="Snowing" Name="snowing" BorderThickness="3"/>
-                    </MenuItem>
-                    <MenuItem Header="Color" x:Name="colorSliders">
-                        <StackPanel Orientation="Vertical" Width="Auto" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
-                            <Slider Name="sliR" Width="75" Margin="0" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" Value="255" ValueChanged="Color_Slider_ValueChanged" Background="#FFFF1A1A" Opacity="0.6" BorderThickness="3"/>
-                            <Slider Name="sliG" Width="75" Margin="0" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" Value="255" ValueChanged="Color_Slider_ValueChanged" Background="#FF49E625" Opacity="0.6" BorderThickness="3"/>
-                            <Slider Name="sliB" Width="75" Margin="0" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" Value="255" ValueChanged="Color_Slider_ValueChanged" Background="#FF33C3EE" Opacity="0.6" BorderThickness="3"/>
-                            <Button Name="reset" />
-                        </StackPanel>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="About" Click="About_Click" Name="About"/>
-            </Menu>
-
-            <!--leftPanel-->
-            <Frame x:Name="leftFrame" Grid.Row="1" VerticalAlignment="Stretch"
+                <!--leftPanel-->
+                <Frame x:Name="leftFrame" Grid.Row="1" VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
 
-            <!--rightpanel-->
-            <Frame x:Name="rightFrame" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch"
+                <!--rightpanel-->
+                <Frame x:Name="rightFrame" Grid.Column="2" Grid.Row="1" VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 40 0"  Grid.Column="1" Grid.Row="0" >
-                <TextBlock Margin="0 0 5 0" Text="VedurMonitor" Foreground="CadetBlue" FontSize="24" FontWeight="Bold" />
-                <Image Margin="2" Opacity="0.9" Source="{DynamicResource vm_logo}"/>
-            </StackPanel>
-            <!--aboutPage close button-->
-            <Button x:Name="closeAbout" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Height="25" Content="Close about" Click="Close_About_Click" VerticalAlignment="Bottom" Margin="20" />
+
+                <!--aboutPage close button-->
+                <!--<Button x:Name="closeAbout" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Height="25" Content="Close about" Click="Close_About_Click" VerticalAlignment="Bottom" Margin="20" />-->
+
+            </Grid>
         </Grid>
     </Grid>
 

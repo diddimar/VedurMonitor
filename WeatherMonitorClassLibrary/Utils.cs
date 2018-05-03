@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Xml;
 
 namespace WeatherMonitorClassLibrary
@@ -46,7 +47,27 @@ namespace WeatherMonitorClassLibrary
                 doc.Load(path);
                 return doc;
             }
+            catch (WebException e)
+            {
+                XmlNode docNode = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                doc.AppendChild(docNode);
+                return doc;
+            }
             finally { doc = null; }
         }
+        public static bool IsNetworkAvailable()
+        {
+            bool connection;
+            if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() == true)
+            {
+                connection = true;
+            }
+            else
+            {
+                connection = false;
+            }
+            return connection;
+        }
+
     }
 }
