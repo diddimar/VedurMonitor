@@ -5,6 +5,7 @@ using System.Runtime.Caching;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using WeatherMonitorClassLibrary.Models;
 using WeatherMonitorClassLibrary.Models.XmlResponses;
 
 namespace WeatherMonitorClassLibrary.XmlService
@@ -21,15 +22,30 @@ namespace WeatherMonitorClassLibrary.XmlService
             if (station != null && CheckCachedStationAge(station))
             {
                 cacheCount++;
+                UpdateCacheInfoCache(cacheCount);
                 return station;
             }
             else
             {
                 httpCount++;
+                UpdateCacheInfoHttp(httpCount);
                 return GetXML(stationId);
             }
         }
-
+        public static void UpdateCacheInfoCache(int count)
+        {
+            var policy = new CacheItemPolicy { AbsoluteExpiration = DateTime.Now.AddMinutes(75) };
+            _applicationCache.Remove("StationsCacheCount");
+            var info = new InfoCacheModel() { Description = "Sótt frá skyndimynni: ", Value = count.ToString() };
+            _applicationCache.Add("StationsCacheCount", info, policy);
+        }
+        public static void UpdateCacheInfoHttp(int count)
+        {
+            var policy = new CacheItemPolicy { AbsoluteExpiration = DateTime.Now.AddMinutes(75) };
+            _applicationCache.Remove("StationsHttpCount");
+            var info = new InfoCacheModel() { Description = "Http köll til veðurstofunar: ", Value = count.ToString() };
+            _applicationCache.Add("StationsHttpCount", info, policy);
+        }
         private static Station GetXML(string stationId)
         {
             string path = @"http://xmlweather.vedur.is/?op_w=xml&type=obs&lang=is&view=xml&ids=" + stationId;

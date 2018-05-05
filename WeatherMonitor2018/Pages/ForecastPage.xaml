@@ -34,7 +34,7 @@
                 </Grid>
             </DataTemplate>
         </Grid.Resources>
-        <StackPanel Name="textaspa" Margin="15 20 15 0">
+        <StackPanel Name="textaspa" Margin="15 5 15 0">
             <!--<ComboBox x:Name="flokkurComboBox" Margin="15" ItemTemplate="{DynamicResource ForecastCategoryTemplate}" 
                      MaxDropDownHeight="auto" HorizontalAlignment="Center" MinWidth="90" SelectionChanged="flokkurComboBox_SelectionChanged">
                 <ComboBoxItem x:Name="isl">Íslenska</ComboBoxItem>
@@ -48,7 +48,7 @@
 
 
             <StackPanel>
-                <Rectangle Fill="{StaticResource col1}" Height="2" Margin="65 15 65 10" />
+                <Rectangle Fill="{StaticResource col1}" Height="2" Margin="65 10 65 10" />
                 <Grid>
                     <Image x:Name="kortamynd" HorizontalAlignment="Center" VerticalAlignment="Center"
                        Source="{DynamicResource isl_trans}" Stretch="Uniform"/>
@@ -57,9 +57,9 @@
                 </Grid>
                 <StackPanel>
                     <StackPanel Margin="15 10 0 5">
-                        <ScrollViewer MaxHeight="160" VerticalScrollBarVisibility="Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <ScrollViewer MaxHeight="190" VerticalScrollBarVisibility="Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <TextBox x:Name="forecastTextBox" Margin="0 0 0 5" Padding="5 10 5 10" Background="{StaticResource back}" Foreground="{StaticResource for}" Opacity="0.9"
-                                MinHeight="40" TextWrapping="Wrap" TextAlignment="Center" Width="260" BorderThickness="0" IsReadOnly="True"/>
+                                MinHeight="80" TextWrapping="Wrap" TextAlignment="Center" Width="260" BorderThickness="0" IsReadOnly="True"/>
                         </ScrollViewer>
                     </StackPanel>
                     <Rectangle Margin="40 0 40 10" Fill="{StaticResource col1}" Height="2" />

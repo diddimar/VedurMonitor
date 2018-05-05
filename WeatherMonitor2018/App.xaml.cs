@@ -6,6 +6,7 @@ namespace WeatherMonitor2018
     {
         public App()
         {
+
         }
     }
 }

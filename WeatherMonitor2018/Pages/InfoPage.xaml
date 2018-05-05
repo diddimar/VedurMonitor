@@ -1,12 +1,13 @@
-﻿<UserControl x:Class="WeatherMonitor2018.Pages.StationPage"
+﻿<Page x:Class="WeatherMonitor2018.Pages.InfoPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WeatherMonitor2018.Pages"
       mc:Ignorable="d"
-      d:DesignHeight="500" d:DesignWidth="325">
-    <UserControl.Resources>
+      d:DesignHeight="480" d:DesignWidth="325"
+      Title="InfoPage">
+    <Page.Resources>
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -34,22 +35,31 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    </UserControl.Resources>
-
-    <StackPanel>
-        <Grid Name="tabs">
-            <StackPanel Grid.Row="1" Margin="15 0 0 0">
-                <TabControl Margin="10 0 0 10" x:Name="observationTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectedIndex="4" Background="Transparent" BorderThickness="0">
-                    <TabItem x:Name="tab1" Header="Faxaflói"></TabItem>
-                    <TabItem x:Name="tab2" Header="Breiðafjörður"></TabItem>
-                    <TabItem x:Name="tab3" Header="Vestfirðir"></TabItem>
-                    <TabItem x:Name="tab4" Header="Suðurland"></TabItem>
-                    <TabItem x:Name="tab5" Header="Suðausturland"></TabItem>
-                    <!--<TabItem x:Name="all" Header="Allar Stöðvar"></TabItem>-->
-                </TabControl>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
-
-
-</UserControl>
+    </Page.Resources>
+    <Grid Background="White" Opacity="0.7">
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+        <TabControl Margin="0 0 0 10" x:Name="InfoTabControl" VerticalAlignment="Stretch" TabStripPlacement="Left" Background="Transparent" BorderThickness="0">
+            <TabItem x:Name="tab1" Header="About">
+                <StackPanel Margin="10 15 0 0" Orientation="Vertical">
+                    <Image Margin="0 15 0 0" Source="{DynamicResource about}" />
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="tab2" Header="Technical info">
+                <StackPanel Margin="10 15 0 0" Orientation="Vertical">
+                    <TextBlock Text="Skyndimynni/cache" FontSize="18" TextAlignment="Center" />
+                    <TextBlock TextWrapping="Wrap" Margin="10" x:Name="StationCacheInfoTextBlock"></TextBlock>
+                    <TextBlock x:Name="StationCacheCountTextBlock" TextAlignment="Center" Background="AntiqueWhite" />
+                    <TextBlock x:Name="StationHttpCountTextBlock" TextAlignment="Center" Background="AntiqueWhite" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

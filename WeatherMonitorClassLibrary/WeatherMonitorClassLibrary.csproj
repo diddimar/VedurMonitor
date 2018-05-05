@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\InfoCacheModel.cs" />
     <Compile Include="XmlService\ForecastService.cs" />
     <Compile Include="ImageService\ForecastImageResolver.cs" />
     <Compile Include="ImageService\StationImageResolver.cs" />
@@ -64,6 +65,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Values\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,8 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using WeatherMonitor2018.DialogWindows;
 using WeatherMonitor2018.Pages;
+using WeatherMonitor2018.UserControls.CoreControls;
 using WeatherMonitorClassLibrary;
+using WeatherMonitorClassLibrary.XmlService;
 
 namespace WeatherMonitor2018
 {
@@ -10,18 +13,32 @@ namespace WeatherMonitor2018
     {
         public MainWindow()
         {
+            AddHandler(MainMenuControl.InfoSelectEvent, new RoutedEventHandler(MainMenuControlInfoSelectEventHandler));
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            StationService.UpdateCacheInfoCache(0);
+            StationService.UpdateCacheInfoHttp(0);
             ConfirmInternetConnection();
         }
 
         private void OpenContent()
         {
-            rightFrame.Content = new ForecastPage();
-            leftFrame.Content = new StationPage();
+            LeftFrame.Content = new StationPage();
+            RightFrame.Content = new ForecastPage();
+        }
+
+        private void MainMenuControlInfoSelectEventHandler(object sender, RoutedEventArgs e)
+        {
+            RightFrame.Content = new InfoPage();
+            RightFrameControl.Visibility = Visibility.Visible;
+        }
+        private void RightFrameControl_Click(object sender, RoutedEventArgs e)
+        {
+            RightFrameControl.Visibility = Visibility.Collapsed;
+            RightFrame.Content = new ForecastPage();
         }
 
         private void ConfirmInternetConnection()
@@ -62,7 +79,6 @@ namespace WeatherMonitor2018
                 }
             }
         }
-
     }
 }
 

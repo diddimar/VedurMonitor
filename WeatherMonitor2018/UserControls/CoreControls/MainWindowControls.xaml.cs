@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WeatherMonitor2018.UserControls.CoreControls
 {
@@ -20,9 +8,21 @@ namespace WeatherMonitor2018.UserControls.CoreControls
     /// </summary>
     public partial class MainWindowControls : UserControl
     {
+        public WindowState MainWindow { get; private set; }
+
         public MainWindowControls()
         {
             InitializeComponent();
+        }
+
+        private void Minimize_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

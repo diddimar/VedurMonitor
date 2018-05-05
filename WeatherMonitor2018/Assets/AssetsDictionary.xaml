@@ -22,7 +22,7 @@
     </MediaElement>-->
 
     <!--Misc-->
-    <BitmapImage x:Key="about" UriSource="Misc/about.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
+    <BitmapImage x:Key="about" UriSource="Misc/about.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="hair" UriSource="Misc/hair_guy.jpg" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
     <BitmapImage x:Key="vm_logo" UriSource="Misc/vm_logo.png" BaseUri="{x:Static c:Constants.AssetsRoot}"></BitmapImage>
 

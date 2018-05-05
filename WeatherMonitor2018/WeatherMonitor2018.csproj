@@ -22,20 +22,20 @@
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>4</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://127.0.0.1:10000/devstoreaccount1/vedurmonitor/</InstallUrl>
+    <InstallUrl>https://dmgdefaultstorage.blob.core.windows.net/vedurmonitor/</InstallUrl>
+    <UpdateUrl>https://dmgdefaultstorage.blob.core.windows.net/vedurmonitor/</UpdateUrl>
     <ProductName>VedurMonitor</ProductName>
     <PublisherName>Davíð Már Gunnarsson</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -143,8 +143,8 @@
     <Compile Include="DialogWindows\NoConnectionDialog.xaml.cs">
       <DependentUpon>NoConnectionDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
+    <Compile Include="Pages\InfoPage.xaml.cs">
+      <DependentUpon>InfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StationPage.xaml.cs">
       <DependentUpon>StationPage.xaml</DependentUpon>
@@ -199,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\InfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\StyleDump.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,10 +213,6 @@
     </Compile>
     <Compile Include="Config\Constants.cs" />
     <Page Include="Styles\FlatButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -445,7 +445,6 @@
     <Resource Include="Assets\Icons\RefreshFilled.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Assets\Misc\about.JPG" />
     <Resource Include="Assets\Misc\hair_guy.jpg" />
     <Resource Include="Assets\Misc\vm_logo.png" />
     <Resource Include="Assets\Map\isl.png">
@@ -469,6 +468,7 @@
     <Resource Include="Assets\Icons\WinClose.png" />
     <Resource Include="Assets\Icons\WinMaximize.png" />
     <Resource Include="Assets\Icons\WinMinimize.png" />
+    <Resource Include="Assets\Misc\about.png" />
     <Content Include="Data\database.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -36,11 +36,12 @@
             
 
         <Menu x:Name="menu" Padding="2" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left" Opacity=".75">
-            <MenuItem Header="File" Name="File">
+            <MenuItem Header="Valmynd" Name="File">
                 <!--<MenuItem Header="Screenshot" />-->
-                <MenuItem Header="Restart" Click="Reset_click"/>
-                <MenuItem Header="Quit" Click="Quit_Click"/>
+                <MenuItem Header="Endurræsa" Click="Reset_click"/>
+                <MenuItem Header="Hætta" Click="Quit_Click"/>
             </MenuItem>
+            <MenuItem Header="Info" Click="Info_Click"></MenuItem>
             <!--<MenuItem Header="Settings" Name="Settings">
                 <MenuItem Header ="Backround Animition" MenuItem.Click="Background_MenuItem_Click" Foreground="Black" Focusable="False">
                     <MenuItem Header="Off" Name="off" BorderThickness="3"/>
