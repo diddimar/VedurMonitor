@@ -36,13 +36,13 @@
             
 
         <Menu x:Name="menu" Padding="2" Width="auto" VerticalAlignment="Top" HorizontalAlignment="Left" Opacity=".75">
-            <MenuItem Header="Valmynd" Name="File">
-                <!--<MenuItem Header="Screenshot" />-->
+            <MenuItem Header="File" Name="File">
                 <MenuItem Header="Endurræsa" Click="Reset_click"/>
                 <MenuItem Header="Hætta" Click="Quit_Click"/>
             </MenuItem>
             <MenuItem Header="Info" Click="Info_Click"></MenuItem>
-            <!--<MenuItem Header="Settings" Name="Settings">
+            <MenuItem Header="Options" Name="Settings">
+                <MenuItem Header="Screenshot" Click="ScreenShot_Click" />
                 <MenuItem Header ="Backround Animition" MenuItem.Click="Background_MenuItem_Click" Foreground="Black" Focusable="False">
                     <MenuItem Header="Off" Name="off" BorderThickness="3"/>
                     <MenuItem Header="Sunset" Name="sunset" BorderThickness="3" />
@@ -50,7 +50,7 @@
                     <MenuItem Header="Snowing" Name="snowing" BorderThickness="3"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="About" Name="About"/>-->
+            <!--<MenuItem Header="About" Name="About"/>-->
         </Menu>
         </Canvas>
 

@@ -2,11 +2,13 @@
 using System.Windows;
 using System.Windows.Controls;
 using WeatherMonitor2018.Pages;
+using WeatherMonitorClassLibrary;
 
 namespace WeatherMonitor2018.UserControls.CoreControls
 {
     public partial class MainMenuControl : UserControl
     {
+        ScreenShot _screenshot = new ScreenShot();
         public MainMenuControl()
         {
             InitializeComponent();
@@ -42,6 +44,12 @@ namespace WeatherMonitor2018.UserControls.CoreControls
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             RaiseEvent(new RoutedEventArgs(InfoSelectEvent));
+        }
+
+        private void ScreenShot_Click(object sender, RoutedEventArgs e)
+        {
+            string response = _screenshot.SaveScreenshot();
+            MessageBox.Show(response);
         }
     }
 }

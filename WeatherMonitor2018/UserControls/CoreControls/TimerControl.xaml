@@ -5,7 +5,5 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="15" d:DesignWidth="65">
-    <Canvas>
-        <TextBlock x:Name="klukka" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Canvas>
+        <TextBlock x:Name="klukka" Foreground="Black" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 </UserControl>

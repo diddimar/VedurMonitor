@@ -11,7 +11,6 @@ namespace WeatherMonitor2018.Pages
     public partial class InfoPage : Page
     {
         static ObjectCache _applicationCache = MemoryCache.Default;
-        private string aboutInfo = "";
         public InfoPage()
         {
             InitializeComponent();

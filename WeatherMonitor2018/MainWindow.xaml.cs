@@ -14,6 +14,7 @@ namespace WeatherMonitor2018
         public MainWindow()
         {
             AddHandler(MainMenuControl.InfoSelectEvent, new RoutedEventHandler(MainMenuControlInfoSelectEventHandler));
+            AddHandler(MainMenuControl.BackgroundSelectEvent, new RoutedEventHandler(MainMenuControlBackgroundSelectEventHandler));
             InitializeComponent();
         }
 
@@ -65,6 +66,18 @@ namespace WeatherMonitor2018
         {
             this.DragMove();
             // Window_LocationChanged();
+        }
+
+        // Gif background
+        public static RoutedEvent ChangeBackgroundGifEvent = EventManager.RegisterRoutedEvent("ChangeBackgroundGif", RoutingStrategy.Tunnel, typeof(RoutedEventHandler), typeof(MainWindow));
+        public event RoutedEventHandler PreviewCloseApplication
+        {
+            add { AddHandler(ChangeBackgroundGifEvent, value); }
+            remove { RemoveHandler(ChangeBackgroundGifEvent, value); }
+        }
+        private void MainMenuControlBackgroundSelectEventHandler(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(ChangeBackgroundGifEvent, e.OriginalSource));
         }
 
         // Not Used

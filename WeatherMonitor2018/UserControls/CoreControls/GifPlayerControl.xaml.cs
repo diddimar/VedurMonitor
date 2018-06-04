@@ -12,8 +12,8 @@ namespace WeatherMonitor2018.UserControls.CoreControls
     {
         public GifPlayerControl()
         {
-            AddHandler(MainMenuControl.BackgroundSelectEvent, new RoutedEventHandler(BackgroundSelectEventHandler));
             InitializeComponent();
+            EventManager.RegisterClassHandler(typeof(Window), MainWindow.ChangeBackgroundGifEvent, new RoutedEventHandler(this.BackgroundSelectEventHandler));
         }
         private void BackgroundSelectEventHandler(object sender, RoutedEventArgs e)
         {
