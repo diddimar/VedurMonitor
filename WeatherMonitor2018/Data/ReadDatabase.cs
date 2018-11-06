@@ -15,7 +15,7 @@ namespace WeatherMonitor2018.Data
         private static ISQLiteStatement GetDbRows(string tableName)
         {
             String strPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var path = Path.Combine(strPath, "data\\database.sqlite");
+            var path = Path.Combine(strPath, "Data\\database.sqlite");
             SQLiteConnection dbConnection = new SQLiteConnection(path);
             string sSQL = $"SELECT * FROM {tableName}";
             ISQLiteStatement rows = dbConnection.Prepare(sSQL);
